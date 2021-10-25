@@ -1,5 +1,4 @@
-package com.watermelon.footballapp.ui.base
-import android.app.Activity
+package com.watermelon.moviesapp.ui.base
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
