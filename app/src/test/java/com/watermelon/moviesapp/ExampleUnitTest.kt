@@ -1,4 +1,4 @@
-package com.altaie.moviesapp
+package com.watermelon.moviesapp
 
 import org.junit.Test
 
