@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.2101851851851852" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.15" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/shape_search_bar.xml" value="0.20277777777777778" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/home_fragment.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/search_fragment.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/item_search_recycler_view.xml" value="0.5" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/search_fragment.xml" value="0.18" />
       </map>
     </option>
   </component>
