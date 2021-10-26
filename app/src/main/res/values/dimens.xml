@@ -21,4 +21,5 @@
     <dimen name="margin14dp">14dp</dimen>
     <dimen name="margin8dp">8dp</dimen>
     <dimen name="margin4dp">4dp</dimen>
+    <dimen name="text12sp">12sp</dimen>
 </resources>
