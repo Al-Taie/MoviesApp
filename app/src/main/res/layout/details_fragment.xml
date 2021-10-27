@@ -12,12 +12,23 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background_color">
 
-        <VideoView
-            android:id="@+id/videoView"
+        <ImageView
+            android:id="@+id/movie_poster"
             android:layout_width="match_parent"
             android:layout_height="451dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars"
+            android:scaleType="centerCrop" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="451dp"
+            android:background="@drawable/movie_image_gradient"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,33 +37,38 @@
             android:id="@+id/move_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="35dp"
             android:layout_marginTop="16dp"
             android:text="The Plot"
-            android:textFontWeight="50"
+            android:textColor="@color/white"
             android:textSize="16sp"
+            android:fontFamily="@font/archivo_black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/videoView" />
+            app:layout_constraintTop_toBottomOf="@+id/movie_poster" />
 
         <TextView
             android:id="@+id/move_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="35dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            android:text="TextView  TextView  TextView  TextView  TextView  "
+            android:layout_marginEnd="35dp"
+            android:fontFamily="@font/basic"
+            android:lines="2"
+            android:textColor="@color/gray_text_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/move_name" />
+            app:layout_constraintTop_toBottomOf="@+id/move_name"
+            tools:text="TextView  TextView  TextView  TextView  TextView  TextView  TextView  TextView  " />
 
         <TextView
             android:id="@+id/Director"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="35dp"
             android:layout_marginTop="16dp"
             android:text="Director :"
+            android:textColor="@color/blue_text_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/move_description" />
 
@@ -63,6 +79,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:text="director_name"
+            android:textColor="@color/gray_text_color"
             app:layout_constraintStart_toEndOf="@+id/Director"
             app:layout_constraintTop_toBottomOf="@+id/move_description" />
 
@@ -70,9 +87,10 @@
             android:id="@+id/Writers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="35dp"
             android:layout_marginTop="16dp"
             android:text="Writers :"
+            android:textColor="@color/blue_text_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Director" />
 
@@ -82,9 +100,44 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
+            android:textColor="@color/gray_text_color"
             android:text="writers_name"
             app:layout_constraintStart_toEndOf="@+id/Writers"
             app:layout_constraintTop_toBottomOf="@+id/director_name" />
+
+        <ImageView
+            android:id="@+id/play_icon"
+            android:layout_width="56dp"
+            android:layout_height="57dp"
+            android:layout_marginEnd="35dp"
+            app:layout_constraintBottom_toBottomOf="@+id/movie_poster"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_play_video" />
+
+        <TextView
+            android:id="@+id/the_cast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/archivo_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Writers"
+            tools:text="The Cast" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_cast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/the_cast"
+            tools:listitem="@layout/item_cast"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
