@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 apply plugin: 'kotlin-kapt'
@@ -67,4 +68,7 @@ dependencies {
 
     //Lottie
     implementation('com.airbnb.android:lottie:4.1.0')
+
+    //bottom navigation
+    implementation  'io.ak1:bubbletabbar:1.0.8'
 }

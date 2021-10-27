@@ -19,10 +19,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private val searchFragment = SearchFragment()
     override fun setup() {
-        binding.btnNav.setOnClickListener {
-            replaceFragment(searchFragment)
-        }
+
     }
+
+
 
 
     private fun replaceFragment(fragment: Fragment){
