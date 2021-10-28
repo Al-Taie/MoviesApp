@@ -12,7 +12,6 @@ class SearchFragment : BaseFragment<SearchFragmentBinding>() {
 
     override fun setup() {}
 
-    override val viewModelID = BR.viewModel
     override val viewModel: SearchViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> SearchFragmentBinding
         get() = SearchFragmentBinding::inflate

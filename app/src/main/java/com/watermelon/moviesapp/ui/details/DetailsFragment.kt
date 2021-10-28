@@ -11,8 +11,6 @@ class DetailsFragment : BaseFragment<DetailsFragmentBinding>(){
     override fun setup() {
     }
 
-    override val viewModelID: Int
-        get() = TODO("Not yet implemented")
     override val viewModel: DetailsViewModel by viewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> DetailsFragmentBinding
         get() = DetailsFragmentBinding::inflate

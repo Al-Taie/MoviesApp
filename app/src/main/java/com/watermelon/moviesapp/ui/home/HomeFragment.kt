@@ -12,7 +12,6 @@ import watermelon.moviesapp.databinding.HomeFragmentBinding
 class HomeFragment : BaseFragment<HomeFragmentBinding>() {
     override fun setup() {}
 
-    override val viewModelID = BR.viewModel
     override val viewModel: HomeViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> HomeFragmentBinding
         get() = HomeFragmentBinding::inflate

@@ -7,15 +7,14 @@ import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import watermelon.moviesapp.BR
 
 abstract class BaseFragment<VDB : ViewDataBinding> : Fragment() {
     abstract fun setup()
-    abstract val viewModelID: Int
     abstract val viewModel: ViewModel
     abstract val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> VDB
     private lateinit var _binding: VDB
-    protected val binding: VDB
-        get() = _binding
+    protected val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,7 +22,7 @@ abstract class BaseFragment<VDB : ViewDataBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = inflate(inflater, container, false)
-        _binding.setVariable(viewModelID, viewModel)
+        _binding.setVariable(BR.viewModel, viewModel)
         _binding.lifecycleOwner = this
         setup()
         return _binding.root
