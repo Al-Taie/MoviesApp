@@ -2,6 +2,11 @@ package com.watermelon.moviesapp.ui
 
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.NavigationUI.onNavDestinationSelected
+import com.watermelon.moviesapp.onNavDestinationSelected
 import com.watermelon.moviesapp.ui.base.BaseActivity
 import com.watermelon.moviesapp.ui.search.SearchFragment
 import com.watermelon.moviesapp.viewModels.MainViewModel
@@ -16,19 +21,24 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override val viewModel: MainViewModel by viewModels()
     override val viewModelID = BR.viewModel
 
+    override fun setup() {}
 
-    private val searchFragment = SearchFragment()
-    override fun setup() {
+    override fun onResume() {
+        super.onResume()
+        val navController=findNavController(R.id.fragment_container_view)
 
+        binding.bubbleTabBar.addBubbleListener { id ->
+            onNavDestinationSelected(id, navController)
+        }
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            binding.bubbleTabBar.setSelectedWithId(destination.id, false)
+        }
     }
 
 
 
 
-    private fun replaceFragment(fragment: Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container_view, fragment)
-        transaction.commit()
-    }
+
 
 }
