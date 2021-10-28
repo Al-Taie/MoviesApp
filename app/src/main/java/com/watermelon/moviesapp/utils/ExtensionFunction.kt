@@ -1,4 +1,4 @@
-package com.watermelon.moviesapp
+package com.watermelon.moviesapp.utils
 
 import androidx.navigation.ActivityNavigator
 import androidx.navigation.NavController

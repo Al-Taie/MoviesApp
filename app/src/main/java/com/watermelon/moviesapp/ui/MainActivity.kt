@@ -2,12 +2,9 @@ package com.watermelon.moviesapp.ui
 
 import androidx.activity.viewModels
 import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI.onNavDestinationSelected
 import com.watermelon.moviesapp.utils.onNavDestinationSelected
 import com.watermelon.moviesapp.ui.base.BaseActivity
-import com.watermelon.moviesapp.ui.search.SearchFragment
 import com.watermelon.moviesapp.viewModels.MainViewModel
-import watermelon.moviesapp.BR
 import watermelon.moviesapp.R
 import watermelon.moviesapp.databinding.ActivityMainBinding
 
