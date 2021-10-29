@@ -11,7 +11,7 @@ interface MovieService {
     fun getMovies() : Response<Movie>
 
     @GET("search/movie")
-   suspend fun searchForMovie(
+    fun searchForMovie(
         @Query("query") movieTitle:String,
     ) : Response<Movie>
 }

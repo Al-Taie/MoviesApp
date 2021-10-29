@@ -18,21 +18,19 @@ class SearchFragment : BaseFragment<SearchFragmentBinding>() {
         get() = SearchFragmentBinding::inflate
 
     override fun setup() {
-//        val searchResult=viewModel.movieSearchResult as List<*>
-//        binding.searchRecyclerView.adapter = SearchAdapter(searchResult as List<Movie>,viewModel)
+
 
         Log.i("search",viewModel.movieTitle.toString())
-       // binding.searchRecyclerView.adapter = SearchAdapter(emptyList(),viewModel)
+
         viewModel.movieTitle.observe(this,{
-            Log.i("searchob", it.toString())
+            Log.i("observe", it.toString())
         })
     }
 
     override fun onResume() {
         super.onResume()
 
-       // Log.i("search",viewModel.movieTitle.toString())
-      //  binding.searchRecyclerView.adapter = SearchAdapter(emptyList(),viewModel)
+
     }
 
 
