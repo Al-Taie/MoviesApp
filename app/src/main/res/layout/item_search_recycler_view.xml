@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="item"
+            type="com.watermelon.moviesapp.model.response.Movie" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,6 +20,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
+            app:image = "@{item.posterPath}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:text="@{item.originalTitle}"
             android:textColor="@color/black"
             android:textSize="@dimen/text20sp"
             android:layout_marginLeft="@dimen/margin28dp"
@@ -43,10 +47,11 @@
             android:layout_marginTop="@dimen/margin4dp"
             android:textColor="@color/black"
             android:textSize="@dimen/text20sp"
+            android:text="@{String.valueOf(item.voteAverage)}"
             android:layout_marginLeft="@dimen/margin28dp"
             app:layout_constraintStart_toEndOf="@id/item_image"
             app:layout_constraintTop_toBottomOf="@id/text_move_name"
-            tools:text="move name" />
+            tools:text="move rate" />
 
 
         <TextView
@@ -54,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin28dp"
-
+            android:text="@{item.title}"
             android:ellipsize="end"
             android:gravity="center"
             android:lines="1"
