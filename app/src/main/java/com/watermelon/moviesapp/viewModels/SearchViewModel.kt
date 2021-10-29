@@ -13,14 +13,16 @@ import kotlinx.coroutines.launch
 class SearchViewModel : ViewModel(),MovieInteractionListener {
 
 
-    var searchMovieTitle = MutableLiveData<String>()
+    val movieTitle = MutableLiveData<String?>()
 
     var movieSearchResult = MutableLiveData<State<Movie?>>()
+
+
 
     fun searchForMovie() {
 
         viewModelScope.launch {
-            MovieRepository.searchForMovie(searchMovieTitle.value.toString()).collect{
+            MovieRepository.searchForMovie(movieTitle.value.toString()).collect{
                 movieSearchResult.postValue(it)
             }
         }

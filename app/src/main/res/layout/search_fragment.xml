@@ -49,7 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:inputType="text"
-            android:text="@{viewModel.searchMovieTitle}"
+
+            android:text="@={viewModel.movieTitle}"
             android:transitionName="@string/search_transition"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
