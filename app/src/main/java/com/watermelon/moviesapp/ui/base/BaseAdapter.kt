@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import watermelon.moviesapp.BR
 
 interface BaseInteractionListener
 
@@ -12,9 +13,14 @@ abstract class BaseAdapter<T>(
     private var _items: List<T>,
     private val _listener: BaseInteractionListener
 ) : RecyclerView.Adapter<BaseAdapter.BaseViewHolder>() {
-    val items get() = _items
+
     override fun getItemCount() = _items.size
-    fun setItems(newItems: List<T>) = run { _items = newItems }
+    fun setItems(newItems: List<T>) {
+
+        _items = newItems
+        notifyDataSetChanged()
+    }
+    val items get() = _items
 
     abstract val layoutID: Int
 
@@ -31,8 +37,8 @@ abstract class BaseAdapter<T>(
         when (holder) {
             is ItemViewHolder -> {
                 holder.binding.apply {
-//                    setVariable(BR.item, currentItem)
-//                    setVariable(BR.listener, _listener)
+                    setVariable(BR.item, currentItem)
+                    setVariable(BR.listener, _listener)
                 }
             }
         }

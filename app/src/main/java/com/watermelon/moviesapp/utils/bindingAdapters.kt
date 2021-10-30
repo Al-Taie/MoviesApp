@@ -9,7 +9,12 @@ import com.watermelon.moviesapp.ui.base.BaseAdapter
 
 @BindingAdapter(value = ["app:items"])
 fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) {
-    (view.adapter as BaseAdapter<T>?)?.setItems(items ?: emptyList())
+    if (items!=null){
+
+        (view.adapter as BaseAdapter<T>?)?.setItems(items)
+    }else
+        (view.adapter as BaseAdapter<T>?)?.setItems(emptyList())
+
 }
 
 @BindingAdapter(value = ["app:image"])
