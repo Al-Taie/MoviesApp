@@ -5,16 +5,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.watermelon.moviesapp.ui.base.BaseFragment
 import com.watermelon.moviesapp.viewModels.HomeViewModel
-import watermelon.moviesapp.databinding.HomeFragmentBinding
+import watermelon.moviesapp.databinding.FragmentHomeBinding
 
 
-class HomeFragment : BaseFragment<HomeFragmentBinding>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun setup() {
         binding.homeFragmentRecycler.adapter = MovieTopListAdapter(emptyList(), viewModel)
     }
 
     override val viewModel: HomeViewModel by activityViewModels()
-    override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> HomeFragmentBinding
-        get() = HomeFragmentBinding::inflate
+    override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentHomeBinding
+        get() = FragmentHomeBinding::inflate
 
 }
