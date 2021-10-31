@@ -28,4 +28,8 @@
         android:name="com.watermelon.moviesapp.ui.details.DetailsFragment"
         android:label="DetailsFragment"
         tools:layout="@layout/details_fragment"/>
+    <fragment
+        android:id="@+id/tvFragment"
+        android:name="com.watermelon.moviesapp.ui.tv.TvFragment"
+        android:label="TvFragment" />
 </navigation>
