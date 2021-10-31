@@ -4,7 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.watermelon.moviesapp.utils.MatchDiffUtil
 import watermelon.moviesapp.BR
 
 interface BaseInteractionListener
@@ -15,10 +17,12 @@ abstract class BaseAdapter<T>(
 ) : RecyclerView.Adapter<BaseAdapter.BaseViewHolder>() {
 
     override fun getItemCount() = _items.size
-    fun setItems(newItems: List<T>) {
 
+    fun setItems(newItems: List<T>) {
+        val changResult=DiffUtil.calculateDiff(MatchDiffUtil(_items,newItems))
         _items = newItems
-        notifyDataSetChanged()
+        changResult.dispatchUpdatesTo(this)
+
     }
     val items get() = _items
 

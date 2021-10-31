@@ -46,18 +46,20 @@ fun <T> showWhenSuccess(view: View, state: State<T>?) {
 
 
 @BindingAdapter(value = ["app:items"])
-fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) {
+fun <T> setRecyclerItems(view: RecyclerView?, items: List<T>?) {
     if (items != null) {
 
-        (view.adapter as BaseAdapter<T>?)?.setItems(items)
+        (view?.adapter as BaseAdapter<T>?)?.setItems(items)
     } else
-        (view.adapter as BaseAdapter<T>?)?.setItems(emptyList())
+        (view?.adapter as BaseAdapter<T>?)?.setItems(emptyList())
 
 }
 
 @BindingAdapter(value = ["app:image"])
-fun setImage(view: ShapeableImageView, imagePath: String) {
-    Glide.with(view.context)
-        .load(imagePath)
-        .into(view)
+fun setImage(view: ShapeableImageView?, imagePath: String?) {
+    if (view != null) {
+        Glide.with(view.context)
+            .load(imagePath)
+            .into(view)
+    }
 }
