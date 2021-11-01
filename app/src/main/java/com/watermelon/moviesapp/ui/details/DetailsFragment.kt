@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.watermelon.moviesapp.ui.base.BaseFragment
-import com.watermelon.moviesapp.viewModels.DetailsViewModel
 import watermelon.moviesapp.databinding.DetailsFragmentBinding
 
 class DetailsFragment : BaseFragment<DetailsFragmentBinding>(){

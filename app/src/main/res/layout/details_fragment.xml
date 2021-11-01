@@ -6,7 +6,7 @@
     <data>
         <variable
             name="detailsViewModel"
-            type="com.watermelon.moviesapp.viewModels.DetailsViewModel" />
+            type="com.watermelon.moviesapp.ui.details.DetailsViewModel" />
 
     </data>
 

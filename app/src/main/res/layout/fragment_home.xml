@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.watermelon.moviesapp.viewModels.HomeViewModel" />
+            type="com.watermelon.moviesapp.ui.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

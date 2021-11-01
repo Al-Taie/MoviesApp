@@ -1,4 +1,4 @@
-package com.watermelon.moviesapp.model.response
+package com.watermelon.moviesapp.model.response.movie
 
 
 import com.google.gson.annotations.SerializedName

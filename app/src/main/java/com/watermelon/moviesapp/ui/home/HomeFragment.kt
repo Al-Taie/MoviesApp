@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.watermelon.moviesapp.ui.base.BaseFragment
-import com.watermelon.moviesapp.viewModels.HomeViewModel
 import watermelon.moviesapp.databinding.FragmentHomeBinding
 
 

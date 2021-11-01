@@ -1,7 +1,6 @@
 package com.watermelon.moviesapp.utils
 
 import androidx.recyclerview.widget.DiffUtil
-import com.watermelon.moviesapp.model.response.MovieResponse
 
 class  MatchDiffUtil<T>(val mOldList: List<T>, val mNewList: List<T>) :
     DiffUtil.Callback() {

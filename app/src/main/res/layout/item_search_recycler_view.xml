@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.watermelon.moviesapp.model.response.Movie" />
+            type="com.watermelon.moviesapp.model.response.movie.Movie" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

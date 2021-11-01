@@ -3,7 +3,7 @@ package com.watermelon.moviesapp.model.repository
 
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.network.API
-import com.watermelon.moviesapp.model.response.MovieResponse
+import com.watermelon.moviesapp.model.response.movie.MovieResponse
 import com.watermelon.moviesapp.utils.Constant
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

@@ -4,7 +4,6 @@ import androidx.activity.viewModels
 import androidx.navigation.findNavController
 import com.watermelon.moviesapp.ui.base.BaseActivity
 import com.watermelon.moviesapp.utils.onNavDestinationSelected
-import com.watermelon.moviesapp.viewModels.MainViewModel
 import watermelon.moviesapp.R
 import watermelon.moviesapp.databinding.ActivityMainBinding
 
