@@ -3,6 +3,7 @@ package com.watermelon.moviesapp.model.network
 import com.watermelon.moviesapp.model.response.Movie
 import com.watermelon.moviesapp.model.response.MovieResponse
 import com.watermelon.moviesapp.model.response.person.Person
+import com.watermelon.moviesapp.model.response.trending.all.TrendingAllResponse
 import com.watermelon.moviesapp.model.response.trending.movie.TrendingMovieResponse
 import com.watermelon.moviesapp.model.response.trending.person.TrendingPersonResponse
 import com.watermelon.moviesapp.model.response.trending.tv.TrendingTVResponse
@@ -36,4 +37,8 @@ interface MovieService {
     @GET("trending/{mediaType}/{time}")
     fun getTrendingTV(@Path("media_type") mediaType: String,
                          @Path("time_window") time: String) : Response<TrendingTVResponse>
+
+    @GET("trending/{mediaType}/{time}")
+    fun getTrendingAll(@Path("media_type") mediaType: String,
+                      @Path("time_window") time: String) : Response<TrendingAllResponse>
 }
