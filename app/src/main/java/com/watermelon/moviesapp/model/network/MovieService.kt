@@ -3,6 +3,7 @@ package com.watermelon.moviesapp.model.network
 import com.watermelon.moviesapp.model.response.Movie
 import com.watermelon.moviesapp.model.response.MovieResponse
 import com.watermelon.moviesapp.model.response.person.Person
+import com.watermelon.moviesapp.model.response.trending.movie.TrendingMovieResponse
 import com.watermelon.moviesapp.model.response.trending.person.TrendingPersonResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -24,6 +25,10 @@ interface MovieService {
     suspend fun getProfile(@Path("id") id: Int) : Response<Person>
 
     @GET("trending/{mediaType}/{time}")
-    fun getTrending(@Path("media_type") mediaType: String,
+    fun getTrendingPerson(@Path("media_type") mediaType: String,
                     @Path("time_window") time: String) : Response<TrendingPersonResponse>
+
+    @GET("trending/{mediaType}/{time}")
+    fun getTrendingMovie(@Path("media_type") mediaType: String,
+                    @Path("time_window") time: String) : Response<TrendingMovieResponse>
 }

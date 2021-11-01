@@ -14,8 +14,12 @@ object MovieRepository {
 
     fun getProfile(id: Int) = wrapWithFlow { API.apiService.getProfile(id = id) }
 
-    fun getTrending(mediaType: String, time: String) = wrapWithFlow {
-        API.apiService.getTrending(mediaType, time)
+    fun getTrendingPerson(mediaType: String, time: String) = wrapWithFlow {
+        API.apiService.getTrendingPerson(mediaType, time)
+    }
+
+    fun getTrendingMovie(mediaType: String, time: String) = wrapWithFlow {
+        API.apiService.getTrendingMovie(mediaType, time)
     }
 
     fun searchForMovie(movieTitle:String):Flow<State<MovieResponse?>>{
