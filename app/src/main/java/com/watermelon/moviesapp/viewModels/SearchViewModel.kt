@@ -26,12 +26,16 @@ class SearchViewModel : ViewModel(),MovieInteractionListener {
         viewModelScope.launch {
             MovieRepository.searchForMovie(movieTitle.value.toString()).collect{
                 movieSearchResult.postValue(it)
-                Log.i("result",it.toString())
             }
         }
     }
 
-    override fun onItemClicked() {
+    override fun onItemClicked(movie: Movie) {
+        movie.id?.let {
+            Log.i("eee",it.toString())
+
+           MovieRepository.getMovieDetails(it) }
+
 
     }
 }

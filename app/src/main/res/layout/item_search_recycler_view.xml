@@ -7,11 +7,15 @@
         <variable
             name="item"
             type="com.watermelon.moviesapp.model.response.Movie" />
+        <variable
+            name="listener"
+            type="com.watermelon.moviesapp.viewModels.SearchViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="110dp"
+        android:onClick="@{() -> listener.onItemClicked(item)}"
         android:layout_marginVertical="@dimen/margin2x"
         android:layout_marginHorizontal="@dimen/margin8dp">
 
