@@ -14,6 +14,8 @@ import retrofit2.Response
 object MovieRepository {
     fun getMovies() = wrapWithFlow { API.apiService.getMovies() }
 
+    fun getProfile(id: Int) = wrapWithFlow { API.apiService.getProfile(id = id) }
+
     fun searchForMovie(movieTitle:String):Flow<State<MovieResponse?>>{
 
         return wrapWithFlow { API.apiService.searchForMovie(Constant.API_kEY,movieTitle) }

@@ -2,8 +2,10 @@ package com.watermelon.moviesapp.model.network
 
 import com.watermelon.moviesapp.model.response.Movie
 import com.watermelon.moviesapp.model.response.MovieResponse
+import com.watermelon.moviesapp.model.response.person.Person
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MovieService {
@@ -16,4 +18,7 @@ interface MovieService {
         @Query("api_key") apiKey: String,
         @Query("query") movieTitle:String,
     ) : Response<MovieResponse>
+
+    @GET("person/{id}")
+    suspend fun getProfile(@Path("id") id: Int) : Response<Person>
 }
