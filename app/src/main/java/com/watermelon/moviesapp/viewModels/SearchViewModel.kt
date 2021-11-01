@@ -19,7 +19,7 @@ class SearchViewModel : ViewModel(),MovieInteractionListener {
 
     var movieSearchResult = MutableLiveData<State<MovieResponse?>>()
 
-
+    var movieDetails = MutableLiveData<State<Movie>>()
 
     fun searchForMovie() {
 
@@ -31,11 +31,11 @@ class SearchViewModel : ViewModel(),MovieInteractionListener {
     }
 
     override fun onItemClicked(movie: Movie) {
-        movie.id?.let {
-            Log.i("eee",it.toString())
-
-           MovieRepository.getMovieDetails(it) }
-
-
+        viewModelScope.launch {
+            MovieRepository.getMovieDetails(movie.id!!).collect {
+                movieDetails.postValue(it as State<Movie>?)
+                Log.i("details",it.toString())
+            }
+        }
     }
 }
