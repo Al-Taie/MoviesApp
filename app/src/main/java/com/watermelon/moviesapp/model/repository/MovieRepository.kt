@@ -1,10 +1,8 @@
 package com.watermelon.moviesapp.model.repository
 
 
-import android.util.Log
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.network.API
-import com.watermelon.moviesapp.model.response.Movie
 import com.watermelon.moviesapp.model.response.MovieResponse
 import com.watermelon.moviesapp.utils.Constant
 import kotlinx.coroutines.flow.Flow
@@ -15,6 +13,10 @@ object MovieRepository {
     fun getMovies() = wrapWithFlow { API.apiService.getMovies() }
 
     fun getProfile(id: Int) = wrapWithFlow { API.apiService.getProfile(id = id) }
+
+    fun getTrending(mediaType: String, time: String) = wrapWithFlow {
+        API.apiService.getTrending(mediaType, time)
+    }
 
     fun searchForMovie(movieTitle:String):Flow<State<MovieResponse?>>{
 
