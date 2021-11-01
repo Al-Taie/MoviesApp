@@ -22,6 +22,10 @@ object MovieRepository {
         API.apiService.getTrendingMovie(mediaType, time)
     }
 
+    fun getTrendingTV(mediaType: String, time: String) = wrapWithFlow {
+        API.apiService.getTrendingTV(mediaType, time)
+    }
+
     fun searchForMovie(movieTitle:String):Flow<State<MovieResponse?>>{
 
         return wrapWithFlow { API.apiService.searchForMovie(Constant.API_kEY,movieTitle) }

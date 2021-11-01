@@ -5,6 +5,7 @@ import com.watermelon.moviesapp.model.response.MovieResponse
 import com.watermelon.moviesapp.model.response.person.Person
 import com.watermelon.moviesapp.model.response.trending.movie.TrendingMovieResponse
 import com.watermelon.moviesapp.model.response.trending.person.TrendingPersonResponse
+import com.watermelon.moviesapp.model.response.trending.tv.TrendingTVResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -31,4 +32,8 @@ interface MovieService {
     @GET("trending/{mediaType}/{time}")
     fun getTrendingMovie(@Path("media_type") mediaType: String,
                     @Path("time_window") time: String) : Response<TrendingMovieResponse>
+
+    @GET("trending/{mediaType}/{time}")
+    fun getTrendingTV(@Path("media_type") mediaType: String,
+                         @Path("time_window") time: String) : Response<TrendingTVResponse>
 }
