@@ -6,17 +6,18 @@
     <data>
         <variable
             name="item"
-            type="com.watermelon.moviesapp.model.response.Movie" />
+            type="com.watermelon.moviesapp.model.response.movie.Movie" />
+
         <variable
             name="listener"
-            type="com.watermelon.moviesapp.viewModels.SearchViewModel" />
+            type="com.watermelon.moviesapp.ui.search.SearchViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/search_results"
         android:layout_width="match_parent"
         android:layout_height="110dp"
-        android:onClick="@{() -> listener.onItemClicked(item)}"
+        android:onClick="@{() -> listener.onItemClicked(item.id)}"
         android:layout_marginVertical="@dimen/margin2x"
         android:layout_marginHorizontal="@dimen/margin8dp">
 
@@ -40,7 +41,7 @@
             android:text="@{item.originalTitle}"
             android:textColor="@color/black"
             android:textSize="@dimen/text20sp"
-            android:layout_marginLeft="@dimen/margin28dp"
+            android:layout_marginStart="@dimen/margin28dp"
             app:layout_constraintStart_toEndOf="@id/item_image"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="movie name" />
@@ -53,11 +54,10 @@
             android:textColor="@color/black"
             android:textSize="@dimen/text20sp"
             android:text="@{String.valueOf(item.voteAverage)}"
-            android:layout_marginLeft="@dimen/margin28dp"
+            android:layout_marginStart="@dimen/margin28dp"
             app:layout_constraintStart_toEndOf="@id/item_image"
             app:layout_constraintTop_toBottomOf="@id/text_move_name"
             tools:text="move rate" />
-
 
         <TextView
             android:id="@+id/movie_director_name"

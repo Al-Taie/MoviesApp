@@ -1,5 +1,6 @@
 package com.watermelon.moviesapp.model.network
 
+import com.watermelon.moviesapp.model.response.movie.Movie
 import com.watermelon.moviesapp.model.response.movie.MovieResponse
 import com.watermelon.moviesapp.model.response.person.Person
 import com.watermelon.moviesapp.model.response.trending.all.TrendingAllResponse

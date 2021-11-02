@@ -8,7 +8,6 @@ import watermelon.moviesapp.R
 class SearchAdapter(list: List<Movie>, listener: MovieInteractionListener) :
     BaseAdapter<Movie>(list, listener) {
 
-
     override val layoutID = R.layout.item_search_recycler_view
 }
 
