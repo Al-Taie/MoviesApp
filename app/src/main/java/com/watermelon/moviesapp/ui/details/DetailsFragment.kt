@@ -6,7 +6,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
 import com.watermelon.moviesapp.ui.base.BaseFragment
-import com.watermelon.moviesapp.viewModels.DetailsViewModel
 import watermelon.moviesapp.databinding.DetailsFragmentBinding
 
 class DetailsFragment : BaseFragment<DetailsFragmentBinding>(){

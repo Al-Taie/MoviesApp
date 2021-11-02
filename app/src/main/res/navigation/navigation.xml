@@ -35,5 +35,6 @@
     <fragment
         android:id="@+id/tvFragment"
         android:name="com.watermelon.moviesapp.ui.tv.TvFragment"
-        android:label="TvFragment" />
+        android:label="TvFragment"
+        tools:layout="@layout/fragment_tv"/>
 </navigation>

@@ -1,4 +1,4 @@
-package com.watermelon.moviesapp.viewModels
+package com.watermelon.moviesapp.ui
 
 import androidx.lifecycle.ViewModel
 

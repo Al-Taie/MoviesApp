@@ -1,6 +1,6 @@
 package com.watermelon.moviesapp.ui.search
 
-import com.watermelon.moviesapp.model.response.Movie
+import com.watermelon.moviesapp.model.response.movie.Movie
 import com.watermelon.moviesapp.ui.base.BaseAdapter
 import com.watermelon.moviesapp.ui.home.MovieInteractionListener
 import watermelon.moviesapp.R

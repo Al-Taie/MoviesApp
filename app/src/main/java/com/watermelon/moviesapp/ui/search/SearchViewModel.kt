@@ -1,4 +1,4 @@
-package com.watermelon.moviesapp.viewModels
+package com.watermelon.moviesapp.ui.search
 
 import android.util.Log
 import android.view.View
@@ -9,8 +9,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.Navigation
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.repository.MovieRepository
-import com.watermelon.moviesapp.model.response.Movie
-import com.watermelon.moviesapp.model.response.MovieResponse
+import com.watermelon.moviesapp.model.response.movie.MovieResponse
 import com.watermelon.moviesapp.ui.home.MovieInteractionListener
 import com.watermelon.moviesapp.ui.search.SearchFragment
 import com.watermelon.moviesapp.ui.search.SearchFragmentDirections

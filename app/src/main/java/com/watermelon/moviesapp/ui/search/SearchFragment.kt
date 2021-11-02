@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
-import com.watermelon.moviesapp.model.response.Movie
 import com.watermelon.moviesapp.ui.base.BaseFragment
 import com.watermelon.moviesapp.utils.EventObserver
 import com.watermelon.moviesapp.viewModels.SearchViewModel
-import watermelon.moviesapp.R
 import watermelon.moviesapp.databinding.FragmentSearchBinding
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
