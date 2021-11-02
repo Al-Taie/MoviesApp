@@ -9,11 +9,10 @@ import com.watermelon.moviesapp.ui.base.BaseFragment
 import watermelon.moviesapp.databinding.DetailsFragmentBinding
 
 class DetailsFragment : BaseFragment<DetailsFragmentBinding>(){
-    val args: DetailsFragmentArgs by navArgs()
-
+    private val args: DetailsFragmentArgs by navArgs()
 
     override fun setup() {
-        args.movieId
+        viewModel.onItemClicked(args.movieId)
     }
 
     override val viewModel: DetailsViewModel by viewModels()
