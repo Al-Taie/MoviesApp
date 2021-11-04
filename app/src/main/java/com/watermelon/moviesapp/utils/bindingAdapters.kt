@@ -58,8 +58,8 @@ fun <T> setRecyclerItems(view: RecyclerView?, items: List<T>?) {
 @BindingAdapter(value = ["app:image"])
 fun setImage(view: ShapeableImageView?, imagePath: String?) {
     if (view != null) {
-        Glide.with(view.context)
-            .load(imagePath)
+        Glide.with(view)
+            .load(Constant.BASE_IMAGE_URL+imagePath)
             .into(view)
     }
 }
