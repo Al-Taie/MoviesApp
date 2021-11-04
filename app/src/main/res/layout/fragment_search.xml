@@ -49,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:inputType="text"
+            android:background="@color/cards_color"
             android:afterTextChanged="@{()->viewModel.searchForMovie()}"
             android:text="@={viewModel.movieTitle}"
             android:transitionName="@string/search_transition"

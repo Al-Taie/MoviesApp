@@ -7,5 +7,5 @@
         android:width="1dp"
         android:color="@color/searchStroke" />
 
-    <corners android:radius="@dimen/search_bar_corners_radius" />
+    <corners android:radius="16dp" />
 </shape>
