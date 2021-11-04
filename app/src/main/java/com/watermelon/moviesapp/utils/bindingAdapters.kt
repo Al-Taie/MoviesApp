@@ -7,10 +7,24 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.imageview.ShapeableImageView
+import com.watermelon.moviesapp.main.RecyclerItem
+import com.watermelon.moviesapp.main.RecyclerViewAdapter
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.ui.base.BaseAdapter
 
+@BindingAdapter("items")
+fun setRecyclerViewItems(
+    recyclerView: RecyclerView,
+    items: List<RecyclerItem>?
+) {
+    var adapter = (recyclerView.adapter as? RecyclerViewAdapter)
+    if (adapter == null) {
+        adapter = RecyclerViewAdapter()
+        recyclerView.adapter = adapter
+    }
 
+    adapter.updateData(items.orEmpty())
+}
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> showWhenLoading(view: View, state: State<T>?) {
     when (state) {

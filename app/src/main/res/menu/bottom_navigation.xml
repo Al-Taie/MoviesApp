@@ -17,5 +17,9 @@
         android:icon="@drawable/ic_baseline_live_tv_24"
         android:title="Tv"
         android:color="@color/logger"/>
-
+    <item
+        android:id="@+id/fragment_main"
+        android:icon="@drawable/ic_baseline_live_tv_24"
+        android:title="main"
+        android:color="@color/logger"/>
 </menu>
