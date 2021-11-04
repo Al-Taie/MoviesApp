@@ -1,5 +1,7 @@
 package com.watermelon.moviesapp.model.network
 
+import com.watermelon.moviesapp.model.response.credits.Cast
+import com.watermelon.moviesapp.model.response.credits.Credits
 import com.watermelon.moviesapp.model.response.movie.Movie
 import com.watermelon.moviesapp.model.response.movie.MovieResponse
 import com.watermelon.moviesapp.model.response.person.Person
@@ -47,4 +49,10 @@ interface MovieService {
         @Path("movie_id") movieId:Int,
         @Query("api_key") apiKey: String,
     ) : Response<Movie>
+    @GET("movie/{movie_id}/credits")
+    suspend fun getMovieCast(
+        @Path("movie_id") movieId:Int,
+        @Query("api_key") apiKey: String,
+    ) : Response<Credits>
+
 }
