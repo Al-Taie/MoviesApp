@@ -7,6 +7,8 @@ import com.watermelon.moviesapp.model.repository.MovieRepository
 
 class HomeViewModel : ViewModel(), MovieInteractionListener{
     val movies = MovieRepository.getMovies().asLiveData()
+    val genres = MovieRepository.getGenres().asLiveData()
+
     override fun onItemClicked(movieId: Int) {
         // TODO("Not yet implemented")
     }

@@ -2,6 +2,7 @@ package com.watermelon.moviesapp.model.network
 
 import com.watermelon.moviesapp.model.response.credits.Cast
 import com.watermelon.moviesapp.model.response.credits.Credits
+import com.watermelon.moviesapp.model.response.genres.Genres
 import com.watermelon.moviesapp.model.response.movie.Movie
 import com.watermelon.moviesapp.model.response.movie.MovieResponse
 import com.watermelon.moviesapp.model.response.person.Person
@@ -54,5 +55,10 @@ interface MovieService {
         @Path("movie_id") movieId:Int,
         @Query("api_key") apiKey: String,
     ) : Response<Credits>
+    @GET("genre/movie/list")
+    suspend fun getGenres(
+        @Query("api_key") apiKey: String,
+    ) : Response<Genres>
+
 
 }
