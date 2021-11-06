@@ -15,10 +15,26 @@
         android:layout_height="match_parent"
         android:background="@color/background_color">
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding2x"
+            android:layout_marginTop="@dimen/margin4x"
+            app:showWhenLoading="@{viewModel.movieDetails}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading"/>
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/movie_poster"
             android:layout_width="match_parent"
             android:layout_height="400dp"
+            app:showWhenSuccess="@{viewModel.movieDetails}"
             app:image="@{viewModel.movieDetails.toData().posterPath}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginTop="16dp"
+            app:showWhenSuccess="@{viewModel.movieDetails}"
             android:text="@{viewModel.movieDetails.toData().title}"
             android:textColor="@color/white"
             android:textSize="16sp"
@@ -56,6 +73,7 @@
             android:layout_marginEnd="35dp"
             android:fontFamily="@font/basic"
             android:lines="2"
+            app:showWhenSuccess="@{viewModel.movieDetails}"
             android:text="@{viewModel.movieDetails.toData().overview}"
             android:textColor="@color/gray_text_color"
             app:layout_constraintEnd_toEndOf="parent"
@@ -126,7 +144,7 @@
             android:fontFamily="@font/archivo_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Writers"
-            tools:text="The Cast" />
+            android:text="@string/the_cast" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_cast"
@@ -135,13 +153,13 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="16dp"
             android:orientation="horizontal"
+            app:showWhenSuccess="@{viewModel.credits}"
             app:items="@{viewModel.credits.toData().cast}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/the_cast"
             tools:listitem="@layout/item_cast"/>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
