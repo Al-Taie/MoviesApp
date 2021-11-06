@@ -1,5 +1,6 @@
 package com.watermelon.moviesapp.ui.home
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels

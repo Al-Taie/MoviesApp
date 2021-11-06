@@ -18,6 +18,10 @@ class DetailsFragment : BaseFragment<DetailsFragmentBinding>(){
         viewModel.onItemClicked(args.movieId)
         binding.viewModel = viewModel
         binding.recyclerCast.adapter = CastAdapter(mutableListOf(),viewModel)
+        viewModel.movieDetails.observe(this, {
+            Log.i("image", it.toData()?.posterPath.toString())
+
+        })
         viewModel.credits.observe(this, {
             Log.i("cast", it.toData()?.cast.toString())
 

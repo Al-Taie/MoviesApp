@@ -15,10 +15,11 @@
         android:layout_height="match_parent"
         android:background="@color/background_color">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/movie_poster"
             android:layout_width="match_parent"
-            android:layout_height="451dp"
+            android:layout_height="400dp"
+            app:image="@{viewModel.movieDetails.toData().posterPath}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -27,7 +28,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="451dp"
+            android:layout_height="400dp"
             android:background="@drawable/movie_image_gradient"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
