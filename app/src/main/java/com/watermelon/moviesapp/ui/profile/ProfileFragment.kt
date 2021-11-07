@@ -1,6 +1,5 @@
 package com.watermelon.moviesapp.ui.profile
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
@@ -18,13 +17,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
 
     override fun setup() {
         viewModel.onItemLoad(args.personId)
-
-        binding.viewModel = viewModel
-        viewModel.person.observe(this, {
-            Log.i("person", it.toData()?.name.toString())
-
-        })
-
     }
 
 }

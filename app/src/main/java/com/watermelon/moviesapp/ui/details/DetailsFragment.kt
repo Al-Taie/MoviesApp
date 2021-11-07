@@ -28,9 +28,6 @@ class DetailsFragment : BaseFragment<DetailsFragmentBinding>(){
         event.getContentIfNotHandled()?.let {  personId ->
             val action = DetailsFragmentDirections.actionDetailsFragmentToProfileFragment(personId)
             findNavController().navigate(action)
-
-                Log.i("personId", personId.toString())
-
         }
     }
 }

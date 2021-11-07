@@ -1,6 +1,5 @@
 package com.watermelon.moviesapp.ui.profile
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,13 +17,11 @@ class ProfileViewModel : ViewModel(),MovieInteractionListener {
         viewModelScope.launch {
             MovieRepository.getProfile(id).collect {
                 person.postValue(it)
-                Log.i("eee", it.toData().toString())
             }
         }
-
     }
 
     override fun onCastClicked(personId: Int) {
-        TODO("Not yet implemented")
+        // TODO("Not yet implemented")
     }
 }
