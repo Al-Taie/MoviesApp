@@ -10,7 +10,7 @@
             type="com.watermelon.moviesapp.model.response.credits.Cast" />
         <variable
             name="listener"
-            type="com.watermelon.moviesapp.ui.profile.ProfileViewModel" />
+            type="com.watermelon.moviesapp.ui.home.MovieInteractionListener" />
 
     </data>
 
@@ -20,7 +20,7 @@
         android:layout_height="90dp"
         android:scaleType="centerCrop"
         android:layout_marginEnd="16dp"
-        android:onClick="@{() -> listener.onItemClicked(item.id)}"
+        android:onClick="@{() -> listener.onCastClicked(item.id)}"
         app:image="@{item.profilePath}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

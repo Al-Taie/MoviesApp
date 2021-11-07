@@ -14,7 +14,7 @@ object MovieRepository {
     fun getMovieDetails(movieId : Int) = wrapWithFlow { API.apiService.getMovieDetails(movieId,Constant.API_kEY) }
     fun getMovieCast(movieId : Int) = wrapWithFlow { API.apiService.getMovieCast(movieId,Constant.API_kEY) }
 
-    fun getProfile(id: Int) = wrapWithFlow { API.apiService.getProfile(id) }
+    fun getProfile(id: Int) = wrapWithFlow { API.apiService.getProfile(id,Constant.API_kEY) }
 
     fun getTrendingPerson(mediaType: String, time: String) = wrapWithFlow {
         API.apiService.getTrendingPerson(mediaType, time)

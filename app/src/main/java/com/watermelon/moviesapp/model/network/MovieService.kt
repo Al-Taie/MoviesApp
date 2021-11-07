@@ -26,7 +26,9 @@ interface MovieService {
     ) : Response<MovieResponse>
 
     @GET("person/{id}")
-    fun getProfile(@Path("id") id: Int) : Response<Person>
+    fun getProfile(@Path("id") id: Int,
+                   @Query("api_key") apiKey: String,
+    ) : Response<Person>
 
     @GET("trending/{mediaType}/{time}")
     fun getTrendingPerson(@Path("media_type") mediaType: String,

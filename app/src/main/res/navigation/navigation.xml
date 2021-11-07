@@ -43,7 +43,8 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.watermelon.moviesapp.ui.profile.ProfileFragment"
-        android:label="ProfileFragment" >
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile">
         <argument
             android:name="personId"
             app:argType="integer" />
