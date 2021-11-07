@@ -7,4 +7,6 @@
     <string name="play">play</string>
     <string name="director">Director:</string>
     <string name="the_cast">The Cast</string>
+    <string name="birthday">Birthday</string>
+    <string name="popularity">Popularity :</string>
 </resources>
