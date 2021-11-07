@@ -30,13 +30,17 @@ class SearchViewModel : ViewModel(), MovieInteractionListener{
         }
     }
 
-    override fun onItemClicked(movieId: Int) {
-        _navigateToDetails.postValue(Event(movieId))
+    override fun onItemLoad(id: Int) {
+        _navigateToDetails.postValue(Event(id))
 
         viewModelScope.launch {
-            MovieRepository.getMovieDetails(movieId).collect {
+            MovieRepository.getMovieDetails(id).collect {
                 movieDetails.postValue(it)
             }
         }
+    }
+
+    override fun onCastClicked(personId: Int) {
+        TODO("Not yet implemented")
     }
 }

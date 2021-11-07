@@ -10,4 +10,6 @@
     <string name="home">Home</string>
     <string name="tv">Tv</string>
     <string name="main">main</string>
+    <string name="birthday">Birthday</string>
+    <string name="popularity">Popularity :</string>
 </resources>

@@ -10,7 +10,12 @@ class HomeViewModel : ViewModel(), MovieInteractionListener{
     val genres = MovieRepository.getGenres().asLiveData()
 
     override fun onItemClicked(movieId: Int) {
+    override fun onItemLoad(id: Int) {
         // TODO("Not yet implemented")
+    }
+
+    override fun onCastClicked(personId: Int) {
+        TODO("Not yet implemented")
     }
 
 }

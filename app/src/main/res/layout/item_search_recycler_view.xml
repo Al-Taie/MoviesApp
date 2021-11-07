@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         style="@style/SearchBar"
-        android:onClick="@{() -> listener.onItemClicked(item.id)}"
+        android:onClick="@{() -> listener.onItemLoad(item.id)}"
         android:layout_marginVertical="@dimen/margin2x"
         android:layout_marginHorizontal="@dimen/margin8dp">
 

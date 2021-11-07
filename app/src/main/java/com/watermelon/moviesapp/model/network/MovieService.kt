@@ -27,22 +27,24 @@ interface MovieService {
     ) : Response<MovieResponse>
 
     @GET("person/{id}")
-    suspend fun getProfile(@Path("id") id: Int) : Response<Person>
+    suspend fun getProfile(@Path("id") id: Int,
+                   @Query("api_key") apiKey: String,
+    ) : Response<Person>
 
     @GET("trending/{mediaType}/{time}")
-    fun getTrendingPerson(@Path("media_type") mediaType: String,
+    suspend fun getTrendingPerson(@Path("media_type") mediaType: String,
                     @Path("time_window") time: String) : Response<TrendingPersonResponse>
 
     @GET("trending/{mediaType}/{time}")
-    fun getTrendingMovie(@Path("media_type") mediaType: String,
+    suspend fun getTrendingMovie(@Path("media_type") mediaType: String,
                     @Path("time_window") time: String) : Response<TrendingMovieResponse>
 
     @GET("trending/{mediaType}/{time}")
-    fun getTrendingTV(@Path("media_type") mediaType: String,
+    suspend fun getTrendingTV(@Path("media_type") mediaType: String,
                          @Path("time_window") time: String) : Response<TrendingTVResponse>
 
     @GET("trending/{mediaType}/{time}")
-    fun getTrendingAll(@Path("media_type") mediaType: String,
+    suspend fun getTrendingAll(@Path("media_type") mediaType: String,
                       @Path("time_window") time: String) : Response<TrendingAllResponse>
 
     @GET("movie/{movie_id}")
