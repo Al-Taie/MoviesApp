@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.watermelon.moviesapp.ui.base.BaseFragment
-import com.watermelon.moviesapp.ui.details.DetailsFragmentArgs
 import watermelon.moviesapp.databinding.FragmentProfileBinding
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
@@ -18,7 +17,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         get() = FragmentProfileBinding::inflate
 
     override fun setup() {
-        viewModel.onItemClicked(args.personId)
+        viewModel.onItemLoad(args.personId)
 
         binding.viewModel = viewModel
         viewModel.person.observe(this, {
