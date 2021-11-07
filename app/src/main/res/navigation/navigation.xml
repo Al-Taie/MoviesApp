@@ -31,10 +31,21 @@
         <argument
             android:name="movieId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_detailsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/tvFragment"
         android:name="com.watermelon.moviesapp.ui.tv.TvFragment"
         android:label="TvFragment"
         tools:layout="@layout/fragment_tv"/>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.watermelon.moviesapp.ui.profile.ProfileFragment"
+        android:label="ProfileFragment" >
+        <argument
+            android:name="personId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
