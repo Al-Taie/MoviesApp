@@ -10,8 +10,8 @@ import watermelon.moviesapp.R
 
 class MainViewModel : ViewModel() {
     val listSubject = MutableLiveData<List<Movie>>(listOf())
-    val listRecyclerViewItem: LiveData<List<RecyclerItem>> = Transformations.map(listSubject) {
-        it.map { that -> RecyclerItem(that, R.layout.item_movies_top_list, BR.data) }
-        it.map { that -> RecyclerItem(that, R.layout.item_movies_top_list, BR.data) }
-    }
+//    val listRecyclerViewItem: LiveData<List<RecyclerItem>> = Transformations.map(listSubject) {
+//        it.map { that -> RecyclerItem(that, R.layout.item_movies_top_list, BR.data) }
+//        it.map { that -> RecyclerItem(that, R.layout.item_movies_top_list, BR.data) }
+//    }
 }

@@ -7,6 +7,6 @@ import watermelon.moviesapp.R
 
 class MovieMiddleAdapter(list: List<Movie>, listener: MovieInteractionListener) :
         BaseAdapter<Movie>(list, listener) {
-        override val layoutID = R.layout.item_home_middle_recycler
+        override var layoutID = R.layout.item_home_middle_recycler
 
 }

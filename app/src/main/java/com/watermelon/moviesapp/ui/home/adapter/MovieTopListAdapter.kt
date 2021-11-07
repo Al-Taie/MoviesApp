@@ -7,6 +7,6 @@ import watermelon.moviesapp.R
 
 class MovieTopListAdapter(list: List<Movie>, listener: MovieInteractionListener) :
         BaseAdapter<Movie>(list, listener) {
-        override val layoutID = R.layout.item_movies_top_list
+        override var layoutID = R.layout.item_movies_top_list
 
 }

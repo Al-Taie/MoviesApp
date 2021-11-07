@@ -8,6 +8,10 @@
         <variable
             name="viewmodel"
             type="com.watermelon.moviesapp.main.MainViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.watermelon.moviesapp.main.test.NestedAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:scrollbars="vertical"
-            app:items="@{viewmodel.listRecyclerViewItem}"
+            app:adapter="@{adapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

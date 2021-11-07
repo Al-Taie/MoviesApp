@@ -7,5 +7,5 @@ import watermelon.moviesapp.R
 
 class CastAdapter(list: List<Cast>, listener: MovieInteractionListener) :
     BaseAdapter<Cast>(list, listener) {
-    override val layoutID = R.layout.item_cast
+    override var layoutID = R.layout.item_cast
 }

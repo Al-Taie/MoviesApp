@@ -5,8 +5,12 @@
     <data>
         <import type="android.view.View"/>
         <variable
-            name="data"
-            type="com.watermelon.moviesapp.main.TestListItem" />
+            name="item"
+            type="com.watermelon.moviesapp.model.response.movie.Movie" />
+
+        <variable
+            name="listener"
+            type="com.watermelon.moviesapp.ui.home.MovieInteractionListener" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,7 +23,6 @@
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground"
             android:padding="8dp"
-            android:onClick="@{()->data.onDeleteClicked()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +32,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{data.test1}"
+                android:text="@{item.title}"
                 tools:text="Test 1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +41,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{data.tset2}"
+                android:text="@{item.id}"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView"

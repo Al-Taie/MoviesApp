@@ -26,7 +26,8 @@ abstract class BaseAdapter<T>(
     }
     val items get() = _items
 
-    abstract val layoutID: Int
+    abstract var layoutID: Int
+    open val layoutIDs: List<Int>? = null
 
     class ItemViewHolder(val binding: ViewDataBinding) : BaseViewHolder(binding)
     abstract class BaseViewHolder(binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root)
