@@ -62,6 +62,11 @@ interface MovieService {
     suspend fun getGenres(
         @Query("api_key") apiKey: String,
     ) : Response<Genres>
+    @GET("discover/movie")
+    suspend fun getMoviesOfOneGenre(
+        @Query("api_key") apiKey: String,
+        @Query("with_genres") id: Int,
+        ) : Response<MovieResponse>
 
 
 }
