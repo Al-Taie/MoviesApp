@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/fragment_main">
+    app:startDestination="@id/trendingFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -54,4 +54,9 @@
             android:name="personId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/trendingFragment"
+        android:name="com.watermelon.moviesapp.ui.trending.TrendingFragment"
+        android:label="TrendingFragment"
+        tools:layout="@layout/fragment_trending"/>
 </navigation>
