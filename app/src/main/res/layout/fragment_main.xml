@@ -11,7 +11,7 @@
 
         <variable
             name="adapter"
-            type="com.watermelon.moviesapp.main.test.NestedAdapter" />
+            type="com.watermelon.moviesapp.ui.home.adapter.NestedAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

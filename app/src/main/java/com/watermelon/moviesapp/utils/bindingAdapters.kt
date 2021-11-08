@@ -9,9 +9,9 @@ import com.bumptech.glide.Glide
 import com.google.android.material.imageview.ShapeableImageView
 import com.watermelon.moviesapp.main.RecyclerItem
 import com.watermelon.moviesapp.main.RecyclerViewAdapter
-import com.watermelon.moviesapp.main.test.NestedAdapter
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.ui.base.BaseAdapter
+import com.watermelon.moviesapp.ui.home.adapter.NestedAdapter
 
 @BindingAdapter("items")
 fun setRecyclerViewItems(
