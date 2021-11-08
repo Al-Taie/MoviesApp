@@ -1,5 +1,6 @@
 package com.watermelon.moviesapp.model.network
 
+import com.watermelon.moviesapp.utils.Constant
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

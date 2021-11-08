@@ -10,33 +10,21 @@ import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 
 object MovieRepository {
-    fun getMovies() = wrapWithFlow { API.apiService.getMovies(Constant.API_kEY) }
-    fun getMovieDetails(movieId : Int) = wrapWithFlow { API.apiService.getMovieDetails(movieId,Constant.API_kEY) }
-    fun getMovieCast(movieId : Int) = wrapWithFlow { API.apiService.getMovieCast(movieId,Constant.API_kEY) }
+    fun getMovies() = wrapWithFlow { API.apiService.getMovies() }
+    fun getMovieDetails(movieId : Int) = wrapWithFlow { API.apiService.getMovieDetails(movieId) }
+    fun getMovieCast(movieId : Int) = wrapWithFlow { API.apiService.getMovieCast(movieId) }
 
-    fun getProfile(id: Int) = wrapWithFlow { API.apiService.getProfile(id, Constant.API_kEY) }
+    fun getProfile(id: Int) = wrapWithFlow { API.apiService.getProfile(id) }
 
-    fun getTrendingPerson(mediaType: String, time: String) = wrapWithFlow {
-        API.apiService.getTrendingPerson(mediaType, time)
-    }
-
-    fun getTrendingMovie(mediaType: String, time: String) = wrapWithFlow {
-        API.apiService.getTrendingMovie(mediaType, time)
-    }
-
-    fun getTrendingTV(mediaType: String, time: String) = wrapWithFlow {
-        API.apiService.getTrendingTV(mediaType, time)
-    }
-
-    fun getTrendingAll(mediaType: String, time: String) = wrapWithFlow {
-        API.apiService.getTrendingAll(mediaType, time)
-    }
+    fun getTrendingPerson(time: String) = wrapWithFlow { API.apiService.getTrendingPerson(time) }
+    fun getTrendingMovie(time: String) = wrapWithFlow { API.apiService.getTrendingMovie(time) }
+    fun getTrendingTV(time: String) = wrapWithFlow { API.apiService.getTrendingTV(time) }
+    fun getTrendingAll(time: String) = wrapWithFlow { API.apiService.getTrendingAll(time) }
 
     fun searchForMovie(movieTitle:String):Flow<State<MovieResponse?>>{
-
-        return wrapWithFlow { API.apiService.searchForMovie(Constant.API_kEY,movieTitle) }
+        return wrapWithFlow { API.apiService.searchForMovie(movieTitle) }
     }
-    fun getGenres() = wrapWithFlow { API.apiService.getGenres(Constant.API_kEY) }
+    fun getGenres() = wrapWithFlow { API.apiService.getGenres(Constant.API_KEY) }
 
 
     private fun <T> wrapWithFlow(function : suspend () -> Response<T>) : Flow<State<T?>> {
