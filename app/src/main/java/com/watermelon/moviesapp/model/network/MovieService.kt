@@ -5,6 +5,7 @@ import com.watermelon.moviesapp.model.response.credits.Credits
 import com.watermelon.moviesapp.model.response.genres.Genres
 import com.watermelon.moviesapp.model.response.movie.Movie
 import com.watermelon.moviesapp.model.response.movie.MovieResponse
+import com.watermelon.moviesapp.model.response.movies.MoviesResponse
 import com.watermelon.moviesapp.model.response.person.Person
 import com.watermelon.moviesapp.model.response.trending.all.TrendingAllResponse
 import com.watermelon.moviesapp.model.response.trending.movie.TrendingMovieResponse
@@ -18,7 +19,7 @@ import retrofit2.http.Query
 interface MovieService {
 
     @GET("list/1")
-    suspend fun getMovies() : Response<MovieResponse>
+    suspend fun getMovies(@Query("api_key") apiKey: String) : Response<MoviesResponse>
 
     @GET("search/movie")
     suspend fun searchForMovie(

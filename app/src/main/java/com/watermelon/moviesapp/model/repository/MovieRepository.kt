@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 
 object MovieRepository {
-    fun getMovies() = wrapWithFlow { API.apiService.getMovies() }
+    fun getMovies() = wrapWithFlow { API.apiService.getMovies(Constant.API_kEY) }
     fun getMovieDetails(movieId : Int) = wrapWithFlow { API.apiService.getMovieDetails(movieId,Constant.API_kEY) }
     fun getMovieCast(movieId : Int) = wrapWithFlow { API.apiService.getMovieCast(movieId,Constant.API_kEY) }
 
