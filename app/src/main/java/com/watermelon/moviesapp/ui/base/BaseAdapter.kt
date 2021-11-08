@@ -19,14 +19,14 @@ abstract class BaseAdapter<T>(
     override fun getItemCount() = _items.size
 
     fun setItems(newItems: List<T>) {
-        val changResult=DiffUtil.calculateDiff(MatchDiffUtil(_items,newItems))
+        val changResult = DiffUtil.calculateDiff(MatchDiffUtil(_items, newItems))
         _items = newItems
         changResult.dispatchUpdatesTo(this)
-
     }
+
     val items get() = _items
 
-    abstract var layoutID: Int
+    abstract val layoutID: Int
     open val layoutIDs: List<Int>? = null
 
     class ItemViewHolder(val binding: ViewDataBinding) : BaseViewHolder(binding)
@@ -49,6 +49,3 @@ abstract class BaseAdapter<T>(
         }
     }
 }
-
-
-
