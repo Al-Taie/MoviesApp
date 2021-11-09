@@ -49,9 +49,10 @@
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:background="@drawable/movie_image_gradient"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@id/movie_poster"
+            app:layout_constraintEnd_toEndOf="@id/movie_poster"
+            app:layout_constraintStart_toStartOf="@id/movie_poster"
+            app:layout_constraintTop_toTopOf="@id/movie_poster" />
 
         <TextView
             android:id="@+id/move_name"
@@ -101,7 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="director_name"
+            android:text="@string/dash"
             android:textColor="@color/gray_text_color"
             app:layout_constraintStart_toEndOf="@+id/director"
             app:layout_constraintTop_toBottomOf="@+id/move_description" />
@@ -112,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginTop="16dp"
-            android:text="Writers :"
+            android:text="@string/writer"
             android:textColor="@color/blue_text_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/director" />
@@ -123,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="writers_name"
+            android:text="@string/dash"
             android:textColor="@color/gray_text_color"
             app:layout_constraintStart_toEndOf="@+id/Writers"
             app:layout_constraintTop_toBottomOf="@+id/director_name" />
