@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:numStars="5"
-                android:rating="4"
+                android:rating="@{Float.valueOf(item.voteAverage/2f)}"
                 android:progressTint="@color/icons"
                 android:progressBackgroundTint="@color/blue_text_color"
                 android:isIndicator="true"
