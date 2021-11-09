@@ -38,6 +38,9 @@ object MovieRepository {
     }
     fun getGenres() = wrapWithFlow { API.apiService.getGenres(Constant.API_kEY) }
 
+    fun getMoviesOfOneGenre(id : Int) = wrapWithFlow { API.apiService.getMoviesOfOneGenre(Constant.API_kEY , id) }
+
+
 
     private fun <T> wrapWithFlow(function : suspend () -> Response<T>) : Flow<State<T?>> {
         return flow {

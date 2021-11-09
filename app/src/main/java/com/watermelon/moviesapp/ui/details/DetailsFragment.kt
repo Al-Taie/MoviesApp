@@ -17,6 +17,12 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
         binding.recyclerCast.adapter = CastAdapter(mutableListOf(), viewModel)
 
         viewModel.navigateToProfile.observe(this, ::onNavigate)
+        viewModel.credits.observe(this,{
+          binding.directorName.text = it.toData()?.crew?.filter { it.job == "Director" }.toString()
+        })
+//        viewModel.credits.observe(this,{
+//            binding.writersName.text = it.toData()?.crew?.filter { it.department == "Writing" }.toString()
+//        })
     }
 
     override val viewModel: DetailsViewModel by activityViewModels()

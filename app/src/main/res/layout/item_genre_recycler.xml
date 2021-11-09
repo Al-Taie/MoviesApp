@@ -60,33 +60,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_move_name"
                 tools:text="movie director name" />
-            <RatingBar
-                android:id="@+id/myRatingBar"
-                style="?android:attr/ratingBarStyleSmall"
+
+            <TextView
+                android:id="@+id/movie_rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:numStars="5"
-                android:rating="4"
-                android:progressTint="@color/icons"
-                android:progressBackgroundTint="@color/blue_text_color"
-                android:isIndicator="true"
                 android:layout_marginTop="@dimen/margin8dp"
+                android:text="@{String.valueOf(item.voteAverage)}"
+                android:textColor="@color/blue_text_color"
+                android:textSize="@dimen/text12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movie_director_name" />
-
-<!--            <TextView-->
-<!--                android:id="@+id/movie_rate"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="@dimen/margin8dp"-->
-<!--                android:text="@{String.valueOf(item.voteAverage)}"-->
-<!--                android:textColor="@color/blue_text_color"-->
-<!--                android:textSize="@dimen/text12sp"-->
-<!--                app:layout_constraintLeft_toLeftOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/movie_director_name"-->
-<!--                tools:text="9.9" />-->
+                app:layout_constraintTop_toBottomOf="@id/movie_director_name"
+                tools:text="9.9" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>
