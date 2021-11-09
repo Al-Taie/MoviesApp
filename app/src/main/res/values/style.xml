@@ -3,13 +3,10 @@
 
 
     <style name="SearchBar">
-        <item name="android:padding">@dimen/padding2x</item>
-        <item name="android:layout_marginVertical">@dimen/text1x</item>
-        <item name="android:layout_marginHorizontal">@dimen/margin2x</item>
+
         <item name="android:drawablePadding">@dimen/padding1x</item>
         <item name="android:hint">@string/search</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:drawableStart">@drawable/ic_baseline_search_24</item>
         <item name="android:background">@drawable/shape_search_bar</item>
 
     </style>
