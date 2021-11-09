@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/header_shape.xml" value="0.2203125" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/ic_baseline_error_outline_24.xml" value="0.2203125" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/shape_search_bar.xml" value="0.2203125" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/details_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_details.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_search.xml" value="0.25806451612903225" />
