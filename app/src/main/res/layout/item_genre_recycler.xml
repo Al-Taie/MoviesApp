@@ -14,9 +14,10 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="180dp"
+        android:layout_width="160dp"
         android:layout_height="250dp"
         android:layout_margin="@dimen/margin8dp"
+        android:backgroundTint="@color/background_color"
         app:cardCornerRadius="@dimen/margin8dp"
         app:cardElevation="4dp">
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,19 +32,17 @@
                 app:image="@{item.posterPath}"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_margin="@dimen/margin4dp"
                 tools:src="@tools:sample/avatars"/>
 
             <TextView
                 android:id="@+id/text_move_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin4dp"
+                android:layout_marginTop="10dp"
                 android:text="@{item.title}"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text20sp"
+                android:textColor="@color/white"
+                android:textSize="13sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/item_image"
@@ -55,9 +54,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin8dp"
                 android:text="@{item.mediaType}"
-                android:textColor="@color/black"
+                android:textColor="@color/gray_text_color"
                 android:textSize="@dimen/text12sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_move_name"
@@ -68,10 +66,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin8dp"
-                android:text="@{String.valueOf(item.popularity)}"
-                android:textColor="@color/black"
+                android:text="@{String.valueOf(item.voteAverage)}"
+                android:textColor="@color/blue_text_color"
                 android:textSize="@dimen/text12sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/movie_director_name"
