@@ -7,7 +7,6 @@
     <dimen name="margin3x">24dp</dimen>
     <dimen name="padding1x">8dp</dimen>
     <dimen name="padding2x">16dp</dimen>
-
     <dimen name="text2x">16sp</dimen>
     <dimen name="text3x">24sp</dimen>
     <dimen name="txt1x">8dp</dimen>
@@ -23,6 +22,7 @@
     <dimen name="margin8dp">8dp</dimen>
     <dimen name="margin4dp">4dp</dimen>
     <dimen name="text12sp">12sp</dimen>
+    <dimen name="margin1x">8dp</dimen>
     <dimen name="margin2dp">2dp</dimen>
     <dimen name="margin16dp">16dp</dimen>
     <dimen name="text10sp">10sp</dimen>
