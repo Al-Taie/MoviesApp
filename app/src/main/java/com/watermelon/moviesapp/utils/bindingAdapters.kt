@@ -7,25 +7,8 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.imageview.ShapeableImageView
-import com.watermelon.moviesapp.main.RecyclerItem
-import com.watermelon.moviesapp.main.RecyclerViewAdapter
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.ui.base.BaseAdapter
-import com.watermelon.moviesapp.ui.home.adapter.NestedAdapter
-
-@BindingAdapter("items")
-fun setRecyclerViewItems(
-    recyclerView: RecyclerView,
-    items: List<RecyclerItem>?
-) {
-    var adapter = (recyclerView.adapter as? RecyclerViewAdapter)
-    if (adapter == null) {
-        adapter = RecyclerViewAdapter()
-        recyclerView.adapter = adapter
-    }
-
-    adapter.updateData(items.orEmpty())
-}
 
 
 @BindingAdapter(value = ["app:showWhenLoading"])
@@ -66,25 +49,14 @@ fun <T> showWhenSuccess(view: View, state: State<T>?) {
 
 @BindingAdapter(value = ["app:items"])
 fun <T> setRecyclerItems(view: RecyclerView?, items: List<T>?) {
-    if (items != null) {
-        (view?.adapter as BaseAdapter<T>?)?.setItems(items)
-    } else {
-        (view?.adapter as BaseAdapter<T>?)?.setItems(emptyList())
-    }
+    (view?.adapter as BaseAdapter<T>?)?.setItems(items ?: emptyList())
 }
-
-
-@BindingAdapter(value = ["app:adapter"])
-fun setAdapter(view: RecyclerView?, items: List<Any>) {
-    (view?.adapter as NestedAdapter).setItems(items)
-}
-
 
 @BindingAdapter(value = ["app:image"])
 fun setImage(view: ShapeableImageView?, imagePath: String?) {
     if (view != null) {
         Glide.with(view)
-            .load(Constant.BASE_IMAGE_URL+imagePath)
+            .load(Constant.BASE_IMAGE_URL + imagePath)
             .into(view)
     }
 }

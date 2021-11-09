@@ -6,18 +6,17 @@
     <data>
         <variable
             name="item"
-            type="com.watermelon.moviesapp.model.response.movies.Movies" />
+            type="com.watermelon.moviesapp.model.response.trending.person.TrendingPerson" />
 
         <variable
             name="listener"
-            type="com.watermelon.moviesapp.ui.home.MovieInteractionListener" />
+            type="com.watermelon.moviesapp.ui.trending.TrendingInteractionListener" />
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="160dp"
+        android:layout_width="180dp"
         android:layout_height="250dp"
         android:layout_margin="@dimen/margin8dp"
-        android:backgroundTint="@color/background_color"
         app:cardCornerRadius="@dimen/margin8dp"
         app:cardElevation="4dp">
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,24 +28,26 @@
                 android:layout_height="155dp"
                 android:background="@color/white"
                 android:scaleType="centerCrop"
-                app:image="@{item.posterPath}"
+                app:image="@{item.profilePath}"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="@dimen/margin4dp"
                 tools:src="@tools:sample/avatars"/>
 
             <TextView
-                android:id="@+id/text_move_name"
+                android:id="@+id/item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@{item.title}"
-                android:textColor="@color/white"
-                android:textSize="13sp"
+                android:layout_marginTop="@dimen/margin4dp"
+                android:text="@{item.name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text20sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/item_image"
-                tools:text="movie name" />
+                tools:text="name" />
 
             <TextView
                 android:id="@+id/movie_director_name"
@@ -54,39 +55,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin8dp"
                 android:text="@{item.mediaType}"
-                android:textColor="@color/gray_text_color"
+                android:textColor="@color/black"
                 android:textSize="@dimen/text12sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_move_name"
+                app:layout_constraintTop_toBottomOf="@id/item_name"
                 tools:text="movie director name" />
-            <RatingBar
-                android:id="@+id/myRatingBar"
-                style="?android:attr/ratingBarStyleSmall"
+
+            <TextView
+                android:id="@+id/item_rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:numStars="5"
-                android:rating="4"
-                android:progressTint="@color/icons"
-                android:progressBackgroundTint="@color/blue_text_color"
-                android:isIndicator="true"
                 android:layout_marginTop="@dimen/margin8dp"
+                android:text="@{String.valueOf(item.popularity)}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text12sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movie_director_name" />
-
-<!--            <TextView-->
-<!--                android:id="@+id/movie_rate"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="@dimen/margin8dp"-->
-<!--                android:text="@{String.valueOf(item.voteAverage)}"-->
-<!--                android:textColor="@color/blue_text_color"-->
-<!--                android:textSize="@dimen/text12sp"-->
-<!--                app:layout_constraintLeft_toLeftOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/movie_director_name"-->
-<!--                tools:text="9.9" />-->
+                app:layout_constraintTop_toBottomOf="@id/movie_director_name"
+                tools:text="9.9" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

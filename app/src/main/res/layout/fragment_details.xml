@@ -10,10 +10,12 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/main_constraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background_color">
+        android:background="@color/background_color"
+        app:layoutDescription="@xml/fragment_details_xml_main_constraint_scene">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loading"
@@ -21,28 +23,29 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/padding2x"
             android:layout_marginTop="@dimen/margin4x"
-            app:showWhenLoading="@{viewModel.movieDetails}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/loading"/>
+            app:lottie_rawRes="@raw/loading"
+            app:showWhenLoading="@{viewModel.movieDetails}" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/movie_poster"
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            app:showWhenSuccess="@{viewModel.movieDetails}"
+            android:scaleType="centerCrop"
             app:image="@{viewModel.movieDetails.toData().posterPath}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars"
-            android:scaleType="centerCrop" />
+            app:showWhenSuccess="@{viewModel.movieDetails}"
+            tools:src="@tools:sample/avatars" />
 
         <View
+            android:id="@+id/view5"
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:background="@drawable/movie_image_gradient"
@@ -56,13 +59,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginTop="16dp"
-            app:showWhenSuccess="@{viewModel.movieDetails}"
+            android:fontFamily="@font/archivo_black"
             android:text="@{viewModel.movieDetails.toData().title}"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:fontFamily="@font/archivo_black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/movie_poster" />
+            app:layout_constraintTop_toBottomOf="@+id/play_icon"
+            app:showWhenSuccess="@{viewModel.movieDetails}" />
 
         <TextView
             android:id="@+id/move_description"
@@ -73,12 +76,12 @@
             android:layout_marginEnd="35dp"
             android:fontFamily="@font/basic"
             android:lines="2"
-            app:showWhenSuccess="@{viewModel.movieDetails}"
             android:text="@{viewModel.movieDetails.toData().overview}"
             android:textColor="@color/gray_text_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/move_name"
+            app:showWhenSuccess="@{viewModel.movieDetails}"
             tools:text="TextView  TextView  TextView  TextView  TextView  TextView  TextView  TextView  " />
 
         <TextView
@@ -120,8 +123,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:textColor="@color/gray_text_color"
             android:text="writers_name"
+            android:textColor="@color/gray_text_color"
             app:layout_constraintStart_toEndOf="@+id/Writers"
             app:layout_constraintTop_toBottomOf="@+id/director_name" />
 
@@ -140,11 +143,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginTop="24dp"
-            android:textColor="@color/white"
             android:fontFamily="@font/archivo_black"
+            android:text="@string/the_cast"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Writers"
-            android:text="@string/the_cast" />
+            app:layout_constraintTop_toBottomOf="@+id/Writers" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_cast"
@@ -153,13 +156,13 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="16dp"
             android:orientation="horizontal"
-            app:showWhenSuccess="@{viewModel.credits}"
             app:items="@{viewModel.credits.toData().cast}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/the_cast"
-            tools:listitem="@layout/item_cast"/>
+            app:showWhenSuccess="@{viewModel.credits}"
+            tools:listitem="@layout/item_cast" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>
