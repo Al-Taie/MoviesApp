@@ -37,7 +37,7 @@ object MovieRepository {
         return wrapWithFlow { API.apiService.searchForMovie(Constant.API_kEY,movieTitle) }
     }
     fun getGenres() = wrapWithFlow { API.apiService.getGenres(Constant.API_kEY) }
-
+    fun getLatestTvShow() = wrapWithFlow { API.apiService.getLatestTvShow(Constant.API_kEY) }
 
     private fun <T> wrapWithFlow(function : suspend () -> Response<T>) : Flow<State<T?>> {
         return flow {

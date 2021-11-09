@@ -63,5 +63,9 @@ interface MovieService {
         @Query("api_key") apiKey: String,
     ) : Response<Genres>
 
+    @GET("tv/latest")
+    suspend fun getLatestTvShow(
+        @Query("api_key") apiKey: String,
+    ) : Response<MovieResponse>
 
 }
