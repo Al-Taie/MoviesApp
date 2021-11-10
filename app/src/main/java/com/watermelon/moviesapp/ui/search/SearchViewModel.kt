@@ -13,7 +13,7 @@ import com.watermelon.moviesapp.utils.Event
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class SearchViewModel : ViewModel(), MovieInteractionListener{
+class SearchViewModel : ViewModel(), MovieInteractionListener {
     val movieTitle = MutableLiveData<String?>()
     var movieSearchResult = MutableLiveData<State<MovieResponse?>>()
     var movieDetails = MutableLiveData<State<Movie?>>()
@@ -21,12 +21,17 @@ class SearchViewModel : ViewModel(), MovieInteractionListener{
     private val _navigateToDetails = MutableLiveData<Event<Int>>()
     val navigateToDetails: LiveData<Event<Int>> = _navigateToDetails
 
+
+    fun clearText() {
+        movieTitle.postValue(" ")
+    }
+
     fun searchForMovie() {
 
         viewModelScope.launch {
-            MovieRepository.searchForMovie(movieTitle.value.toString()).collect{
-                movieSearchResult.postValue(it)
-            }
+                MovieRepository.searchForMovie(movieTitle.value.toString()).collect {
+                    movieSearchResult.postValue(it)
+                }
         }
     }
 

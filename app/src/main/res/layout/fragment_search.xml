@@ -54,6 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:elevation="1dp"
+            android:onClick="@{()->viewModel.clearText()}"
             android:src="@drawable/ic_baseline_close_24"
             android:transitionName="@string/clear_transition"
             app:layout_constraintBottom_toBottomOf="@+id/search_bar"
