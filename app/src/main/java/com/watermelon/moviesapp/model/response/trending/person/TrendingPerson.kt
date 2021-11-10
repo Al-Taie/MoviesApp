@@ -10,8 +10,6 @@ data class TrendingPerson(
     val gender: Int?,
     @SerializedName("id")
     val id: Int?,
-    @SerializedName("known_for")
-    val knownFor: List<KnownFor>?,
     @SerializedName("known_for_department")
     val knownForDepartment: String?,
     @SerializedName("media_type")

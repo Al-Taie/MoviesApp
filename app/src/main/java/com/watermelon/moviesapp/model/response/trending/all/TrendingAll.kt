@@ -10,8 +10,6 @@ data class TrendingAll(
     val backdropPath: String?,
     @SerializedName("first_air_date")
     val firstAirDate: String?,
-    @SerializedName("genre_ids")
-    val genreIds: List<Int>?,
     @SerializedName("id")
     val id: Int?,
     @SerializedName("media_type")
