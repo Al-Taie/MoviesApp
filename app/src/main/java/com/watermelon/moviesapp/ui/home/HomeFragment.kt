@@ -3,6 +3,7 @@ package com.watermelon.moviesapp.ui.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
 import com.mig35.carousellayoutmanager.CarouselLayoutManager
@@ -24,6 +25,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             layoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL).apply {
                     setPostLayoutListener(CarouselZoomPostLayoutListener())
                 setHasFixedSize(true)
+            }
+
+            binding.searchBar.setOnFocusChangeListener { _, isFocused ->
+                if (isFocused) {
+                    val action = HomeFragmentDirections.actionHomeFragmentToSearchFragment()
+                    val extras = FragmentNavigatorExtras(
+                        binding.searchBar to getString(R.string.search_transition)
+                    )
+                    findNavController().navigate(action,extras)
+                }
             }
         }
 

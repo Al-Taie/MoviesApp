@@ -2,6 +2,7 @@ package com.watermelon.moviesapp.ui.search
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.watermelon.moviesapp.ui.base.BaseFragment
@@ -19,6 +20,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         viewModel.navigateToDetails.observe(this, ::onNavigate)
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.searchBar.requestFocus()
+    }
 
     private fun onNavigate(event: Event<Int>) {
         event.getContentIfNotHandled()?.let {  movieId ->
