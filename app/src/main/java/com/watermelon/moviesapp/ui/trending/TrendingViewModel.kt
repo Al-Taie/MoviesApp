@@ -8,8 +8,8 @@ import com.watermelon.moviesapp.utils.TimeWindow
 class TrendingViewModel : ViewModel(), TrendingInteractionListener {
     val trendingPerson = MovieRepository.getTrendingPerson(TimeWindow.DAY).asLiveData()
     val trendingMovies = MovieRepository.getTrendingMovie(TimeWindow.DAY).asLiveData()
-    val trendingTV = MovieRepository.getTrendingPerson(TimeWindow.DAY).asLiveData()
-    val trendingAll = MovieRepository.getTrendingPerson(TimeWindow.DAY).asLiveData()
+    val trendingTV = MovieRepository.getTrendingTV(TimeWindow.DAY).asLiveData()
+    val trendingAll = MovieRepository.getTrendingAll(TimeWindow.WEEK).asLiveData()
 
     override fun onItemLoad(id: Int) {}
 
