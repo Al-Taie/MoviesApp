@@ -10,6 +10,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginBottom="@dimen/margin2x"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -17,10 +18,11 @@
             android:id="@+id/type_name"
             android:text="@string/tv_show"
             android:textStyle="bold"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:gravity="center_vertical|start"
             android:layout_marginTop="@dimen/margin1x"
             android:layout_marginStart="@dimen/margin1x"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,10 +33,11 @@
             android:id="@+id/show_more"
             android:text="@string/show_more"
             android:textStyle="bold"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:gravity="bottom|end"
             android:layout_marginTop="@dimen/margin1x"
             android:layout_marginEnd="@dimen/margin2x"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,6 +50,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:adapter="@{adapter}"
+            android:layout_margin="@dimen/margin2x"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
