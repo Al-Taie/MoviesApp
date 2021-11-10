@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="adapter"
-            type="com.watermelon.moviesapp.ui.base.BaseAdapter" />
+            name="viewModel"
+            type="com.watermelon.moviesapp.ui.tv.TvViewModel" />
 
     </data>
 
@@ -40,6 +40,7 @@
             android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -49,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:adapter="@{adapter}"
+            app:items="@{viewModel.tvShowChannel.toData().results}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
