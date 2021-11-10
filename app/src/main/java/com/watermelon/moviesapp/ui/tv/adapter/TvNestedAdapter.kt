@@ -1,6 +1,7 @@
 package com.watermelon.moviesapp.ui.tv.adapter
 
 import com.watermelon.moviesapp.model.response.channel.ChannelResponse
+import com.watermelon.moviesapp.model.response.providerstv.ProvidersTvResponse
 import com.watermelon.moviesapp.model.response.tv.Season
 import com.watermelon.moviesapp.ui.base.BaseAdapter
 import com.watermelon.moviesapp.ui.tv.TvInteractionListener
@@ -28,7 +29,10 @@ class TvNestedAdapter(
                 _items[position] as List<ChannelResponse>,
                 _listener
             )
-            TvViewType.TV_CHANNEL_PROVIDERS -> TODO()
+//            TvViewType.TV_CHANNEL_PROVIDERS -> TvChannelProvidersAdapter(
+//                _items[position] as List<ProvidersTvResponse>,
+//                _listener
+//            )
         }
         (holder as ItemViewHolder).binding.setVariable(BR.adapter, adapter)
     }
