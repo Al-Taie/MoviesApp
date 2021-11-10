@@ -21,6 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:inputType="text"
+            android:layout_marginHorizontal="@dimen/margin8dp"
+            android:paddingStart="@dimen/margin16dp"
             android:layout_marginTop="@dimen/margin8dp"
             android:transitionName="@string/search_transition"
             app:layout_constraintEnd_toEndOf="parent"
