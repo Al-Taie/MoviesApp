@@ -4,6 +4,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.mig35.carousellayoutmanager.CarouselLayoutManager
+import com.mig35.carousellayoutmanager.CarouselZoomPostLayoutListener
 import com.watermelon.moviesapp.ui.home.adapter.NestedAdapter
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.ui.base.BaseFragment
