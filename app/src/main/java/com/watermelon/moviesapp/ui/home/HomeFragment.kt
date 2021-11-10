@@ -5,8 +5,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
+import com.mig35.carousellayoutmanager.CarouselLayoutManager
+import com.mig35.carousellayoutmanager.CarouselZoomPostLayoutListener
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.ui.base.BaseFragment
+import com.watermelon.moviesapp.ui.home.adapter.MovieTopAdapter
 import com.watermelon.moviesapp.ui.home.adapter.NestedAdapter
 import com.watermelon.moviesapp.ui.home.adapter.ViewType
 import watermelon.moviesapp.R
@@ -16,17 +19,13 @@ import watermelon.moviesapp.databinding.FragmentHomeBinding
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun setup() {
-        val adapter = NestedAdapter(mutableListOf(), viewModel)
-
-        viewModel.movies.observe(this, { state ->
-            if (state is State.Success) {
-                state.data?.items?.let { data ->
-                    adapter.setItemsAt(data, ViewType.TOP.index)
-                    adapter.setItemsAt(data, ViewType.MID.index)
-                }
-                binding.adapter = adapter
+        binding.homeFragmentRecycler.apply {
+            adapter = MovieTopAdapter(emptyList(), viewModel)
+            layoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL).apply {
+                    setPostLayoutListener(CarouselZoomPostLayoutListener())
+                setHasFixedSize(true)
             }
-        })
+        }
 
         viewModel.genres.observe(this, { genres ->
             var chip_item: Chip
