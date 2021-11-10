@@ -63,14 +63,4 @@ class TrendingFragment : BaseFragment<FragmentTrendingBinding>() {
 
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentTrendingBinding
         get() = FragmentTrendingBinding::inflate
-
-    private fun <T> onResponse(state: State<T>) {
-//        when (state) {
-//            is State.Success -> state.data?.results?.let { data ->
-//                Log.v("TESTING", data.toString())
-//                binding.adapter.setItems(data)
-//            }
-//            is State.Error -> Log.v("TESTING", state.message)
-//        }
-    }
 }
