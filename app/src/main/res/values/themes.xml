@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.MoviesApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -11,7 +11,14 @@
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:statusBarColor">@color/status_bar_color</item>‏        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">@color/status_bar_color</item>
+        ‏        <!-- Customize your theme here. -->
     </style>
 
+
+    <style name="splashScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_image</item>
+        <item name="android:statusBarColor">@color/white</item>
+    </style>
+    
 </resources>
