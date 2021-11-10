@@ -21,7 +21,5 @@ class ProfileViewModel : ViewModel(),MovieInteractionListener {
         }
     }
 
-    override fun onCastClicked(personId: Int) {
-        // TODO("Not yet implemented")
-    }
+    override fun onCastClicked(personId: Int) {}
 }
