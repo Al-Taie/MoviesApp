@@ -19,11 +19,14 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
         viewModel.navigateToProfile.observe(this, ::onNavigate)
 
         viewModel.credits.observe(this, { state ->
-            binding.directorName.text = state.toData()?.crew?.first { it.job == "Director" }?.name
-        })
-        viewModel.credits.observe(this, { state ->
-            binding.writersName.text =
-                state.toData()?.crew?.first { it.department == "Writing" }?.name
+            try {
+                binding.directorName.text =
+                    state.toData()?.crew?.first { it.job == "Director" }?.name
+                binding.writersName.text =
+                    state.toData()?.crew?.first { it.department == "Writing" }?.name
+            } catch (e: NoSuchElementException) {
+
+            }
         })
     }
 
