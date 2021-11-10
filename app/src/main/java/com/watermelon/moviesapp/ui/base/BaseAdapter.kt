@@ -1,12 +1,13 @@
 package com.watermelon.moviesapp.ui.base
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.watermelon.moviesapp.utils.MatchDiffUtil
+import com.watermelon.moviesapp.utils.AdapterDiffUtil
 import watermelon.moviesapp.BR
 
 interface BaseInteractionListener
@@ -19,7 +20,7 @@ abstract class BaseAdapter<T>(
     override fun getItemCount() = _items.size
 
     fun setItems(newItems: List<T>) {
-        val changResult = DiffUtil.calculateDiff(MatchDiffUtil(_items, newItems))
+        val changResult = DiffUtil.calculateDiff(AdapterDiffUtil(_items, newItems))
         _items = newItems
         changResult.dispatchUpdatesTo(this)
     }

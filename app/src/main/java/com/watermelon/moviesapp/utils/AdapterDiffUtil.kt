@@ -2,7 +2,7 @@ package com.watermelon.moviesapp.utils
 
 import androidx.recyclerview.widget.DiffUtil
 
-class  MatchDiffUtil<T>(val mOldList: List<T>, val mNewList: List<T>) :
+class  AdapterDiffUtil<T>(val mOldList: List<T>, val mNewList: List<T>) :
     DiffUtil.Callback() {
     override fun getOldListSize() = mOldList.size
 
