@@ -4,14 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.watermelon.moviesapp.ui.tv.TvViewModel" />
-
-        <variable
-            name="adapter"
-            type="com.watermelon.moviesapp.ui.tv.adapter.TvNestedAdapter" />
 
     </data>
 
@@ -25,7 +20,7 @@
             android:layout_height="0dp"
             android:layout_margin="@dimen/margin3x"
             android:orientation="vertical"
-            app:adapter="@{adapter}"
+            app:items="@{viewModel.tvShowChannel.toData().results}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
