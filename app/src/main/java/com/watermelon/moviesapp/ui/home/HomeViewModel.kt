@@ -1,8 +1,11 @@
 package com.watermelon.moviesapp.ui.home
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.watermelon.moviesapp.model.repository.MovieRepository
+import com.watermelon.moviesapp.utils.Event
 
 
 class HomeViewModel : ViewModel(), MovieInteractionListener{
@@ -10,7 +13,7 @@ class HomeViewModel : ViewModel(), MovieInteractionListener{
     val genres = MovieRepository.getGenres().asLiveData()
 
     override fun onItemLoad(id: Int) {
-        // TODO("Not yet implemented")
+
     }
 
     override fun onCastClicked(personId: Int) {

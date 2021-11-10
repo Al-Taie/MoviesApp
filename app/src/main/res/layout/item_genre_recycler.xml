@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.watermelon.moviesapp.model.response.movies.Movies" />
+            type="com.watermelon.moviesapp.model.response.movie.Movie" />
 
         <variable
             name="listener"
@@ -16,7 +16,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="160dp"
         android:layout_height="250dp"
-        android:layout_margin="@dimen/margin8dp"
+        android:layout_margin="16dp"
         android:backgroundTint="@color/background_color"
         app:cardCornerRadius="@dimen/margin8dp"
         app:cardElevation="4dp">
@@ -60,19 +60,34 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_move_name"
                 tools:text="movie director name" />
-
-            <TextView
-                android:id="@+id/movie_rate"
+            <RatingBar
+                android:id="@+id/myRatingBar"
+                style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="@{Float.valueOf(item.voteAverage/2f)}"
+                android:progressTint="@color/icons"
+                android:progressBackgroundTint="@color/blue_text_color"
+                android:isIndicator="true"
                 android:layout_marginTop="@dimen/margin8dp"
-                android:text="@{String.valueOf(item.voteAverage)}"
-                android:textColor="@color/blue_text_color"
-                android:textSize="@dimen/text12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movie_director_name"
-                tools:text="9.9" />
+                app:layout_constraintTop_toBottomOf="@id/movie_director_name" />
+
+
+            <!--            <TextView-->
+<!--                android:id="@+id/movie_rate"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/margin8dp"-->
+<!--                android:text="@{String.valueOf(item.voteAverage)}"-->
+<!--                android:textColor="@color/blue_text_color"-->
+<!--                android:textSize="@dimen/text12sp"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/movie_director_name"-->
+<!--                tools:text="9.9" />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>
