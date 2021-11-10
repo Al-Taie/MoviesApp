@@ -15,7 +15,7 @@ data class Season(
     @SerializedName("overview")
     val overview: String? = null,
     @SerializedName("poster_path")
-    val posterPath: Any? = null,
+    val posterPath: String? = null,
     @SerializedName("season_number")
     val seasonNumber: Int? = null
 )

@@ -3,7 +3,7 @@ package com.watermelon.moviesapp.model.response.tv
 
 import com.google.gson.annotations.SerializedName
 
-data class Tv(
+data class TvResponse(
     @SerializedName("backdrop_path")
     val backdropPath: Any? = null,
     @SerializedName("created_by")
@@ -47,7 +47,7 @@ data class Tv(
     @SerializedName("popularity")
     val popularity: Double? = null,
     @SerializedName("poster_path")
-    val posterPath: Any? = null,
+    val posterPath: String? = null,
     @SerializedName("production_companies")
     val productionCompanies: List<Any>? = null,
     @SerializedName("production_countries")
