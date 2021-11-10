@@ -3,6 +3,6 @@
     <item android:drawable="@color/cards_color"/>
     <item android:drawable="@drawable/video"
         android:gravity="center"
-        android:width="70dp"
-        android:height="70dp"/>
+        android:width="90dp"
+        android:height="90dp"/>
 </layer-list>
