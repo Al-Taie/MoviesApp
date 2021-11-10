@@ -1,5 +1,6 @@
 package com.watermelon.moviesapp.ui.search
 
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
@@ -14,6 +15,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         get() = FragmentSearchBinding::inflate
 
     override fun setup() {
+
+        sharedElementEnterTransition = TransitionInflater.from(context)
+            .inflateTransition(android.R.transition.move)
+        binding.searchBar.requestFocus()
         binding.viewModel = viewModel
         binding.searchRecyclerView.adapter =SearchAdapter(mutableListOf(), viewModel)
         viewModel.navigateToDetails.observe(this, ::onNavigate)
