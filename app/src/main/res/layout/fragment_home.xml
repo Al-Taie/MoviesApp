@@ -7,6 +7,11 @@
         <variable
             name="viewModel"
             type="com.watermelon.moviesapp.ui.home.HomeViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.watermelon.moviesapp.ui.home.adapter.NestedAdapter" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,20 +37,20 @@
 
 
         <HorizontalScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="424dp"
+            android:layout_marginTop="@dimen/margin2x"
             android:scrollbars="none"
             android:elevation="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/search_bar">
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chip_group"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
                 app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
@@ -61,10 +66,12 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/margin8dp"
-            android:orientation="horizontal"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:orientation="vertical"
+            app:adapter="@{adapter}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scrollView"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_bar"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_movies_top_list"/>
 

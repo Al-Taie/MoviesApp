@@ -6,6 +6,7 @@ import com.watermelon.moviesapp.model.network.API
 import com.watermelon.moviesapp.model.response.movie.MovieResponse
 import com.watermelon.moviesapp.utils.Constant
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 
@@ -54,6 +55,8 @@ object MovieRepository {
             } catch (e: Exception) {
                 emit(State.Error(e.message.toString()))
             }
+        }.catch {
+            emit(State.Error(it.message.toString()))
         }
     }
 }

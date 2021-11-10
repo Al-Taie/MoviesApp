@@ -3,7 +3,7 @@ package com.watermelon.moviesapp.model.response.channel
 
 import com.google.gson.annotations.SerializedName
 
-data class Result(
+data class Channel(
     @SerializedName("display_priority")
     val displayPriority: Int? = null,
     @SerializedName("logo_path")

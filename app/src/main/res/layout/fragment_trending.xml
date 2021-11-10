@@ -18,7 +18,6 @@
         android:layout_height="match_parent"
         tools:context="com.watermelon.moviesapp.ui.trending.TrendingFragment">
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tending_fragment_recycler"
             android:layout_width="match_parent"
