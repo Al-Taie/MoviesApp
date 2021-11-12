@@ -87,7 +87,7 @@
             app:layout_constraintStart_toStartOf="@id/chip_group"
             app:layout_constraintEnd_toEndOf="@id/chip_group"
             app:layout_constraintTop_toBottomOf="@id/chip_group"
-            tools:listitem="@layout/item_tv_child_season" />
+            tools:listitem="@layout/item_tv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

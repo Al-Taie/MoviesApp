@@ -58,7 +58,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/type_name"
-            tools:listitem="@layout/item_tv_child_season" />
+            tools:listitem="@layout/item_tv" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

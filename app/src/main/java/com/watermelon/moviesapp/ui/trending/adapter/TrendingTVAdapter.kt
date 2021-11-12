@@ -7,5 +7,5 @@ import watermelon.moviesapp.R
 
 class TrendingTVAdapter(list: List<TrendingTV>, listener: TrendingInteractionListener) :
         BaseAdapter<TrendingTV>(list, listener) {
-        override var layoutID = R.layout.item_trending_child_tv
+        override var layoutID = R.layout.item_categories
 }

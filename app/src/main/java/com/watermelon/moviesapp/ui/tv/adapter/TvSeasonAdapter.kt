@@ -8,5 +8,5 @@ import watermelon.moviesapp.R
 
 class TvSeasonAdapter(list: List<Season>, listener: TvInteractionListener) :
     BaseAdapter<Season>(list, listener) {
-    override var layoutID = R.layout.item_tv_child_season
+    override var layoutID = R.layout.item_tv
 }
