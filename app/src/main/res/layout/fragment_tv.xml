@@ -67,6 +67,7 @@
 
             <com.google.android.material.chip.Chip
                 android:layout_width="80dp"
+                app:chipStartPadding="10dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/base_color"
                 android:textColor="@color/white"
