@@ -7,26 +7,86 @@
         <variable
             name="viewModel"
             type="com.watermelon.moviesapp.ui.tv.TvViewModel" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/dark_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin2x"
+            android:padding="6dp"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+            android:background="@drawable/shape_arrow"
+            android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/title"
+            app:layout_constraintBottom_toBottomOf="@id/title"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/base_color"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/margin2x"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/tv"/>
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin2x"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintBottom_toTopOf="@id/tv_recycler_view">
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/dark_chip"
+                android:textColor="@color/white"
+                android:text="@string/trending"/>
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/dark_chip"
+                android:textColor="@color/white"
+                android:text="@string/popular"/>
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/base_color"
+                android:textColor="@color/white"
+                android:text="@string/rated"/>
+
+        </com.google.android.material.chip.ChipGroup>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tv_recycler_view"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/margin3x"
             android:orientation="vertical"
             app:items="@{viewModel.tvShowChannel.toData().results}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_tv_parent_season" />
+            app:layout_constraintStart_toStartOf="@id/chip_group"
+            app:layout_constraintEnd_toEndOf="@id/chip_group"
+            app:layout_constraintTop_toBottomOf="@id/chip_group"
+            tools:listitem="@layout/item_tv_child_season" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

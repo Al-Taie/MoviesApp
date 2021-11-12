@@ -19,6 +19,8 @@
     <color name="dark_secondary">#747AA6</color>
     <color name="light_secondary">#8B8B8B</color>
 
+    <color name="dark_chip">#272935</color>
+
     <color name="light_text">#FFFFFF</color>
     <color name="dark_text">#333333</color>
 

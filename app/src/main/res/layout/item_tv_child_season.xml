@@ -8,14 +8,13 @@
         <variable
             name="item"
             type="com.watermelon.moviesapp.model.response.tv.Season" />
-
     </data>
 
-
     <androidx.cardview.widget.CardView
-        android:layout_width="180dp"
-        android:layout_height="250dp"
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
         android:layout_margin="@dimen/margin8dp"
+        android:backgroundTint="@android:color/transparent"
         app:cardCornerRadius="@dimen/margin8dp"
         app:cardElevation="4dp">
 
@@ -23,16 +22,35 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/item_rate"
+                android:padding="1dp"
+                android:gravity="center"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin4dp"
+                android:layout_marginEnd="@dimen/margin1x"
+                android:text="@{item.name}"
+                android:background="@drawable/shape_rate"
+                android:elevation="4dp"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="9.9" />
+
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/item_image"
                 android:layout_width="match_parent"
-                android:layout_height="155dp"
-                android:layout_margin="@dimen/margin4dp"
+                android:layout_height="0dp"
                 android:background="@color/white"
                 android:scaleType="centerCrop"
                 app:image="@{item.posterPath}"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/item_name"
                 tools:src="@tools:sample/avatars" />
 
             <TextView
@@ -41,42 +59,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin4dp"
                 android:text="@{item.name}"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text20sp"
-                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:elevation="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_image"
-                tools:text="name" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="movie title" />
 
-            <TextView
-                android:id="@+id/movie_director_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin8dp"
-
-                android:textColor="@color/black"
-                android:textSize="@dimen/text12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_name"
-                tools:text="movie director name" />
-
-            <TextView
-                android:id="@+id/item_rate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin8dp"
-                android:text="@{item.name}"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movie_director_name"
-                tools:text="9.9" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

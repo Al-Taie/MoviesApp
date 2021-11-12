@@ -8,7 +8,7 @@
     <string name="director">Director:</string>
     <string name="the_cast">The Cast</string>
     <string name="home">Home</string>
-    <string name="tv">Tv</string>
+    <string name="tv">TV</string>
     <string name="main">main</string>
     <string name="birthday">Birthday</string>
     <string name="popularity">Popularity :</string>
@@ -20,4 +20,7 @@
     <string name="writer">Writer:</string>
     <string name="dash">-</string>
     <string name="trending">Trending</string>
+    <string name="trending">Trending</string>
+    <string name="popular">Popular</string>
+    <string name="rated">Rated</string>
 </resources>
