@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/chip"
-    android:textColor="@color/icons"
+    android:textColor="@color/base_color"
     app:closeIconTint="@color/white"
     app:chipBackgroundColor="@color/cards_color"
     style="@style/Widget.MaterialComponents.Chip.Choice"
