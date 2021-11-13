@@ -21,7 +21,7 @@ data class Movie(
     @SerializedName("overview")
     val overview: String?,
     @SerializedName("popularity")
-    val popularity: Double?,
+    val popularity: Float?,
     @SerializedName("poster_path")
     val posterPath: String?,
     @SerializedName("release_date")
