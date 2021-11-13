@@ -12,7 +12,7 @@ import com.watermelon.moviesapp.model.response.trending.all.TrendingAllResponse
 import com.watermelon.moviesapp.model.response.trending.movie.TrendingMovieResponse
 import com.watermelon.moviesapp.model.response.trending.person.TrendingPersonResponse
 import com.watermelon.moviesapp.model.response.trending.tv.TrendingTVResponse
-import com.watermelon.moviesapp.model.response.tv.TvResponse
+import com.watermelon.moviesapp.model.response.tv.TVResponse
 import com.watermelon.moviesapp.utils.Constant
 import com.watermelon.moviesapp.utils.MediaType
 import retrofit2.Response
@@ -83,7 +83,23 @@ interface MovieService {
 
     @GET("tv/latest")
     suspend fun getLatestTvShow(@Query("api_key") apiKey: String = Constant.API_KEY)
-            : Response<TvResponse>
+            : Response<TVResponse>
+
+    @GET("tv/popular")
+    suspend fun getTvPopular(@Query("api_key") apiKey: String = Constant.API_KEY)
+            : Response<TVResponse>
+
+    @GET("tv/top_rated")
+    suspend fun getTvTopRated(@Query("api_key") apiKey: String = Constant.API_KEY)
+            : Response<TVResponse>
+
+    @GET("tv/airing_today")
+    suspend fun getTvAiringToday(@Query("api_key") apiKey: String = Constant.API_KEY)
+            : Response<TVResponse>
+
+    @GET("tv/on_the_air")
+    suspend fun getTvOnTheAir(@Query("api_key") apiKey: String = Constant.API_KEY)
+            : Response<TVResponse>
 
     @GET("watch/providers/movie")
     suspend fun getTvShowChannel(@Query("api_key") apiKey: String = Constant.API_KEY)
