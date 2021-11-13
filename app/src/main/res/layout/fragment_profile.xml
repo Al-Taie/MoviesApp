@@ -10,11 +10,10 @@
 
     </data>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background_color">
+        android:background="@color/dark_bg">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loading"
@@ -34,7 +33,7 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/movie_poster"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="300dp"
             app:showWhenSuccess="@{viewModel.person}"
             app:image="@{viewModel.person.toData().imagePath}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +44,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="300dp"
             android:background="@drawable/movie_image_gradient"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,77 +66,97 @@
             app:layout_constraintTop_toBottomOf="@+id/movie_poster" />
 
         <TextView
-            android:id="@+id/biography"
-            android:layout_width="match_parent"
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="35dp"
-            android:fontFamily="@font/basic"
-            android:lines="6"
-            app:showWhenSuccess="@{viewModel.person}"
-            android:text="@{viewModel.person.toData().biography}"
-            android:textColor="@color/gray_text_color"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/person_name"
-            tools:text="TextView  TextView  TextView  TextView  TextView  TextView  TextView  TextView  " />
+            tools:text="Action" />
 
-        <TextView
-            android:id="@+id/birthday"
-            android:layout_width="wrap_content"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/birthday"
-            android:textColor="@color/blue_text_color"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/dark_bg"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:layout_editor_absoluteX="35dp" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/profile_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/biography" />
+            app:layout_constraintTop_toBottomOf="@+id/tab_layout">
 
-        <TextView
-            android:id="@+id/birthday_of_person"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="@{viewModel.person.toData().birthday}"
-            android:textColor="@color/gray_text_color"
-            app:layout_constraintStart_toEndOf="@+id/birthday"
-            app:layout_constraintTop_toBottomOf="@+id/biography" />
+        </androidx.viewpager2.widget.ViewPager2>
 
-        <TextView
-            android:id="@+id/popularity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/popularity"
-            android:textColor="@color/blue_text_color"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/birthday" />
-
-        <TextView
-            android:id="@+id/popularity_of_person"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="@{String.valueOf(viewModel.person.toData().popularity)}"
-            android:textColor="@color/gray_text_color"
-            tools:text="15.3"
-            app:layout_constraintStart_toEndOf="@+id/popularity"
-            app:layout_constraintTop_toBottomOf="@+id/birthday_of_person" />
-
-<!--        <ImageView-->
-<!--            android:id="@+id/play_icon"-->
-<!--            android:layout_width="56dp"-->
-<!--            android:layout_height="57dp"-->
+        <!--        <TextView-->
+<!--            android:id="@+id/biography"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="35dp"-->
+<!--            android:layout_marginTop="16dp"-->
 <!--            android:layout_marginEnd="35dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/movie_poster"-->
+<!--            android:fontFamily="@font/basic"-->
+<!--            android:lines="6"-->
+<!--            app:showWhenSuccess="@{viewModel.person}"-->
+<!--            android:text="@{viewModel.person.toData().biography}"-->
+<!--            android:textColor="@color/gray_text_color"-->
 <!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:srcCompat="@drawable/ic_play_video" />-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/person_name"-->
+<!--            tools:text="TextView  TextView  TextView  TextView  TextView  TextView  TextView  TextView  " />-->
 
+<!--        <TextView-->
+<!--            android:id="@+id/birthday"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="35dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:text="@string/birthday"-->
+<!--            android:textColor="@color/blue_text_color"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/biography" />-->
 
+<!--        <TextView-->
+<!--            android:id="@+id/birthday_of_person"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:text="@{viewModel.person.toData().birthday}"-->
+<!--            android:textColor="@color/gray_text_color"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/birthday"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/biography" />-->
 
+<!--        <TextView-->
+<!--            android:id="@+id/popularity"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="35dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:text="@string/popularity"-->
+<!--            android:textColor="@color/blue_text_color"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/birthday" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/popularity_of_person"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:text="@{String.valueOf(viewModel.person.toData().popularity)}"-->
+<!--            android:textColor="@color/gray_text_color"-->
+<!--            tools:text="15.3"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/popularity"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/birthday_of_person" />-->
+<!--        -->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
