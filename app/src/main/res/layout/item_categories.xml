@@ -8,9 +8,6 @@
             name="item"
             type="com.watermelon.moviesapp.model.response.trending.tv.TrendingTV" />
 
-        <variable
-            name="listener"
-            type="com.watermelon.moviesapp.ui.trending.TrendingInteractionListener" />
     </data>
 
 

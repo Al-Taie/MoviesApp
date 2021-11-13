@@ -120,7 +120,7 @@
                 android:isIndicator="true"
                 android:numStars="5"
                 android:progressBackgroundTint="@color/blue_text_color"
-                android:progressTint="@color/icons"
+                android:progressTint="@color/base_color"
                 android:rating="@{Float.valueOf(item.voteAverage)}"
                 app:layout_constraintLeft_toRightOf="@id/item_image"
                 app:layout_constraintTop_toBottomOf="@id/release_date"/>

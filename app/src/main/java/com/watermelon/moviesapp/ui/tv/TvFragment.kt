@@ -6,14 +6,13 @@ import androidx.fragment.app.activityViewModels
 import com.mig35.carousellayoutmanager.CarouselLayoutManager
 import com.mig35.carousellayoutmanager.CarouselZoomPostLayoutListener
 import com.watermelon.moviesapp.ui.base.BaseFragment
-import com.watermelon.moviesapp.ui.tv.adapter.TvChannelAdapter
 import watermelon.moviesapp.databinding.FragmentTvBinding
 
 class TvFragment : BaseFragment<FragmentTvBinding>() {
 
     override fun setup() {
         binding.tvRecyclerView.apply {
-            adapter = TvChannelAdapter(emptyList(), viewModel)
+//            adapter = TvChannelAdapter(emptyList(), viewModel)
             layoutManager = CarouselLayoutManager(CarouselLayoutManager.VERTICAL).apply {
                 setPostLayoutListener(CarouselZoomPostLayoutListener())
                 setHasFixedSize(true)
