@@ -26,4 +26,5 @@
     <dimen name="margin2dp">2dp</dimen>
     <dimen name="margin16dp">16dp</dimen>
     <dimen name="text10sp">10sp</dimen>
+    <dimen name="elevation8">8dp</dimen>
 </resources>
