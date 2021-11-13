@@ -16,7 +16,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="135dp">
 
 
         <androidx.cardview.widget.CardView
@@ -24,8 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginHorizontal="12dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginBottom="@dimen/margin4dp"
+            android:layout_marginTop="25dp"
             android:backgroundTint="@color/cards_color"
             app:cardCornerRadius="16dp"
             app:cardElevation="8dp"
@@ -51,6 +50,7 @@
                 android:layout_height="110dp"
                 android:elevation="@dimen/margin16dp"
                 android:scaleType="centerCrop"
+                app:image="@{item.posterPath}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
@@ -96,16 +96,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:elevation="@dimen/elevation8"
             android:isIndicator="true"
             android:numStars="5"
-            android:elevation="@dimen/elevation8"
             android:progressBackgroundTint="@color/blue_text_color"
             android:progressTint="@color/base_color"
             android:rating="@{Float.valueOf(item.voteAverage)}"
+            app:layout_constraintBottom_toBottomOf="@id/top_Card"
             app:layout_constraintLeft_toLeftOf="@id/move_name"
-            app:layout_constraintRight_toRightOf="@id/move_name"
-            app:layout_constraintBottom_toBottomOf="@id/top_Card" />
-
+            app:layout_constraintRight_toRightOf="@id/move_name" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
