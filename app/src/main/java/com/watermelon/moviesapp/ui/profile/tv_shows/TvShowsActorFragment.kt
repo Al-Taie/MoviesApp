@@ -1,4 +1,4 @@
-package com.watermelon.moviesapp.ui.profile.tv
+package com.watermelon.moviesapp.ui.profile.tv_shows
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,17 +1,21 @@
 package com.watermelon.moviesapp.ui.tv
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
+import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.repository.MovieRepository
+import com.watermelon.moviesapp.model.response.tv.TVResponse
 
-class TvViewModel:ViewModel(),TvInteractionListener {
-    val latestTvShow = MovieRepository.getLatestTvShow().asLiveData()
+class TvViewModel : ViewModel(), TvInteractionListener {
+    val topRated = MovieRepository.getTvTopRated().asLiveData()
+    val onTheAir = MovieRepository.getTvOnTheAir().asLiveData()
+    val airingToday = MovieRepository.getTvAiringToday().asLiveData()
+    val popular = MovieRepository.getTvPopular().asLiveData()
 
-    val tvShowChannel = MovieRepository.getTvShowChannel().asLiveData()
-
-    val getTvShowProvidersChannel = MovieRepository.getTvShowProvidersChannel().asLiveData()
+    val stream: MutableLiveData<State<TVResponse?>> = MutableLiveData()
 
     override fun onItemLoad(id: Int) {}
 
-    override fun onItemClicked(id: Int) { }
+    override fun onItemClicked(id: Int) {}
 }
