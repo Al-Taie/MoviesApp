@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.imageview.ShapeableImageView
 import com.watermelon.moviesapp.model.State
+import com.watermelon.moviesapp.model.response.tv.TVResponse
 import com.watermelon.moviesapp.ui.base.BaseAdapter
+import com.watermelon.moviesapp.ui.tv.TvViewModel
 
 
 @BindingAdapter(value = ["app:showWhenLoading"])
@@ -60,3 +62,7 @@ fun setImage(view: ShapeableImageView?, imagePath: String?) {
             .into(view)
     }
 }
+
+@BindingAdapter(value = ["app:stream", "app:viewModel"], requireAll = false)
+fun streamObserve(view: View, state: State<TVResponse>?, viewModel: TvViewModel?) =
+    view.setOnClickListener { viewModel?.stream?.postValue(state) }

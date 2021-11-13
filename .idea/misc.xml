@@ -20,6 +20,7 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/menu/bottom_navigation.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/menu/menu.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2203125" />
+        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/drawable/chip_state.xml" value="0.20092592592592592" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/drawable/ic_baseline_arrow_back_ios_new_24.xml" value="0.2611111111111111" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2675925925925926" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/drawable/shape_arrow.xml" value="0.2611111111111111" />
@@ -34,7 +35,7 @@
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/fragment_profile.xml" value="0.14375" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/fragment_search.xml" value="0.14375" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/fragment_trending.xml" value="0.27447916666666666" />
-        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/fragment_tv.xml" value="0.4" />
+        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/fragment_tv.xml" value="0.264" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/item_cast.xml" value="0.14375" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/item_details.xml" value="0.1" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/item_home_base_list.xml" value="0.27447916666666666" />
@@ -60,6 +61,8 @@
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/item_tv_child_season.xml" value="0.2" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/item_tv_parent_channel.xml" value="0.27447916666666666" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/item_tv_parent_season.xml" value="0.1" />
+        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/item_tv_popular.xml" value="0.2864583333333333" />
+        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/item_tv_rated.xml" value="0.27447916666666666" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/trending_fragment.xml" value="0.27447916666666666" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/menu/bottom_navigation.xml" value="0.225" />
       </map>

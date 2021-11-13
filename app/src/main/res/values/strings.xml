@@ -27,4 +27,6 @@
     <string name="categories">Categories</string>
     <string name="about">About</string>
     <string name="tv_shows">Tv Shows</string>
+    <string name="today">Today</string>
+    <string name="now">Now</string>
 </resources>

@@ -8,13 +8,13 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.watermelon.moviesapp.ui.base.BaseFragment
 import com.watermelon.moviesapp.ui.profile.about.AboutFragment
 import com.watermelon.moviesapp.ui.profile.movies.MoviesActorFragment
-import com.watermelon.moviesapp.ui.profile.tv.TvShowsActorFragment
+import com.watermelon.moviesapp.ui.profile.tv_shows.TvShowsActorFragment
 import watermelon.moviesapp.R
 import watermelon.moviesapp.databinding.FragmentProfileBinding
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
     private val args: ProfileFragmentArgs by navArgs()
-    val fragments = listOf(AboutFragment(),MoviesActorFragment(),TvShowsActorFragment())
+    val fragments = listOf(AboutFragment(),MoviesActorFragment(), TvShowsActorFragment())
     val tabTitles = listOf(getString(R.string.about) , getString(R.string.movies),getString(R.string.tv_shows))
 
 
