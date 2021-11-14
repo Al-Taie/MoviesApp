@@ -53,15 +53,15 @@ fun setImage(view: ShapeableImageView?, imagePath: String?) {
 @BindingAdapter(value = ["app:theListForChips"])
 fun theListForChips(view: ChipGroup , list: List<Genre>?) {
     list?.map {
-        val chip = Chip(view.context)
-        chip.text = it.name
-        chip.setBackgroundColor(android.R.color.transparent)
-        chip.setPadding(12 , 4, 12,4)
-        chip.setChipStrokeColorResource(R.color.base_color)
-        chip.setChipStrokeWidthResource(R.dimen.stroke1dp)
-        view.addView(chip)
+        Chip(view.context).apply {
+           text = it.name
+            setPadding(24 , 4, 12,4)
+            setChipStrokeColorResource(R.color.base_color)
+            setChipStrokeWidthResource(R.dimen.stroke1dp)
+            setChipBackgroundColorResource(R.color.backgruond_color)
+            view.addView(this)
+        }
     }
-
 }
 
 
