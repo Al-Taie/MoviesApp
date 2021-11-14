@@ -1,4 +1,4 @@
-package com.watermelon.moviesapp.ui.profile.tv
+package com.watermelon.moviesapp.ui.profile.tv_shows
 
 import androidx.lifecycle.ViewModel
 import com.watermelon.moviesapp.ui.home.MovieInteractionListener

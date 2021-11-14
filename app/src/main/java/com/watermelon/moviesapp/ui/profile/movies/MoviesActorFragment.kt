@@ -11,9 +11,9 @@ import watermelon.moviesapp.databinding.FragmentMoviesActorBinding
 
 class MoviesActorFragment : BaseFragment<FragmentMoviesActorBinding>() {
     override fun setup() {
-//        viewModel.movieCredits.observe(this,{
-//            Log.i("movieC", it.toData()?.cast.toString())
-//        })
+        viewModel.movieCredits.observe(this,{
+            Log.v("TESTING", it.toData()?.cast.toString())
+        })
     }
 
     override val viewModel: ProfileViewModel by viewModels ({ requireParentFragment() })
