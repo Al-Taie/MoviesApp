@@ -1,5 +1,6 @@
 package com.watermelon.moviesapp.model.network
 
+import com.watermelon.moviesapp.model.response.SimilarResponse
 import com.watermelon.moviesapp.model.response.channel.ChannelResponse
 import com.watermelon.moviesapp.model.response.credits.Credits
 import com.watermelon.moviesapp.model.response.genres.Genres
@@ -120,4 +121,13 @@ interface MovieService {
     @GET("watch/providers/tv")
     suspend fun getTvShowProvidersChannel(@Query("api_key") apiKey: String = Constant.API_KEY)
             : Response<ProvidersTvResponse>
+
+
+    @GET("movie/{movie_id}/similar")
+    suspend fun getSimilarMovies(
+        @Path("movie_id") moviesId: Int,
+        @Query("api_key") apiKey: String = Constant.API_KEY
+    ): Response<SimilarResponse>
+
+
 }

@@ -3,8 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="base_color">#E99A27</color>
-    <color name="background_color">#11191f</color>
+    <color name="backgruond_color">#F7F7F7</color>
+    <color name="background_color">#F7F7F7</color>
     <color name="status_bar_color">#39424A</color>
+
+    <color name="primary_text_color">#393939</color>
 
     <color name="blue_text_color">#2f6688</color>
     <color name="gray_text_color">#75787b</color>
