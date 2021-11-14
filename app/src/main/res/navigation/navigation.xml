@@ -55,6 +55,22 @@
         android:id="@+id/categoriesFragment"
         android:name="com.watermelon.moviesapp.ui.categories.CategoriesFragment"
         android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" />
+        tools:layout="@layout/fragment_categories" >
+
+        <action
+            android:id="@+id/action_categoriesFragment_to_categoriesDisplayFragment"
+            app:destination="@id/categoriesDisplayFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesDisplayFragment"
+        android:name="com.watermelon.moviesapp.ui.categories.categoriesdisplay.CategoriesDisplayFragment"
+        android:label="CategoriesDisplayFragment"
+        tools:layout="@layout/fragment_categories_display" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+
 
 </navigation>
