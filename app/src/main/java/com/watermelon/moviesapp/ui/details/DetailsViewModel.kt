@@ -15,7 +15,6 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class DetailsViewModel : ViewModel(), MovieInteractionListener {
-
     var movieDetails = MutableLiveData<State<Movie?>>()
     var credits = MutableLiveData<State<Credits?>>()
     private val _navigateToProfile = MutableLiveData<Event<Int>>()
@@ -25,15 +24,11 @@ class DetailsViewModel : ViewModel(), MovieInteractionListener {
         _navigateToProfile.postValue(Event(personId))
     }
     override fun onItemLoad(id: Int) {
-
         viewModelScope.launch {
-            MovieRepository.getMovieDetails(id).collect {
-                movieDetails.postValue(it)
+            MovieRepository.run {
+                getMovieDetails(id).collect { movieDetails.postValue(it) }
+                getMovieCast(id).collect { credits.postValue(it) }
             }
-            MovieRepository.getMovieCast(id).collect {
-                credits.postValue(it)
-            }
-
         }
     }
 }

@@ -43,6 +43,8 @@ object MovieRepository {
 
     fun getTvOnTheAir() = wrapWithFlow { API.apiService.getTvOnTheAir() }
 
+    fun getTvDetails(id: Int) = wrapWithFlow { API.apiService.getTvDetails(id) }
+
     fun getLatestTvShow() = wrapWithFlow { API.apiService.getLatestTvShow() }
 
     fun getTvShowChannel() = wrapWithFlow { API.apiService.getTvShowChannel() }
