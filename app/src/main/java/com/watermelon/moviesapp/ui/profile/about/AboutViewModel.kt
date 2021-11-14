@@ -11,17 +11,16 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class AboutViewModel: ViewModel(),MovieInteractionListener{
-//    var person = MutableLiveData<State<Person?>>()
+    var person = MutableLiveData<State<Person?>>()
 
     override fun onItemLoad(id: Int) {
-//        viewModelScope.launch {
-//            MovieRepository.getProfile(id).collect {
-//                person.postValue(it)
-//            }
-//        }
+        viewModelScope.launch {
+            MovieRepository.getProfile(id).collect {
+                person.postValue(it)
+            }
+        }
     }
 
     override fun onCastClicked(personId: Int) {
-        TODO("Not yet implemented")
     }
 }
