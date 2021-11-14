@@ -1,5 +1,6 @@
 package com.watermelon.moviesapp.ui.profile.tv_shows
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
@@ -9,7 +10,7 @@ import watermelon.moviesapp.databinding.FragmentTvShowsActorBinding
 
 class TvShowsActorFragment : BaseFragment<FragmentTvShowsActorBinding>(){
     override fun setup() {
-        TODO("Not yet implemented")
+        Log.i("ffff" , " rrrrrrrrr")
     }
 
     override val viewModel: TvShowsActorViewModel by activityViewModels()

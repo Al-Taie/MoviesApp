@@ -1,5 +1,6 @@
 package com.watermelon.moviesapp.ui.profile.movies
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
@@ -8,7 +9,7 @@ import watermelon.moviesapp.databinding.FragmentMoviesActorBinding
 
 class MoviesActorFragment : BaseFragment<FragmentMoviesActorBinding>() {
     override fun setup() {
-        TODO("Not yet implemented")
+        Log.i("ffff" , " rrrrrrrrr")
     }
 
     override val viewModel: MoviesActorViewModel by activityViewModels()

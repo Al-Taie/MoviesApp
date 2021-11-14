@@ -4,6 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.watermelon.moviesapp.ui.profile.ProfileViewModel" />
 
     </data>
 
@@ -13,10 +16,10 @@
 
         <ImageView
             android:id="@+id/birth_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:layout_marginStart="@dimen/margin16dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/ic_baseline_cake_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -25,18 +28,20 @@
             android:id="@+id/birthday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{viewModel.person.toData().birthday}"
             tools:text="1998-05-11"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="24dp"
             android:layout_marginStart="@dimen/margin16dp"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="12sp"
+            android:elevation="24dp"
             app:layout_constraintStart_toEndOf="@+id/birth_icon"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/followers_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:layout_marginTop="@dimen/margin16dp"
             android:background="@drawable/ic_baseline_cake_24"
             app:layout_constraintStart_toStartOf="@+id/birth_icon"
@@ -46,18 +51,19 @@
             android:id="@+id/followers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewModel.person.toData().popularity)}"
             tools:text="63.997"
             android:layout_marginTop="@dimen/margin16dp"
             android:layout_marginStart="@dimen/margin16dp"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/followers_icon"
             app:layout_constraintTop_toBottomOf="@+id/birthday" />
 
         <ImageView
             android:id="@+id/alive_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:layout_marginTop="@dimen/margin16dp"
             android:background="@drawable/ic_baseline_cake_24"
             app:layout_constraintStart_toStartOf="@+id/followers_icon"
@@ -67,11 +73,11 @@
             android:id="@+id/is_alive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Alive"
+            android:text="Alive"
             android:textColor="@color/white"
             android:layout_marginTop="@dimen/margin16dp"
             android:layout_marginStart="@dimen/margin16dp"
-            android:textSize="20sp"
+            android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/alive_icon"
             app:layout_constraintTop_toBottomOf="@+id/followers" />
 
@@ -79,16 +85,16 @@
             android:id="@+id/text_biography"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/archivo_black"
             android:text="Biography"
             android:textColor="@color/base_color"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/alive_icon"
             app:layout_constraintTop_toBottomOf="@+id/alive_icon" />
 
         <View
-            android:layout_width="110dp"
+            android:layout_width="90dp"
             android:layout_height="1dp"
             android:layout_marginTop="2dp"
             android:background="@color/base_color"
@@ -100,8 +106,10 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginTop="@dimen/margin16dp"
+            android:text="@{viewModel.person.toData().biography}"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_biography" />
