@@ -48,8 +48,6 @@ fun setImage(view: ShapeableImageView?, imagePath: String?) {
     }
 }
 
-
-@SuppressLint("ResourceAsColor", "ResourceType")
 @BindingAdapter(value = ["app:theListForChips"])
 fun theListForChips(view: ChipGroup , list: List<Genre>?) {
     list?.map {
