@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.watermelon.moviesapp.ui.profile.ProfileViewModel" />
+            type="com.watermelon.moviesapp.ui.profile.movies.MoviesActorViewModel" />
 
     </data>
 
@@ -15,7 +15,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/tv_recycler_view"
+            android:id="@+id/movie_recycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
