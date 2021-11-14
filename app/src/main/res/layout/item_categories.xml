@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.watermelon.moviesapp.model.response.trending.tv.TrendingTV" />
+            type="com.watermelon.moviesapp.model.response.genres.Genre" />
 
     </data>
 
@@ -21,7 +21,6 @@
                 android:layout_height="64dp"
                 android:background="@color/white"
                 android:scaleType="centerCrop"
-                app:image="@{item.posterPath}"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

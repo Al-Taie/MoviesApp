@@ -11,12 +11,13 @@
 
         <variable
             name="listener"
-            type="com.watermelon.moviesapp.ui.search.SearchViewModel" />
+            type="com.watermelon.moviesapp.ui.categories.CategoriesViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="135dp">
+        android:layout_height="135dp"
+        android:onClick="@{() -> listener.onItemClick(item.id)}">
 
 
         <androidx.cardview.widget.CardView
