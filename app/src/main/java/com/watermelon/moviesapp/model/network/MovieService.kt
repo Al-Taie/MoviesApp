@@ -16,6 +16,7 @@ import com.watermelon.moviesapp.model.response.trending.person.TrendingPersonRes
 import com.watermelon.moviesapp.model.response.trending.tv.TrendingTVResponse
 import com.watermelon.moviesapp.model.response.tv.TVResponse
 import com.watermelon.moviesapp.model.response.tv.details.TVDetailsResponse
+import com.watermelon.moviesapp.model.response.tvCredits.TvCredits
 import com.watermelon.moviesapp.utils.Constant
 import com.watermelon.moviesapp.utils.MediaType
 import retrofit2.Response
@@ -44,6 +45,12 @@ interface MovieService {
         @Path("id") id: Int,
         @Query("api_key") apiKey: String = Constant.API_KEY
     ): Response<MovieCredits>
+
+    @GET("person/{id}/tv_credits")
+    suspend fun getTvCredits(
+        @Path("id") id: Int,
+        @Query("api_key") apiKey: String = Constant.API_KEY
+    ): Response<TvCredits>
 
     @GET("trending/${MediaType.PERSON}/{time_window}")
     suspend fun getTrendingPerson(

@@ -1,22 +1,20 @@
 package com.watermelon.moviesapp.ui.profile.movies
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import com.watermelon.moviesapp.ui.base.BaseFragment
-import com.watermelon.moviesapp.ui.profile.ProfileViewModel
+import com.watermelon.moviesapp.utils.Constant
 import watermelon.moviesapp.databinding.FragmentMoviesActorBinding
 
 class MoviesActorFragment : BaseFragment<FragmentMoviesActorBinding>() {
     override fun setup() {
-        viewModel.movieCredits.observe(this,{
-            Log.v("TESTING", it.toData()?.cast.toString())
-        })
+        arguments?.getInt(Constant.ID)?.run { viewModel.onItemLoad(this) }
+
+        binding.movieRecycler.adapter = CastMovieAdapter(emptyList(), viewModel)
     }
 
-    override val viewModel: ProfileViewModel by viewModels ({ requireParentFragment() })
+    override val viewModel: MoviesActorViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentMoviesActorBinding
         get() = FragmentMoviesActorBinding::inflate
 }
