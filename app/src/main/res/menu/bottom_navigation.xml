@@ -17,14 +17,10 @@
         android:icon="@drawable/ic_baseline_live_tv_24"
         android:title="@string/tv"
         android:color="@color/base_color"/>
-    <item
-        android:id="@+id/trendingFragment"
-        android:icon="@drawable/ic_baseline_trending_up_24"
-        android:title="@string/trending"
-        android:color="@color/base_color"/>
+
     <item
         android:id="@+id/categoriesFragment"
         android:icon="@drawable/ic_baseline_trending_up_24"
-        android:title="categories"
+        android:title="@string/categories"
         android:color="@color/base_color"/>
 </menu>

@@ -21,10 +21,7 @@ class DetailsViewModel : ViewModel(), MovieInteractionListener {
     private val _navigateToProfile = MutableLiveData<Event<Int>>()
     val navigateToProfile: LiveData<Event<Int>> = _navigateToProfile
 
-
-   override fun onCastClicked(personId : Int){
-        _navigateToProfile.postValue(Event(personId))
-    }
+   override fun onCastClicked(personId : Int) = _navigateToProfile.postValue(Event(personId))
 
     override fun onItemLoad(id: Int) {
         viewModelScope.launch {
@@ -33,11 +30,6 @@ class DetailsViewModel : ViewModel(), MovieInteractionListener {
                 getMovieCast(id).collect { credits.postValue(it) }
                 getSimilarMovies(id).collect { similarMovies.postValue(it) }
             }
-
-            MovieRepository.getMovieCast(id).collect {
-                credits.postValue(it)
-            }
-
         }
     }
 }
