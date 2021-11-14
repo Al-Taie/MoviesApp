@@ -33,6 +33,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         viewModel.onItemLoad(args.personId)
         initViewPager()
         initTabLayout()
+        viewModel.movieCredits.observe(this,{
+            Log.i("movieC", it.toData()?.cast.toString())
+        })
 
 
     }

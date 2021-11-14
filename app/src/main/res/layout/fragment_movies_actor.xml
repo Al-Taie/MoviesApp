@@ -4,6 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.watermelon.moviesapp.ui.profile.ProfileViewModel" />
 
     </data>
 
@@ -16,6 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
+            app:items="@{viewModel.movieCredits.toData().cast}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
