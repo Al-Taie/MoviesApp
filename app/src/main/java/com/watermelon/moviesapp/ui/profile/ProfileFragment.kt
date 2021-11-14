@@ -1,8 +1,8 @@
 package com.watermelon.moviesapp.ui.profile
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.tabs.TabLayoutMediator
