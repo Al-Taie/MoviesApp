@@ -28,4 +28,6 @@
     <string name="categories_list">categories list</string>
     <string name="today">Today</string>
     <string name="now">Now</string>
+    <string name="biography">Biography</string>
+    <string name="alive">Alive</string>
 </resources>

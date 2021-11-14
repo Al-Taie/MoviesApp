@@ -5,6 +5,7 @@ import com.watermelon.moviesapp.model.response.credits.Credits
 import com.watermelon.moviesapp.model.response.genres.Genres
 import com.watermelon.moviesapp.model.response.movie.Movie
 import com.watermelon.moviesapp.model.response.movie.MovieResponse
+import com.watermelon.moviesapp.model.response.movieCredits.MovieCredits
 import com.watermelon.moviesapp.model.response.movies.MoviesResponse
 import com.watermelon.moviesapp.model.response.person.Person
 import com.watermelon.moviesapp.model.response.providerstv.ProvidersTvResponse
@@ -36,6 +37,12 @@ interface MovieService {
         @Path("id") id: Int,
         @Query("api_key") apiKey: String = Constant.API_KEY
     ): Response<Person>
+
+    @GET("person/{id}/movie_credits")
+    suspend fun getMovieCredits(
+        @Path("id") id: Int,
+        @Query("api_key") apiKey: String = Constant.API_KEY
+    ): Response<MovieCredits>
 
     @GET("trending/${MediaType.PERSON}/{time_window}")
     suspend fun getTrendingPerson(
