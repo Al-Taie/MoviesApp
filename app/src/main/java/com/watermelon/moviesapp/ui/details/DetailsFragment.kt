@@ -13,7 +13,6 @@ import watermelon.moviesapp.databinding.FragmentDetailsBinding
 
 class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
 
-
     override val viewModel: DetailsViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentDetailsBinding
         get() = FragmentDetailsBinding::inflate
@@ -21,17 +20,22 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
     private val args: DetailsFragmentArgs by navArgs()
 
     override fun setup() {
-
         viewModel.onItemLoad(args.movieId)
+        initRecyclers()
+        viewModel.navigateToProfile.observe(this, ::onNavigate)
+        addBottomSheet()
+    }
+
+    private fun initRecyclers() {
         binding.recyclerCast.adapter = CastAdapter(mutableListOf(), viewModel)
         binding.recyclerSimilar.adapter = SimilarMoviesAdapter(mutableListOf(), viewModel)
-        viewModel.navigateToProfile.observe(this, ::onNavigate)
+    }
 
+    private fun addBottomSheet() {
         BottomSheetBehavior.from(binding.detailsMovie).apply {
             peekHeight = 450
             state = STATE_COLLAPSED
         }
-
     }
 
     private fun onNavigate(event: Event<Int>) {
