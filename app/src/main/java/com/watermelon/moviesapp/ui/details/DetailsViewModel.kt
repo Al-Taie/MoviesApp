@@ -1,6 +1,5 @@
 package com.watermelon.moviesapp.ui.details
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,8 +26,8 @@ class DetailsViewModel : ViewModel(), MovieInteractionListener {
    override fun onCastClicked(personId : Int){
         _navigateToProfile.postValue(Event(personId))
     }
-    override fun onItemLoad(id: Int) {
 
+    override fun onItemLoad(id: Int) {
         viewModelScope.launch {
             MovieRepository.getMovieDetails(id).collect {
                 movieDetails.postValue(it)
