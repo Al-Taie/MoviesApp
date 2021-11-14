@@ -2,14 +2,15 @@ package com.watermelon.moviesapp.model.response.movie
 
 
 import com.google.gson.annotations.SerializedName
+import com.watermelon.moviesapp.model.response.genres.Genre
 
 data class Movie(
     @SerializedName("adult")
     val adult: Boolean?,
     @SerializedName("backdrop_path")
     val backdropPath: String?,
-    @SerializedName("genre_ids")
-    val genreIds: List<Int>?,
+    @SerializedName("genres")
+    val genres: List<Genre>?,
     @SerializedName("id")
     val id: Int?,
     @SerializedName("media_type")
@@ -28,6 +29,8 @@ data class Movie(
     val releaseDate: String?,
     @SerializedName("title")
     val title: String?,
+    @SerializedName("status")
+    val status: String?,
     @SerializedName("video")
     val video: Boolean?,
     @SerializedName("vote_average")

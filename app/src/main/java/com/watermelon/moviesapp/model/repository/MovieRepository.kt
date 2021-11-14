@@ -3,11 +3,11 @@ package com.watermelon.moviesapp.model.repository
 
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.network.API
+import com.watermelon.moviesapp.model.response.genres.Genre
 import com.watermelon.moviesapp.model.response.movie.MovieResponse
 import com.watermelon.moviesapp.utils.Constant
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.*
 import retrofit2.Response
 
 object MovieRepository {
@@ -18,6 +18,8 @@ object MovieRepository {
     fun getMovieCast(movieId: Int) = wrapWithFlow { API.apiService.getMovieCast(movieId) }
 
     fun getProfile(id: Int) = wrapWithFlow { API.apiService.getProfile(id) }
+
+    fun getSimilarMovies(id: Int) = wrapWithFlow { API.apiService.getSimilarMovies(id) }
 
     fun getTrendingPerson(time: String) = wrapWithFlow { API.apiService.getTrendingPerson(time) }
 
@@ -41,13 +43,12 @@ object MovieRepository {
 
     fun getTvShowProvidersChannel() = wrapWithFlow { API.apiService.getTvShowProvidersChannel() }
 
-    private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
-        return flow {
+    private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> =
+        flow {
             emit(State.Loading)
             try {
                 val result = function()
                 if (result.isSuccessful) {
-
                     emit(State.Success(result.body()))
                 } else {
                     emit(State.Error(result.message()))
@@ -58,5 +59,4 @@ object MovieRepository {
         }.catch {
             emit(State.Error(it.message.toString()))
         }
-    }
 }

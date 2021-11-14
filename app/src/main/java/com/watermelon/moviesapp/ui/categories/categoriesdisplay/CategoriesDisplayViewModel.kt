@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.repository.MovieRepository
-import com.watermelon.moviesapp.model.response.movie.Movie
 import com.watermelon.moviesapp.model.response.movie.MovieResponse
 import com.watermelon.moviesapp.ui.categories.CategoriesInteractionListener
 import kotlinx.coroutines.flow.collect
@@ -21,7 +20,6 @@ class CategoriesDisplayViewModel : ViewModel(), CategoriesInteractionListener {
             MovieRepository.getMoviesOfOneGenre(id).collect {
                 movieDetails.postValue(it)
             }
-
         }
     }
 

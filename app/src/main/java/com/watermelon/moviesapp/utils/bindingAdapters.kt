@@ -1,49 +1,36 @@
 package com.watermelon.moviesapp.utils
 
+import android.annotation.SuppressLint
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import androidx.core.view.isVisible
+import androidx.core.view.marginLeft
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import com.google.android.material.imageview.ShapeableImageView
 import com.watermelon.moviesapp.model.State
+import com.watermelon.moviesapp.model.response.genres.Genre
 import com.watermelon.moviesapp.ui.base.BaseAdapter
+import watermelon.moviesapp.R
 
 
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> showWhenLoading(view: View, state: State<T>?) {
-    when (state) {
-        is State.Loading -> view.visibility = VISIBLE
-        else -> view.visibility = GONE
-    }
-
+    view.isVisible = (state is State.Loading)
 }
 
 
 @BindingAdapter(value = ["app:showWhenError"])
 fun <T> showWhenError(view: View, state: State<T>?) {
-    when (state) {
-        is State.Error ->
-            view.visibility = VISIBLE
-
-        else ->
-            view.visibility = GONE
-
-    }
+    view.isVisible = (state is State.Error)
 }
 
 
 @BindingAdapter(value = ["app:showWhenSuccess"])
 fun <T> showWhenSuccess(view: View, state: State<T>?) {
-    when (state) {
-        is State.Success ->
-            view.visibility = VISIBLE
-
-        else ->
-            view.visibility = GONE
-
-    }
+    view.isVisible = (state is State.Success)
 }
 
 
@@ -60,3 +47,24 @@ fun setImage(view: ShapeableImageView?, imagePath: String?) {
             .into(view)
     }
 }
+
+
+@SuppressLint("ResourceAsColor", "ResourceType")
+@BindingAdapter(value = ["app:theListForChips"])
+fun theListForChips(view: ChipGroup , list: List<Genre>?) {
+    list?.map {
+        val chip = Chip(view.context)
+        chip.text = it.name
+        chip.setBackgroundColor(android.R.color.transparent)
+        chip.setPadding(12 , 4, 12,4)
+        chip.setChipStrokeColorResource(R.color.base_color)
+        chip.setChipStrokeWidthResource(R.dimen.stroke1dp)
+        view.addView(chip)
+    }
+
+}
+
+
+
+
+
