@@ -63,9 +63,6 @@
         android:name="com.watermelon.moviesapp.ui.profile.about.AboutFragment"
         android:label="AboutFragment"
         tools:layout="@layout/fragment_about_actor">
-        <argument
-            android:name="personId"
-            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/categoriesFragment"
