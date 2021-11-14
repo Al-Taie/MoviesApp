@@ -35,6 +35,16 @@ object MovieRepository {
 
     fun getMoviesOfOneGenre(id: Int) = wrapWithFlow { API.apiService.getMoviesOfOneGenre(id) }
 
+    fun getTvPopular() = wrapWithFlow { API.apiService.getTvPopular() }
+
+    fun getTvTopRated() = wrapWithFlow { API.apiService.getTvTopRated() }
+
+    fun getTvAiringToday() = wrapWithFlow { API.apiService.getTvAiringToday() }
+
+    fun getTvOnTheAir() = wrapWithFlow { API.apiService.getTvOnTheAir() }
+
+    fun getTvDetails(id: Int) = wrapWithFlow { API.apiService.getTvDetails(id) }
+
     fun getLatestTvShow() = wrapWithFlow { API.apiService.getLatestTvShow() }
 
     fun getTvShowChannel() = wrapWithFlow { API.apiService.getTvShowChannel() }

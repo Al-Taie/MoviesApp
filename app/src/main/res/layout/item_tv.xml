@@ -4,10 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="item"
-            type="com.watermelon.moviesapp.model.response.tv.Season" />
+            type="com.watermelon.moviesapp.model.response.tv.TV" />
+
+        <variable
+            name="listener"
+            type="com.watermelon.moviesapp.ui.tv.TvInteractionListener" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -20,7 +23,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:onClick="@{() -> listener.onItemClicked(item.id)}">
 
             <TextView
                 android:id="@+id/item_rate"
@@ -30,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin4dp"
                 android:layout_marginEnd="@dimen/margin1x"
-                android:text="@{item.name}"
+                android:text="@{item.voteAverage.toString()}"
                 android:background="@drawable/shape_rate"
                 android:elevation="4dp"
                 android:textColor="@color/white"

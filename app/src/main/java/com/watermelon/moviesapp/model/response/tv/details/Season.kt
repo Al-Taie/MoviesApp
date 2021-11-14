@@ -1,21 +1,21 @@
-package com.watermelon.moviesapp.model.response.tv
+package com.watermelon.moviesapp.model.response.tv.details
 
 
 import com.google.gson.annotations.SerializedName
 
 data class Season(
     @SerializedName("air_date")
-    val airDate: String? = null,
+    val airDate: String?,
     @SerializedName("episode_count")
-    val episodeCount: Int? = null,
+    val episodeCount: Int?,
     @SerializedName("id")
-    val id: Int? = null,
+    val id: Int?,
     @SerializedName("name")
-    val name: String? = null,
+    val name: String?,
     @SerializedName("overview")
-    val overview: String? = null,
+    val overview: String?,
     @SerializedName("poster_path")
-    val posterPath: String? = null,
+    val posterPath: String?,
     @SerializedName("season_number")
-    val seasonNumber: Int? = null
+    val seasonNumber: Int?
 )

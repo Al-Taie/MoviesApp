@@ -40,7 +40,11 @@
         android:id="@+id/tvFragment"
         android:name="com.watermelon.moviesapp.ui.tv.TvFragment"
         android:label="TvFragment"
-        tools:layout="@layout/fragment_tv"/>
+        tools:layout="@layout/fragment_tv">
+        <action
+            android:id="@+id/action_tvFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragment"
