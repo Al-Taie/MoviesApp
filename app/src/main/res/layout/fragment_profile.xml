@@ -94,6 +94,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:backgroundTint="@color/dark_bg"
+            app:tabIndicatorColor="@color/base_color"
+            app:tabSelectedTextColor="@color/base_color"
+            app:tabTextColor="@color/dark_secondary"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             tools:layout_editor_absoluteX="35dp" />
 

@@ -15,7 +15,6 @@ import kotlinx.coroutines.launch
 
 class ProfileViewModel : ViewModel(),MovieInteractionListener {
     var person = MutableLiveData<State<Person?>>()
-    var movieCredits = MutableLiveData<State<MovieCredits?>>()
 
 
     override fun onItemLoad(id: Int) {
@@ -24,9 +23,7 @@ class ProfileViewModel : ViewModel(),MovieInteractionListener {
             MovieRepository.getProfile(id).collect {
                 person.postValue(it)
             }
-            MovieRepository.getMovieCredits(id).collect {
-                movieCredits.postValue(it)
-            }
+
         }
 
     }
