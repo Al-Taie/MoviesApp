@@ -7,7 +7,8 @@
 
         <variable
             name="viewModel"
-            type="com.watermelon.moviesapp.ui.categories.categoriesdisplay.CategoriesDisplayViewModel" />
+            type="com.watermelon.moviesapp.ui.popular.PopularViewModel" />
+
 
     </data>
 
@@ -22,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin2x"
             android:gravity="center"
-            android:text="@string/categories_list"
+            android:text="@string/popular_cast"
             android:textColor="@color/base_color"
             android:textSize="26sp"
             android:textStyle="bold"
@@ -43,12 +44,12 @@
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/categories_recycler_display"
+            android:id="@+id/popular_recycler_display"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/margin2x"
             android:orientation="vertical"
-            app:items="@{viewModel.movieDetails.toData().results}"
+            app:items="@{viewModel.trendingPerson.toData().results}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/list_title"

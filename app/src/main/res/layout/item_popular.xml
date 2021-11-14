@@ -4,15 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
-            type="com.watermelon.moviesapp.model.response.credits.Cast" />
+            type="com.watermelon.moviesapp.model.response.trending.person.TrendingPerson" />
+
+        <variable
+            name="listener"
+            type="com.watermelon.moviesapp.ui.popular.PopularViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="135dp">
+        android:layout_height="135dp"
+        android:onClick="@{() -> listener.onItemClick(item.id)}">
 
 
         <androidx.cardview.widget.CardView
@@ -80,14 +86,14 @@
             android:textColor="@color/black"
             android:textSize="@dimen/text12sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/movie_rate"
+            app:layout_constraintBottom_toTopOf="@id/cast_rate"
             app:layout_constraintLeft_toLeftOf="@id/cast_name"
             app:layout_constraintRight_toRightOf="@id/cast_name"
             app:layout_constraintTop_toBottomOf="@id/cast_name"
             tools:text="release date" />
 
         <RatingBar
-            android:id="@+id/movie_rate"
+            android:id="@+id/cast_rate"
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
