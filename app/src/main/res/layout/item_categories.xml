@@ -8,12 +8,17 @@
             name="item"
             type="com.watermelon.moviesapp.model.response.genres.Genre" />
 
+        <variable
+            name="listener"
+            type="com.watermelon.moviesapp.ui.categories.CategoriesViewModel" />
+
     </data>
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> listener.onItemClick(item.id)}">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/item_image"

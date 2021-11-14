@@ -9,15 +9,11 @@
             name="item"
             type="com.watermelon.moviesapp.model.response.movie.Movie" />
 
-        <variable
-            name="listener"
-            type="com.watermelon.moviesapp.ui.categories.CategoriesViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="135dp"
-        android:onClick="@{() -> listener.onItemClick(item.id)}">
+        android:layout_height="135dp">
 
 
         <androidx.cardview.widget.CardView
