@@ -51,5 +51,10 @@
             android:name="personId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.watermelon.moviesapp.ui.categories.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" />
 
 </navigation>
