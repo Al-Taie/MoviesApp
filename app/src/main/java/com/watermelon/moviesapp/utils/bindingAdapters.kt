@@ -10,8 +10,7 @@ import com.google.android.material.imageview.ShapeableImageView
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.response.tv.TVResponse
 import com.watermelon.moviesapp.ui.base.BaseAdapter
-import com.watermelon.moviesapp.ui.tv.TvViewModel
-
+import com.watermelon.moviesapp.ui.tv.TvInteractionListener
 
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> showWhenLoading(view: View, state: State<T>?) {
@@ -22,32 +21,21 @@ fun <T> showWhenLoading(view: View, state: State<T>?) {
 
 }
 
-
 @BindingAdapter(value = ["app:showWhenError"])
 fun <T> showWhenError(view: View, state: State<T>?) {
     when (state) {
-        is State.Error ->
-            view.visibility = VISIBLE
-
-        else ->
-            view.visibility = GONE
-
+        is State.Error -> view.visibility = VISIBLE
+        else -> view.visibility = GONE
     }
 }
-
 
 @BindingAdapter(value = ["app:showWhenSuccess"])
 fun <T> showWhenSuccess(view: View, state: State<T>?) {
     when (state) {
-        is State.Success ->
-            view.visibility = VISIBLE
-
-        else ->
-            view.visibility = GONE
-
+        is State.Success -> view.visibility = VISIBLE
+        else -> view.visibility = GONE
     }
 }
-
 
 @BindingAdapter(value = ["app:items"])
 fun <T> setRecyclerItems(view: RecyclerView?, items: List<T>?) {
@@ -63,6 +51,6 @@ fun setImage(view: ShapeableImageView?, imagePath: String?) {
     }
 }
 
-@BindingAdapter(value = ["app:stream", "app:viewModel"], requireAll = false)
-fun streamObserve(view: View, state: State<TVResponse>?, viewModel: TvViewModel?) =
-    view.setOnClickListener { viewModel?.stream?.postValue(state) }
+@BindingAdapter(value = ["app:stream", "app:listener"], requireAll = false)
+fun streamObserve(view: View, state: State<TVResponse>?, listener: TvInteractionListener?) =
+    view.setOnClickListener { listener?.setStream(state) }

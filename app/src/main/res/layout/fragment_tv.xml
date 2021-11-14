@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.watermelon.moviesapp.ui.tv.StreamTypes"/>
         <variable
             name="viewModel"
             type="com.watermelon.moviesapp.ui.tv.TvViewModel" />
@@ -74,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:checked="true"
                 app:stream="@{viewModel.onTheAir}"
-                app:viewModel="@{viewModel}"
+                app:listener="@{viewModel}"
                 app:textStartPadding="@dimen/margin16dp"
                 style="@style/Widget.MyApp.Chip.Choice"
                 android:textColor="@color/white"
@@ -84,7 +83,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 app:stream="@{viewModel.airingToday}"
-                app:viewModel="@{viewModel}"
+                app:listener="@{viewModel}"
                 app:textStartPadding="@dimen/margin16dp"
                 style="@style/Widget.MyApp.Chip.Choice"
                 android:textColor="@color/white"
@@ -94,7 +93,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 app:stream="@{viewModel.popular}"
-                app:viewModel="@{viewModel}"
+                app:listener="@{viewModel}"
                 style="@style/Widget.MyApp.Chip.Choice"
                 android:textColor="@color/white"
                 android:text="@string/popular"/>
@@ -103,7 +102,7 @@
                 android:layout_width="80dp"
                 app:chipStartPadding="10dp"
                 app:stream="@{viewModel.topRated}"
-                app:viewModel="@{viewModel}"
+                app:listener="@{viewModel}"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MyApp.Chip.Choice"
                 android:textColor="@color/white"

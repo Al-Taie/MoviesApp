@@ -14,14 +14,12 @@ class TvViewModel : ViewModel(), TvInteractionListener {
     val onTheAir = MovieRepository.getTvOnTheAir().asLiveData()
     val airingToday = MovieRepository.getTvAiringToday().asLiveData()
     val popular = MovieRepository.getTvPopular().asLiveData()
-
     val stream: MutableLiveData<State<TVResponse?>> = MutableLiveData()
 
     private val _navigateToDetails = MutableLiveData<Event<Int>>()
     val navigateToDetails: LiveData<Event<Int>> = _navigateToDetails
 
-    override fun onItemLoad(id: Int) {}
-
     override fun onItemClicked(id: Int) = _navigateToDetails.postValue(Event(id))
 
+    override fun setStream(state: State<TVResponse>?) = stream.postValue(state)
 }
