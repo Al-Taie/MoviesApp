@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_tvFragment"
+            app:destination="@id/tvFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
 
     </fragment>
     <fragment
@@ -42,8 +48,8 @@
         android:label="TvFragment"
         tools:layout="@layout/fragment_tv">
         <action
-            android:id="@+id/action_tvFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            android:id="@+id/action_tvFragment_to_detailsTvFragment"
+            app:destination="@id/detailsTvFragment" />
     </fragment>
 
     <fragment
@@ -89,6 +95,15 @@
         android:name="com.watermelon.moviesapp.ui.popular.PopularFragment"
         android:label="PopularFragment"
         tools:layout="@layout/fragment_popular"/>
+
+    <fragment
+        android:id="@+id/detailsTvFragment"
+        android:name="com.watermelon.moviesapp.ui.detailsTv.DetailsTvFragment"
+        android:label="DetailsTvFragment" >
+        <argument
+            android:name="tvId"
+            app:argType="integer" />
+    </fragment>
 
 
 </navigation>

@@ -17,6 +17,7 @@ import watermelon.moviesapp.R
 
 import com.watermelon.moviesapp.ui.tv.TvInteractionListener
 
+
 @BindingAdapter(value = ["app:showWhenLoading"])
 fun <T> showWhenLoading(view: View, state: State<T>?) {
     view.isVisible = (state is State.Loading)
@@ -39,12 +40,22 @@ fun <T> setRecyclerItems(view: RecyclerView?, items: List<T>?) {
 
 @BindingAdapter(value = ["app:image"])
 fun setImage(view: ShapeableImageView?, imagePath: String?) {
-    if (view != null) {
+    view?.let {
         Glide.with(view)
             .load(Constant.BASE_IMAGE_URL + imagePath)
             .into(view)
     }
 }
+
+@BindingAdapter(value = ["app:imageCast"])
+fun setImageCast(view: ShapeableImageView?, imagePath: String?) {
+    view?.let {
+        Glide.with(view)
+            .load(Constant.Cast_IMAGE_URL + imagePath)
+            .into(view)
+    }
+}
+
 
 @BindingAdapter(value = ["app:theListForChips"])
 fun theListForChips(view: ChipGroup , list: List<Genre>?) {
@@ -77,3 +88,9 @@ fun showMoreTextLines(view: TextView, text: String?){
         }
     }
 }
+
+@BindingAdapter(value = ["app:isNotNull"])
+fun checkData (view: View, item: Any?) {
+    view.isVisible = !item.toString().isNullOrEmpty()
+}
+

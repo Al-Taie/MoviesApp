@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.watermelon.moviesapp.model.response.tv.details.Season" />
+
+        <variable
+            name="listener"
+            type="com.watermelon.moviesapp.ui.detailsTv.SeasonTvInteractionListener" />
+
+    </data>
+
+        <LinearLayout
+            android:layout_marginHorizontal="@dimen/margin16dp"
+            android:layout_marginVertical="@dimen/margin4dp"
+            android:paddingHorizontal="@dimen/padding12dp"
+            android:paddingVertical="@dimen/padding16dp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:background="@drawable/shape_season"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Season 1"
+                    android:text="@{item.name}"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="end"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin16dp"
+                    android:text="@{item.overview}"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/margin8dp"
+                    tools:text="description" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.airDate.toString()}"
+                    app:chipStrokeWidth="1dp"
+                    android:padding="@dimen/margin4dp"
+                    android:gravity="end"
+                    android:visibility="gone"
+                    android:layout_marginHorizontal="@dimen/margin16dp"
+                    android:layout_marginVertical="@dimen/margin8dp"
+                    android:layout_gravity="end"
+                    android:textColor="@color/primary_text_color"
+                    android:backgroundTint="@android:color/transparent"
+                    app:chipStrokeColor="@color/base_color"
+                    tools:text="1990-2-31" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+</layout>

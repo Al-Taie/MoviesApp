@@ -50,7 +50,7 @@ interface MovieService {
     suspend fun getTvCredits(
         @Path("id") id: Int,
         @Query("api_key") apiKey: String = Constant.API_KEY
-    ): Response<TvCredits>
+    ): Response<Credits>
 
     @GET("trending/${MediaType.PERSON}/{time_window}")
     suspend fun getTrendingPerson(
@@ -118,8 +118,10 @@ interface MovieService {
             : Response<TVResponse>
 
     @GET("tv/{id}")
-    suspend fun getTvDetails(@Path("id") id: Int, @Query("api_key") apiKey: String = Constant.API_KEY)
-            : Response<TVDetailsResponse>
+    suspend fun getTvDetails(
+        @Path("id") id: Int,
+        @Query("api_key") apiKey: String = Constant.API_KEY
+    ): Response<TVDetailsResponse>
 
     @GET("watch/providers/movie")
     suspend fun getTvShowChannel(@Query("api_key") apiKey: String = Constant.API_KEY)
@@ -133,6 +135,12 @@ interface MovieService {
     @GET("movie/{movie_id}/similar")
     suspend fun getSimilarMovies(
         @Path("movie_id") moviesId: Int,
+        @Query("api_key") apiKey: String = Constant.API_KEY
+    ): Response<SimilarResponse>
+
+    @GET("tv/{tv_id}/similar")
+    suspend fun getSimilarTv(
+        @Path("tv_id") tvId: Int,
         @Query("api_key") apiKey: String = Constant.API_KEY
     ): Response<SimilarResponse>
 
