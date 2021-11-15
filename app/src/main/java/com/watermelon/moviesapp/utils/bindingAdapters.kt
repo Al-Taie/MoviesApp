@@ -16,6 +16,10 @@ import com.watermelon.moviesapp.ui.base.BaseAdapter
 import watermelon.moviesapp.R
 
 import com.watermelon.moviesapp.ui.tv.TvInteractionListener
+import android.widget.ProgressBar
+
+import android.webkit.WebView
+import android.widget.ImageView
 
 
 @BindingAdapter(value = ["app:showWhenLoading"])
@@ -79,4 +83,12 @@ fun streamObserve(view: View, state: State<TVResponse>?, listener: TvInteraction
 fun checkData (view: View, item: Any?) {
     view.isVisible = !item.toString().isNullOrEmpty()
 }
+
+@BindingAdapter(value = ["app:attachedView"])
+fun setAttachedView(imgView: ImageView?, view: View?) {
+    imgView?.setOnClickListener {
+        view?.isVisible = !(view?.visibility == View.VISIBLE)
+    }
+}
+
 
