@@ -2,6 +2,7 @@ package com.watermelon.moviesapp.utils
 
 import android.view.View
 import androidx.core.view.isVisible
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -62,3 +63,17 @@ fun theListForChips(view: ChipGroup , list: List<Genre>?) {
 @BindingAdapter(value = ["app:stream", "app:listener"], requireAll = false)
 fun streamObserve(view: View, state: State<TVResponse>?, listener: TvInteractionListener?) =
     view.setOnClickListener { listener?.setStream(state) }
+
+@BindingAdapter(value = ["app:showMoreTextLines"])
+fun showMoreTextLines(view: TextView, text: String?){
+    var isTextViewClicked = false
+    view.setOnClickListener {
+        if (isTextViewClicked) {
+            view.maxLines = 4
+            isTextViewClicked = false
+        } else {
+            view.maxLines = Integer.MAX_VALUE
+            isTextViewClicked = true
+        }
+    }
+}
