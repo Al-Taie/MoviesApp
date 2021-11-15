@@ -23,6 +23,8 @@ object MovieRepository {
 
     fun getSimilarMovies(id: Int) = wrapWithFlow { API.apiService.getSimilarMovies(id) }
 
+    fun getSimilarTv(id: Int) = wrapWithFlow { API.apiService.getSimilarTv(id) }
+
     fun getTvCredits(id: Int) = wrapWithFlow { API.apiService.getTvCredits(id) }
 
     fun getTrendingPerson(time: String) = wrapWithFlow { API.apiService.getTrendingPerson(time) }
@@ -33,9 +35,8 @@ object MovieRepository {
 
     fun getTrendingAll(time: String) = wrapWithFlow { API.apiService.getTrendingAll(time) }
 
-    fun searchForMovie(movieTitle: String): Flow<State<MovieResponse?>> {
-        return wrapWithFlow { API.apiService.searchForMovie(movieTitle) }
-    }
+    fun searchForMovie(movieTitle: String): Flow<State<MovieResponse?>> =
+        wrapWithFlow { API.apiService.searchForMovie(movieTitle) }
 
     fun getGenres() = wrapWithFlow { API.apiService.getGenres(Constant.API_KEY) }
 
@@ -73,4 +74,5 @@ object MovieRepository {
         }.catch {
             emit(State.Error(it.message.toString()))
         }
+
 }

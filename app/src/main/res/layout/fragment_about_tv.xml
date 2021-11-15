@@ -1,0 +1,99 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.watermelon.moviesapp.ui.detailsTv.DetailsTvViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin32dp"
+        tools:context="com.watermelon.moviesapp.ui.detailsTv.AboutTvFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="@dimen/margin24dp"
+            android:layout_marginTop="@dimen/margin16dp"
+            android:background="@drawable/shape_season"
+            android:paddingHorizontal="@dimen/margin16dp"
+            android:paddingVertical="@dimen/margin8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Overview"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineHeight="18dp"
+                android:padding="@dimen/padding16dp"
+                android:text="@{viewModel.tvDetails.toData().overview}"
+                android:textColor="@color/primary_text_color"
+                tools:text="The film centers on the love relationship among the band's bassist Haruki Nakayama, drummer Akihiko Kaji, and Akihiko's   roommate and ex-boyfriend Ugetsu Murata." />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding24dp"
+            android:layout_marginTop="@dimen/padding16dp"
+            android:text="Cast"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text20sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_cast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            app:isNotNull="@{viewModel.credits.toData().cast}"
+            android:paddingHorizontal="@dimen/padding28dp"
+            app:items="@{viewModel.credits.toData().cast}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:showWhenSuccess="@{viewModel.credits}"
+            tools:listitem="@layout/item_cast" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin24dp"
+            android:layout_marginTop="@dimen/padding24dp"
+            android:text="Similar Movie"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text20sp"
+            android:textStyle="bold" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_similar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding28dp"
+            app:items="@{viewModel.similarTv.toData().movies}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:showWhenSuccess="@{viewModel.similarTv}"
+            tools:listitem="@layout/item_cast" />
+
+
+    </LinearLayout>
+</layout>

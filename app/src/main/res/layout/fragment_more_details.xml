@@ -1,0 +1,92 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.watermelon.moviesapp.ui.detailsTv.DetailsTvViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin24dp"
+        tools:context="com.watermelon.moviesapp.ui.detailsTv.AboutTvFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:isNotNull="@{viewModel.tvDetails.toData().nextEpisodeToAir.overview}"
+            android:layout_marginHorizontal="@dimen/margin24dp"
+            android:layout_marginTop="@dimen/margin16dp"
+            android:background="@drawable/shape_season"
+            android:paddingHorizontal="@dimen/margin16dp"
+            android:paddingVertical="@dimen/margin8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next Episode"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineHeight="18dp"
+                android:padding="@dimen/padding16dp"
+                android:text="@{viewModel.tvDetails.toData().nextEpisodeToAir.overview}"
+                android:textColor="@color/primary_text_color"
+                tools:text="The film centers on the love relationship among the band's bassist Haruki Nakayama, drummer Akihiko Kaji, and Akihiko's   roommate and ex-boyfriend Ugetsu Murata." />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.tvDetails.toData().nextEpisodeToAir.airDate}"
+                app:chipStrokeWidth="1dp"
+                android:padding="@dimen/margin4dp"
+                android:gravity="end"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/margin8dp"
+                android:layout_gravity="end"
+                android:textColor="@color/primary_text_color"
+                android:backgroundTint="@android:color/transparent"
+                app:chipStrokeColor="@color/base_color"
+                tools:text="1990-2-31" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding24dp"
+            android:layout_marginTop="@dimen/margin24dp"
+            android:text="Production Companies"
+            app:isNotNull="@{viewModel.tvDetails.toData().productionCompanies[0]}"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text20sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_companies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding28dp"
+            app:items="@{viewModel.tvDetails.toData().productionCompanies}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:showWhenSuccess="@{viewModel.tvDetails}"
+            tools:listitem="@layout/item_production_companies_tv" />
+
+    </LinearLayout>
+
+</layout>

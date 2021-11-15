@@ -2,6 +2,7 @@ package com.watermelon.moviesapp.model.response.tv.details
 
 
 import com.google.gson.annotations.SerializedName
+import com.watermelon.moviesapp.model.response.genres.Genre
 
 data class TVDetailsResponse(
     @SerializedName("backdrop_path")

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="TabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabBackground">@android:color/transparent</item>
+        <item name="tabSelectedTextColor">@color/base_color</item>
+        <item name="tabTextColor">@color/primary_text_color</item>
+        <item name="tabIndicatorColor">@color/base_color</item>
+    </style>
 
     <style name="SearchBar">
 
@@ -13,6 +19,10 @@
 
     <style name="ShapeAppearanceOverlay.App.CornerSize10Percent" parent="">
         <item name="cornerSize">10%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerSize">50%</item>
     </style>
 
     <style name="Widget.MyApp.Chip.Choice" parent="Widget.MaterialComponents.Chip.Choice">
