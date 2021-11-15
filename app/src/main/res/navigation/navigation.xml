@@ -84,6 +84,11 @@
             android:name="movieId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/popularFragment"
+        android:name="com.watermelon.moviesapp.ui.popular.PopularFragment"
+        android:label="PopularFragment"
+        tools:layout="@layout/fragment_popular"/>
 
 
 </navigation>

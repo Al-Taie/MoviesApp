@@ -19,6 +19,11 @@
         android:color="@color/base_color"/>
 
     <item
+        android:id="@+id/popularFragment"
+        android:icon="@drawable/ic_baseline_trending_up_24"
+        android:title="@string/trending"
+        android:color="@color/base_color"/>
+    <item
         android:id="@+id/categoriesFragment"
         android:icon="@drawable/ic_baseline_trending_up_24"
         android:title="@string/categories"

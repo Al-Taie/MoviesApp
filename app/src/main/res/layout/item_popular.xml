@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.watermelon.moviesapp.model.response.trending.person.TrendingPerson" />
+
+        <variable
+            name="listener"
+            type="com.watermelon.moviesapp.ui.popular.PopularViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:onClick="@{() -> listener.onItemClick(item.id)}">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/bottom_card"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="@color/cards_color"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/top_Card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_card"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/item_image"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:elevation="@dimen/margin16dp"
+                android:scaleType="centerCrop"
+                app:image="@{item.profilePath}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+                app:srcCompat="@drawable/splash_image" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/cast_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin16dp"
+            android:layout_marginTop="16dp"
+            android:elevation="@dimen/elevation8"
+            android:gravity="center"
+            android:maxHeight="25dp"
+            android:minWidth="90dp"
+            android:text="@{item.name}"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/top_Card"
+            app:layout_constraintTop_toTopOf="@id/bottom_card"
+            tools:text="movie name" />
+
+        <TextView
+            android:id="@+id/release_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/elevation8"
+
+            android:textColor="@color/black"
+            android:textSize="@dimen/text12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/cast_rate"
+            app:layout_constraintLeft_toLeftOf="@id/cast_name"
+            app:layout_constraintRight_toRightOf="@id/cast_name"
+            app:layout_constraintTop_toBottomOf="@id/cast_name"
+            tools:text="release date" />
+
+        <RatingBar
+            android:id="@+id/cast_rate"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:elevation="@dimen/elevation8"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:progressBackgroundTint="@color/blue_text_color"
+            android:progressTint="@color/base_color"
+
+            app:layout_constraintBottom_toBottomOf="@id/top_Card"
+            app:layout_constraintLeft_toLeftOf="@id/cast_name"
+            app:layout_constraintRight_toRightOf="@id/cast_name" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
