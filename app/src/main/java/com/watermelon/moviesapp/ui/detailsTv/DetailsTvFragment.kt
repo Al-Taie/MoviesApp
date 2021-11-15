@@ -1,6 +1,8 @@
 package com.watermelon.moviesapp.ui.detailsTv
 
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
@@ -38,7 +40,6 @@ class DetailsTvFragment : BaseFragment<FragmentDetailsTvBinding>() {
             SeasonsTvFragment(),
             MoreDetailsFragment()
         )
-
         binding.detailsTvViewPager.adapter = DetailsTvViewPager(this, fragmentList)
     }
 
@@ -46,6 +47,15 @@ class DetailsTvFragment : BaseFragment<FragmentDetailsTvBinding>() {
         BottomSheetBehavior.from(binding.detailsMovie).apply {
             peekHeight = 450
             state = BottomSheetBehavior.STATE_COLLAPSED
+
+            addBottomSheetCallback(object :  BottomSheetBehavior.BottomSheetCallback() {
+                override fun onStateChanged(bottomSheet: View, newState: Int) {}
+
+                override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                    if (slideOffset == 0f) { binding.detailsMovie.smoothScrollTo(0, 0) }
+                }
+
+            })
         }
     }
 
