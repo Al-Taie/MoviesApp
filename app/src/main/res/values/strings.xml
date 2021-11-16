@@ -32,6 +32,6 @@
     <string name="alive">Alive</string>
     <string name="popular_cast">POPULAR CAST</string>
     <string name="overview">Overview</string>
-    <string name="similar_movie">Similar Movie</string>
     <string name="cast">Cast</string>
+    <string name="similar_movie">Similar Movie</string>
 </resources>

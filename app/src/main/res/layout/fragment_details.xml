@@ -83,7 +83,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:text="8.7"
+                            tools:text="8.7"
                             android:textSize="@dimen/text12sp"
                             android:textColor="@color/primary_text_color"
                             android:textStyle="bold" />
@@ -146,7 +146,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/padding24dp"
                         android:layout_marginTop="@dimen/padding16dp"
-                        android:text="Cast"
+                        android:text="@string/cast"
                         app:isNotNull="@{viewModel.credits.toData().cast[0]}"
                         android:textColor="@color/primary_text_color"
                         android:textSize="@dimen/text20sp"
@@ -172,7 +172,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/margin24dp"
                         android:layout_marginTop="@dimen/padding24dp"
-                        android:text="Similar Movie"
+                        android:text="@string/similar_movie"
                         android:textColor="@color/primary_text_color"
                         android:textSize="@dimen/text20sp"
                         android:textStyle="bold" />
@@ -188,7 +188,7 @@
                         app:items="@{viewModel.similarMovies.toData().movies}"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:showWhenSuccess="@{viewModel.similarMovies}"
-                        tools:listitem="@layout/item_cast" />
+                        tools:listitem="@layout/item_similar_movies" />
 
                 </LinearLayout>
 
