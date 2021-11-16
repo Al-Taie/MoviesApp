@@ -1,30 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="base_color">#E99A27</color>
-    <color name="backgruond_color">#F7F7F7</color>
-    <color name="background_color">#F7F7F7</color>
-    <color name="status_bar_color">#39424A</color>
 
-    <color name="primary_text_color">#393939</color>
+    <color name="white">#FFFFFF</color>
     <color name="secondary_text_color">#8B8B8B</color>
-
-    <color name="blue_text_color">#2f6688</color>
-    <color name="gray_text_color">#75787b</color>
-    <color name="cards_color">#2E303D</color>
-
-    <color name="searchStroke">#AACAB3</color>
-    <color name="lightGrey">#EBEBEB</color>
-
-    <color name="dark_bg">#161D27</color>
-    <color name="light_bg">#F7F7F7</color>
-
-    <color name="dark_secondary">#747AA6</color>
-    <color name="light_secondary">#8B8B8B</color>
+    <color name="cards_color">#FFFFFF</color>
+    <color name="base_color">#E99A27</color>
+    <color name="background_color">#F7F7F7</color>
+    <color name="primary_text_color">#393939</color>
+    <color name="status_bar_color">#39424A</color>
 
     <color name="dark_chip">#272935</color>
 
-    <color name="light_text">#FFFFFF</color>
-    <color name="dark_text">#333333</color>
 </resources>

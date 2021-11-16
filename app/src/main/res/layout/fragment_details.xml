@@ -13,7 +13,7 @@
         android:id="@+id/main_constraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/backgruond_color" >
+        android:background="@color/background_color" >
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loading"
@@ -44,7 +44,7 @@
 
             <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
@@ -52,7 +52,7 @@
                 <ScrollView
                     android:id="@+id/details_movie"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
                 <LinearLayout
@@ -125,7 +125,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/margin24dp"
                         android:layout_marginTop="@dimen/margin16dp"
-                        android:background="@color/backgruond_color"
+                        android:background="@color/background_color"
                         android:padding="@dimen/margin24dp"
                         app:cardCornerRadius="@dimen/radius16"
                         app:cardElevation="4dp">
@@ -133,7 +133,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:lineHeight="18dp"
+                            android:lineHeight="20dp"
                             android:padding="@dimen/padding16dp"
                             android:text="@{viewModel.movieDetails.toData().overview}"
                             android:textColor="@color/primary_text_color"

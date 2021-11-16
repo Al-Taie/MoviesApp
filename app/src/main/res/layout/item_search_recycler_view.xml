@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="item"
             type="com.watermelon.moviesapp.model.response.movie.Movie" />
@@ -12,8 +11,9 @@
         <variable
             name="listener"
             type="com.watermelon.moviesapp.ui.search.SearchViewModel" />
-
     </data>
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="120dp"
@@ -33,37 +33,20 @@
             android:background="@color/cards_color"
             android:onClick="@{() -> listener.onItemLoad(item.id)}">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/item_image"
-                android:layout_width="100dp"
-                android:layout_height="0dp"
-                android:layout_margin="@dimen/margin4dp"
-                android:elevation="16dp"
-                android:scaleType="centerCrop"
-                app:image="@{item.posterPath}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
-                tools:src="@tools:sample/avatars" />
-
-            <TextView
-                android:id="@+id/move_name"
+            <RatingBar
+                android:id="@+id/myRatingBar"
+                style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:maxHeight="25dp"
-                android:minWidth="90dp"
-                android:text="@{item.originalTitle}"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/margin8dp"
+                android:layout_marginTop="@dimen/margin8dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:progressBackgroundTint="@color/secondary_text_color"
+                android:progressTint="@color/base_color"
+                android:rating="@{Float.valueOf(item.voteAverage)}"
                 app:layout_constraintLeft_toRightOf="@id/item_image"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="movie name" />
+                app:layout_constraintTop_toBottomOf="@id/release_date" />
 
             <TextView
                 android:id="@+id/release_date"
@@ -72,7 +55,7 @@
                 android:layout_marginStart="@dimen/margin8dp"
                 android:layout_marginTop="8dp"
                 android:text="@{item.releaseDate}"
-                android:textColor="@color/white"
+                android:textColor="@color/primary_text_color"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toRightOf="@id/item_image"
@@ -87,7 +70,7 @@
                 android:maxHeight="25dp"
                 android:minWidth="90dp"
                 android:text="@{item.adult.toString()}"
-                android:textColor="@color/white"
+                android:textColor="@color/primary_text_color"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toRightOf="@id/release_date"
@@ -102,146 +85,50 @@
                 android:maxHeight="25dp"
                 android:minWidth="90dp"
                 android:text="@{item.popularity.toString()}"
-                android:textColor="@color/white"
+                android:textColor="@color/primary_text_color"
                 android:textSize="11sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toRightOf="@id/age_classification"
                 app:layout_constraintTop_toTopOf="@id/release_date"
                 tools:text="popularity" />
 
-
-            <RatingBar
-                android:id="@+id/myRatingBar"
-                style="?android:attr/ratingBarStyleSmall"
+            <TextView
+                android:id="@+id/move_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin8dp"
-                android:layout_marginTop="@dimen/margin8dp"
-                android:isIndicator="true"
-                android:numStars="5"
-                android:progressBackgroundTint="@color/blue_text_color"
-                android:progressTint="@color/base_color"
-                android:rating="@{Float.valueOf(item.voteAverage)}"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:maxHeight="25dp"
+                android:minWidth="90dp"
+                android:text="@{item.originalTitle}"
+                android:textColor="@color/primary_text_color"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 app:layout_constraintLeft_toRightOf="@id/item_image"
-                app:layout_constraintTop_toBottomOf="@id/release_date"/>
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="movie name" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/overview"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="@dimen/margin8dp"-->
-<!--                android:layout_marginTop="@dimen/margin8dp"-->
-<!--                android:maxHeight="25dp"-->
-<!--                android:minWidth="90dp"-->
-<!--                android:text="@{item.overview}"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="11sp"-->
-<!--                android:textStyle="bold"-->
-<!--                app:layout_constraintLeft_toRightOf="@id/item_image"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/myRatingBar"-->
-<!--                tools:text="overview" />-->
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/item_image"
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/margin4dp"
+                android:elevation="16dp"
+                android:scaleType="centerCrop"
+                app:image="@{item.posterPath}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+                tools:src="@tools:sample/avatars" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.cardview.widget.CardView>
-
-
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:layout_marginVertical="@dimen/margin8dp"-->
-<!--        android:layout_marginStart="@dimen/margin4dp"-->
-<!--        android:backgroundTint="@color/cards_color"-->
-<!--        app:cardCornerRadius="@dimen/margin16dp">-->
-
-
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:id="@+id/search_results"-->
-<!--            style="@style/SearchBar"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:onClick="@{() -> listener.onItemLoad(item.id)}">-->
-
-<!--            <com.google.android.material.imageview.ShapeableImageView-->
-<!--                android:id="@+id/item_image"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:elevation="16dp"-->
-<!--                android:scaleType="centerCrop"-->
-<!--                app:image="@{item.posterPath}"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintLeft_toLeftOf="parent"-->
-<!--                app:layout_constraintRight_toRightOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"-->
-<!--                tools:src="@tools:sample/avatars" />-->
-
-
-<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                android:id="@+id/paragraph"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="65dp"-->
-<!--                android:background="@drawable/header_shape"-->
-<!--                android:elevation="16dp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.0"-->
-<!--                app:layout_constraintStart_toStartOf="parent">-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/move_name"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="@dimen/margin4dp"-->
-<!--                    android:layout_marginTop="4dp"-->
-<!--                    android:maxHeight="25dp"-->
-<!--                    android:minWidth="90dp"-->
-<!--                    android:text="@{item.originalTitle}"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="11sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    tools:text="movie name" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/release_date"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="@dimen/margin4dp"-->
-<!--                    android:layout_marginTop="4dp"-->
-<!--                    android:text="@{item.releaseDate}"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="10sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/move_name"-->
-<!--                    tools:text="release date" />-->
-
-<!--                <RatingBar-->
-<!--                    android:id="@+id/myRatingBar"-->
-<!--                    style="?android:attr/ratingBarStyleSmall"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="@dimen/margin4dp"-->
-<!--                    android:layout_marginTop="@dimen/margin2dp"-->
-<!--                    android:isIndicator="true"-->
-<!--                    android:numStars="5"-->
-<!--                    android:progressBackgroundTint="@color/blue_text_color"-->
-<!--                    android:progressTint="@color/icons"-->
-<!--                    android:rating="@{Float.valueOf(item.voteAverage)}"-->
-<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/release_date" />-->
-
-
-<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--    </androidx.cardview.widget.CardView>-->
 
 
 </layout>

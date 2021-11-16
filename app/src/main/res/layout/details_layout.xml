@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin24dp"
             android:layout_marginTop="@dimen/margin16dp"
-            android:background="@color/backgruond_color"
+            android:background="@color/background_color"
             android:padding="@dimen/margin24dp"
             app:cardCornerRadius="@dimen/radius16"
             app:cardElevation="4dp">

@@ -1,4 +1,4 @@
-package com.watermelon.moviesapp.ui.detailsTv
+package com.watermelon.moviesapp.ui.detailsTv.about
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,7 @@ import androidx.fragment.app.activityViewModels
 import com.watermelon.moviesapp.ui.base.BaseFragment
 import com.watermelon.moviesapp.ui.details.CastAdapter
 import com.watermelon.moviesapp.ui.details.SimilarMoviesAdapter
+import com.watermelon.moviesapp.ui.detailsTv.about.DetailsTvViewModel
 import watermelon.moviesapp.databinding.FragmentAboutTvBinding
 
 

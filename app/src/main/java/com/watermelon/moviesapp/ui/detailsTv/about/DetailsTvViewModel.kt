@@ -1,4 +1,4 @@
-package com.watermelon.moviesapp.ui.detailsTv
+package com.watermelon.moviesapp.ui.detailsTv.about
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,14 +14,12 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
-class DetailsTvViewModel : ViewModel(), MovieInteractionListener, SeasonTvInteractionListener {
+class DetailsTvViewModel : ViewModel(), MovieInteractionListener {
 
     var credits = MutableLiveData<State<Credits?>>()
     var similarTv = MutableLiveData<State<SimilarResponse?>>()
     private val _tvDetails = MutableLiveData<State<TVDetailsResponse?>>()
     val tvDetails: LiveData<State<TVDetailsResponse?>> = _tvDetails
-    var displayData: MutableLiveData<Boolean> = MutableLiveData()
-    var isDisplayData = false
 
     override fun onItemLoad(id: Int) {
         viewModelScope.launch {
@@ -33,11 +31,7 @@ class DetailsTvViewModel : ViewModel(), MovieInteractionListener, SeasonTvIntera
         }
     }
 
-    override fun onCastClicked(personId: Int) {}
-
-    override fun onClickToDisplayData() {
-        displayData.postValue(!isDisplayData)
-    }
+    override fun onCastClicked(personId: Int) {  }
 
 }
 

@@ -5,95 +5,119 @@
     <data>
         <variable
             name="viewModel"
-            type="com.watermelon.moviesapp.ui.detailsTv.DetailsTvViewModel" />
+            type="com.watermelon.moviesapp.ui.detailsTv.about.DetailsTvViewModel" />
     </data>
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/details_movie"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/margin32dp"
-        tools:context="com.watermelon.moviesapp.ui.detailsTv.AboutTvFragment">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin32dp"
+            android:isScrollContainer="true"
             android:orientation="vertical"
-            android:layout_marginHorizontal="@dimen/margin24dp"
-            android:layout_marginTop="@dimen/margin16dp"
-            android:background="@drawable/shape_season"
-            android:paddingHorizontal="@dimen/margin16dp"
-            android:paddingVertical="@dimen/margin8dp">
+            android:paddingBottom="@dimen/margin32dp"
+            tools:context="com.watermelon.moviesapp.ui.detailsTv.about.AboutTvFragment">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:isNotNull="@{viewModel.tvDetails.toData().overview}"
+                android:paddingHorizontal="@dimen/margin16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/overview"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineHeight="18dp"
+                    android:paddingHorizontal="@dimen/padding16dp"
+                    android:paddingTop="@dimen/padding8dp"
+                    android:text="@{viewModel.tvDetails.toData().overview}"
+                    android:textColor="@color/primary_text_color"
+                    tools:text="The film centers on the love relationship among the band's bassist Haruki Nakayama, drummer Akihiko Kaji, and Akihiko's   roommate and ex-boyfriend Ugetsu Murata." />
+
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Overview"
+                android:layout_marginHorizontal="@dimen/padding16dp"
+                android:layout_marginTop="@dimen/margin24dp"
+                android:text="@string/cast"
                 android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text20sp"
-                android:textStyle="bold" />
+                app:isNotNull="@{viewModel.credits.toData().cast[0]}"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_cast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin8dp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/padding28dp"
+                app:isNotNull="@{viewModel.credits.toData().cast}"
+                app:items="@{viewModel.credits.toData().cast}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:showWhenSuccess="@{viewModel.credits}"
+                tools:listitem="@layout/item_cast" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:lineHeight="18dp"
-                android:padding="@dimen/padding16dp"
-                android:text="@{viewModel.tvDetails.toData().overview}"
+                android:layout_marginStart="@dimen/margin16dp"
+                android:layout_marginTop="@dimen/margin24dp"
+                android:text="@string/similar_movie"
                 android:textColor="@color/primary_text_color"
-                tools:text="The film centers on the love relationship among the band's bassist Haruki Nakayama, drummer Akihiko Kaji, and Akihiko's   roommate and ex-boyfriend Ugetsu Murata." />
+                android:textSize="@dimen/text20sp"
+                app:isNotNull="@{viewModel.similarTv.toData().movies[0]}"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_cast" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_similar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin8dp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/padding28dp"
+                app:items="@{viewModel.similarTv.toData().movies}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:showWhenSuccess="@{viewModel.similarTv}"
+                tools:listitem="@layout/item_similar_movies" />
 
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/padding24dp"
-            android:layout_marginTop="@dimen/padding16dp"
-            android:text="Cast"
-            android:textColor="@color/primary_text_color"
-            android:textSize="@dimen/text20sp"
-            android:textStyle="bold" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_cast"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:clipToPadding="false"
-            android:orientation="horizontal"
-            app:isNotNull="@{viewModel.credits.toData().cast}"
-            android:paddingHorizontal="@dimen/padding28dp"
-            app:items="@{viewModel.credits.toData().cast}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:showWhenSuccess="@{viewModel.credits}"
-            tools:listitem="@layout/item_cast" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin24dp"
-            android:layout_marginTop="@dimen/padding24dp"
-            android:text="Similar Movie"
-            android:textColor="@color/primary_text_color"
-            android:textSize="@dimen/text20sp"
-            android:textStyle="bold" />
+    </ScrollView>
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_similar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:clipToPadding="false"
-            android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/padding28dp"
-            app:items="@{viewModel.similarTv.toData().movies}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:showWhenSuccess="@{viewModel.similarTv}"
-            tools:listitem="@layout/item_cast" />
-
-
-    </LinearLayout>
 </layout>
+

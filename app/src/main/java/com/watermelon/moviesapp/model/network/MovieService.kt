@@ -46,9 +46,9 @@ interface MovieService {
         @Query("api_key") apiKey: String = Constant.API_KEY
     ): Response<MovieCredits>
 
-    @GET("person/{id}/tv_credits")
+    @GET("tv/{tv_id}/credits?")
     suspend fun getTvCredits(
-        @Path("id") id: Int,
+        @Path("tv_id") id: Int,
         @Query("api_key") apiKey: String = Constant.API_KEY
     ): Response<Credits>
 
@@ -87,6 +87,7 @@ interface MovieService {
         @Path("movie_id") movieId: Int,
         @Query("api_key") apiKey: String = Constant.API_KEY
     ): Response<Credits>
+
 
     @GET("genre/movie/list")
     suspend fun getGenres(@Query("api_key") apiKey: String = Constant.API_KEY): Response<Genres>

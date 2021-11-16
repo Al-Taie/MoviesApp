@@ -1,9 +1,10 @@
-package com.watermelon.moviesapp.ui.detailsTv
+package com.watermelon.moviesapp.ui.detailsTv.season
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.watermelon.moviesapp.ui.base.BaseFragment
+import com.watermelon.moviesapp.ui.detailsTv.about.DetailsTvViewModel
 import watermelon.moviesapp.databinding.FragmentSeasonsBinding
 
 
@@ -16,6 +17,7 @@ class SeasonsTvFragment : BaseFragment<FragmentSeasonsBinding>() {
 
     override fun setup() {
         initRecyclers()
+
     }
 
     private fun initRecyclers() {

@@ -7,7 +7,6 @@
     android:textColor="@color/base_color"
     app:closeIconTint="@color/white"
     app:chipBackgroundColor="@color/cards_color"
-    style="@style/Widget.MaterialComponents.Chip.Choice"
-    >
+    style="@style/Widget.MaterialComponents.Chip.Choice" >
 
 </com.google.android.material.chip.Chip>

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.watermelon.moviesapp.ui.detailsTv.DetailsTvViewModel" />
+            type="com.watermelon.moviesapp.ui.detailsTv.about.DetailsTvViewModel" />
 
     </data>
 
@@ -14,13 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin32dp"
-        android:background="@color/backgruond_color" >
+        android:background="@color/background_color" >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_seasons"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin16dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin24dp"
             android:clipToPadding="false"
             android:orientation="vertical"
             app:items="@{viewModel.tvDetails.toData().seasons}"

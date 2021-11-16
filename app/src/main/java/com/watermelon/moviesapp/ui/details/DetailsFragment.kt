@@ -41,7 +41,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
                 override fun onStateChanged(bottomSheet: View, newState: Int) {}
 
                 override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                    if (slideOffset == 0f) { binding.detailsMovie.smoothScrollTo(0, 0) }
+                    if (slideOffset == -4f) { binding.detailsMovie.smoothScrollTo(0, 0) }
                 }
             })
         }

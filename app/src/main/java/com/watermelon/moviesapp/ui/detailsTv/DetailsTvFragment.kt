@@ -1,6 +1,5 @@
 package com.watermelon.moviesapp.ui.detailsTv
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +8,11 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.tabs.TabLayoutMediator
 import com.watermelon.moviesapp.ui.base.BaseFragment
+import com.watermelon.moviesapp.ui.detailsTv.about.AboutTvFragment
+import com.watermelon.moviesapp.ui.detailsTv.about.DetailsTvViewModel
+import com.watermelon.moviesapp.ui.detailsTv.about.DetailsTvViewPager
+import com.watermelon.moviesapp.ui.detailsTv.moreDetails.MoreDetailsFragment
+import com.watermelon.moviesapp.ui.detailsTv.season.SeasonsTvFragment
 import watermelon.moviesapp.databinding.FragmentDetailsTvBinding
 
 
@@ -47,15 +51,6 @@ class DetailsTvFragment : BaseFragment<FragmentDetailsTvBinding>() {
         BottomSheetBehavior.from(binding.detailsMovie).apply {
             peekHeight = 450
             state = BottomSheetBehavior.STATE_COLLAPSED
-
-            addBottomSheetCallback(object :  BottomSheetBehavior.BottomSheetCallback() {
-                override fun onStateChanged(bottomSheet: View, newState: Int) {}
-
-                override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                    if (slideOffset == 0f) { binding.detailsMovie.smoothScrollTo(0, 0) }
-                }
-
-            })
         }
     }
 

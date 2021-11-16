@@ -63,6 +63,8 @@
     <dimen name="radius52">52dp</dimen>
     <dimen name="radius64">64dp</dimen>
     <dimen name="radius72">72dp</dimen>
+    <dimen name="radius100">100dp</dimen>
+
 
     <dimen name="search_bar_corners_radius">8dp</dimen>
 

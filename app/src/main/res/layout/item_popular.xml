@@ -70,7 +70,7 @@
             android:maxHeight="25dp"
             android:minWidth="90dp"
             android:text="@{item.name}"
-            android:textColor="@color/black"
+            android:textColor="@color/primary_text_color"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@id/top_Card"
@@ -82,8 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="@dimen/elevation8"
-
-            android:textColor="@color/black"
+            android:textColor="@color/secondary_text_color"
             android:textSize="@dimen/text12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/cast_rate"
@@ -101,9 +100,8 @@
             android:elevation="@dimen/elevation8"
             android:isIndicator="true"
             android:numStars="5"
-            android:progressBackgroundTint="@color/blue_text_color"
+            android:progressBackgroundTint="@color/secondary_text_color"
             android:progressTint="@color/base_color"
-
             app:layout_constraintBottom_toBottomOf="@id/top_Card"
             app:layout_constraintLeft_toLeftOf="@id/cast_name"
             app:layout_constraintRight_toRightOf="@id/cast_name" />

@@ -1,4 +1,4 @@
-package com.watermelon.moviesapp.ui.detailsTv
+package com.watermelon.moviesapp.ui.detailsTv.moreDetails
 
 import com.watermelon.moviesapp.model.response.tv.details.ProductionCompany
 import com.watermelon.moviesapp.ui.base.BaseAdapter

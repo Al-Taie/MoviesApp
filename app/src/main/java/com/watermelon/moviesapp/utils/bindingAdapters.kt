@@ -1,10 +1,14 @@
 package com.watermelon.moviesapp.utils
 
 import android.view.View
-import androidx.core.view.isVisible
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.AutoTransition
+import androidx.transition.TransitionManager
 import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -13,13 +17,8 @@ import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.response.genres.Genre
 import com.watermelon.moviesapp.model.response.tv.TVResponse
 import com.watermelon.moviesapp.ui.base.BaseAdapter
-import watermelon.moviesapp.R
-
 import com.watermelon.moviesapp.ui.tv.TvInteractionListener
-import android.widget.ProgressBar
-
-import android.webkit.WebView
-import android.widget.ImageView
+import watermelon.moviesapp.R
 
 
 @BindingAdapter(value = ["app:showWhenLoading"])
@@ -62,14 +61,14 @@ fun setImageCast(view: ShapeableImageView?, imagePath: String?) {
 
 
 @BindingAdapter(value = ["app:theListForChips"])
-fun theListForChips(view: ChipGroup , list: List<Genre>?) {
+fun theListForChips(view: ChipGroup, list: List<Genre>?) {
     list?.map {
         Chip(view.context).apply {
-           text = it.name
-            setPadding(24 , 4, 12,4)
+            text = it.name
+            setPadding(24, 4, 12, 4)
             setChipStrokeColorResource(R.color.base_color)
             setChipStrokeWidthResource(R.dimen.stroke1dp)
-            setChipBackgroundColorResource(R.color.backgruond_color)
+            setChipBackgroundColorResource(R.color.background_color)
             view.addView(this)
         }
     }
@@ -80,7 +79,7 @@ fun streamObserve(view: View, state: State<TVResponse>?, listener: TvInteraction
     view.setOnClickListener { listener?.setStream(state) }
 
 @BindingAdapter(value = ["app:showMoreTextLines"])
-fun showMoreTextLines(view: TextView, text: String?){
+fun showMoreTextLines(view: TextView, text: String?) {
     var isTextViewClicked = false
     view.setOnClickListener {
         if (isTextViewClicked) {
@@ -94,14 +93,22 @@ fun showMoreTextLines(view: TextView, text: String?){
 }
 
 @BindingAdapter(value = ["app:isNotNull"])
-fun checkData (view: View, item: Any?) {
-    view.isVisible = !item.toString().isNullOrEmpty()
+fun checkData(view: View, item: Any?) {
+    view.isVisible = item.toString().isNotEmpty() && item != null
 }
 
-@BindingAdapter(value = ["app:attachedView"])
-fun setAttachedView(imgView: ImageView?, view: View?) {
+
+@BindingAdapter("app:attachedView")
+fun setAttachedView(imgView: ImageView?, attachedView: LinearLayout?) {
     imgView?.setOnClickListener {
-        view?.isVisible = !(view?.visibility == View.VISIBLE)
+        attachedView?.let {
+            TransitionManager.beginDelayedTransition(it, AutoTransition())
+            it.isVisible = it?.visibility != View.VISIBLE
+            if (it.isVisible)
+                imgView.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
+            else
+                imgView.setImageResource(R.drawable.ic_baseline_keyboard_arrow_right_24)
+        }
     }
 }
 

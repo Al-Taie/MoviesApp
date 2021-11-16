@@ -10,7 +10,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/dark_bg"
+        android:background="@color/background_color"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -60,53 +60,52 @@
             android:id="@+id/chip_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin1x"
-            app:singleSelection="true"
-            app:selectionRequired="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title"
-            app:layout_constraintBottom_toTopOf="@id/tv_recycler_view">
+            app:selectionRequired="true"
+            app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
-                android:layout_width="80dp"
+                style="@style/Widget.MyApp.Chip.Choice"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/padding8dp"
+                android:text="@string/now"
                 android:checked="true"
-                app:stream="@{viewModel.onTheAir}"
+                android:textColor="@color/primary_text_color"
                 app:listener="@{viewModel}"
-                app:textStartPadding="@dimen/margin16dp"
-                style="@style/Widget.MyApp.Chip.Choice"
-                android:textColor="@color/white"
-                android:text="@string/now"/>
+                app:stream="@{viewModel.onTheAir}" />
 
             <com.google.android.material.chip.Chip
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                app:stream="@{viewModel.airingToday}"
-                app:listener="@{viewModel}"
-                app:textStartPadding="@dimen/margin16dp"
                 style="@style/Widget.MyApp.Chip.Choice"
-                android:textColor="@color/white"
-                android:text="@string/today"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/padding8dp"
+                android:text="@string/today"
+                android:textColor="@color/primary_text_color"
+                app:listener="@{viewModel}"
+                app:stream="@{viewModel.airingToday}" />
 
             <com.google.android.material.chip.Chip
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                app:stream="@{viewModel.popular}"
-                app:listener="@{viewModel}"
                 style="@style/Widget.MyApp.Chip.Choice"
-                android:textColor="@color/white"
-                android:text="@string/popular"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/padding8dp"
+                android:text="@string/popular"
+                android:textColor="@color/primary_text_color"
+                app:listener="@{viewModel}"
+                app:stream="@{viewModel.popular}" />
 
             <com.google.android.material.chip.Chip
-                android:layout_width="80dp"
-                app:chipStartPadding="10dp"
-                app:stream="@{viewModel.topRated}"
-                app:listener="@{viewModel}"
-                android:layout_height="wrap_content"
                 style="@style/Widget.MyApp.Chip.Choice"
-                android:textColor="@color/white"
-                android:text="@string/rated"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/padding8dp"
+                android:text="@string/rated"
+                android:textColor="@color/primary_text_color"
+                app:listener="@{viewModel}"
+                app:stream="@{viewModel.topRated}" />
 
         </com.google.android.material.chip.ChipGroup>
 
