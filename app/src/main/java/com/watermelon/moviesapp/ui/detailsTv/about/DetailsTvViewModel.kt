@@ -24,7 +24,7 @@ class DetailsTvViewModel : ViewModel(), MovieInteractionListener {
     private val _navigateToProfile = MutableLiveData<Event<Int>>()
     val navigateToProfile: LiveData<Event<Int>> = _navigateToProfile
 
-    override fun onCastClicked(personId : Int) = _navigateToProfile.postValue(Event(personId))
+    override fun onItemClicked(id : Int) = _navigateToProfile.postValue(Event(id))
 
     override fun onItemLoad(id: Int) {
         viewModelScope.launch {

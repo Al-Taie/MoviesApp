@@ -45,5 +45,7 @@ class SearchViewModel : ViewModel(), MovieInteractionListener {
         }
     }
 
-    override fun onItemClicked(id: Int) {}
+    override fun onItemClicked(id: Int) {
+        TODO("Not yet implemented")
+    }
 }
