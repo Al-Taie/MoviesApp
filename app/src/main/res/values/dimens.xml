@@ -70,5 +70,6 @@
     <dimen name="elevation8">8dp</dimen>
 
     <dimen name="stroke1dp">1dp</dimen>
+    <dimen name="text8sp">8sp</dimen>
 
 </resources>

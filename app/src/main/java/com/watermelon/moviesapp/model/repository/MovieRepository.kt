@@ -12,6 +12,7 @@ import retrofit2.Response
 
 object MovieRepository {
     fun getMovies() = wrapWithFlow { API.apiService.getMovies() }
+    fun getMoviesPopular() = wrapWithFlow { API.apiService.getMoviePopular() }
 
     fun getMovieDetails(movieId: Int) = wrapWithFlow { API.apiService.getMovieDetails(movieId) }
 

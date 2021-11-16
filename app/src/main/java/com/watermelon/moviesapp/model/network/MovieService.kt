@@ -9,6 +9,7 @@ import com.watermelon.moviesapp.model.response.movie.MovieResponse
 import com.watermelon.moviesapp.model.response.movieCredits.MovieCredits
 import com.watermelon.moviesapp.model.response.movies.MoviesResponse
 import com.watermelon.moviesapp.model.response.person.Person
+import com.watermelon.moviesapp.model.response.popularMovie.PopularMoviesResponse
 import com.watermelon.moviesapp.model.response.providerstv.ProvidersTvResponse
 import com.watermelon.moviesapp.model.response.trending.all.TrendingAllResponse
 import com.watermelon.moviesapp.model.response.trending.movie.TrendingMovieResponse
@@ -135,6 +136,11 @@ interface MovieService {
         @Path("movie_id") moviesId: Int,
         @Query("api_key") apiKey: String = Constant.API_KEY
     ): Response<SimilarResponse>
+
+    @GET("movie/popular")
+    suspend fun getMoviePopular(
+        @Query("api_key") apiKey: String = Constant.API_KEY
+    ): Response<PopularMoviesResponse>
 
 
 }

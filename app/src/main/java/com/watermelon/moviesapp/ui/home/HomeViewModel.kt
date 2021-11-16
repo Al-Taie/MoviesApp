@@ -8,6 +8,7 @@ import com.watermelon.moviesapp.model.repository.MovieRepository
 class HomeViewModel : ViewModel(), MovieInteractionListener {
     val movies = MovieRepository.getMovies().asLiveData()
     val genres = MovieRepository.getGenres().asLiveData()
+    val popularMovies = MovieRepository.getMoviesPopular().asLiveData()
 
     override fun onItemLoad(id: Int) {}
 

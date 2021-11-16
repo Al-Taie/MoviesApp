@@ -15,60 +15,62 @@
         android:background="@color/background_color"
         tools:context="com.watermelon.moviesapp.ui.home.HomeFragment">
 
-        <EditText
-            android:id="@+id/search_bar"
-            style="@style/SearchBar"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:inputType="text"
-            android:layout_marginHorizontal="@dimen/margin8dp"
-            android:paddingStart="@dimen/margin16dp"
-            android:layout_marginTop="@dimen/margin8dp"
-            android:transitionName="@string/search_transition"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="Autofill,LabelFor" />
+            app:layout_constraintTop_toTopOf="parent">
 
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/trending_Slider"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center|end"
+                app:sliderIndicatorMargin="8dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#FFF"
+                app:sliderScrollTimeInSec="1"
+                app:sliderStartAutoCycle="true" />
 
-        <HorizontalScrollView
-            android:id="@+id/scrollView"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="@dimen/margin2x"
-            android:scrollbars="none"
-            android:elevation="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_bar">
+        </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chip_group"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
-                app:layout_constraintEnd_toEndOf="@+id/constraintLayout4"
-                app:layout_constraintStart_toStartOf="@+id/constraintLayout4"
-                app:layout_constraintTop_toBottomOf="@+id/searchText"
-                app:singleLine="true"
-                app:singleSelection="true" />
-        </HorizontalScrollView>
+        <TextView
+            android:id="@+id/popular_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin3x"
+            android:text="@string/popular"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/cardView"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/home_fragment_recycler"
+            android:id="@+id/popular_recycler"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/margin8dp"
-            android:orientation="vertical"
-            app:items="@{viewModel.movies.toData().items}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/scrollView"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin2x"
+            android:layout_marginTop="@dimen/margin2x"
+            android:orientation="horizontal"
+            app:items="@{viewModel.popularMovies.toData().results}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_movies_top_list"/>
+            app:layout_constraintEnd_toEndOf="@id/popular_text"
+            app:layout_constraintStart_toStartOf="@+id/popular_text"
+            app:layout_constraintTop_toBottomOf="@id/popular_text"
+            tools:listitem="@layout/item_popular_movie" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
