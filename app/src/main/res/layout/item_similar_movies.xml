@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:scaleType="centerCrop"
-            android:onClick="@{() -> listener.onCastClicked(item.id)}"
+            android:onClick="@{() -> listener.onItemClicked(item.id)}"
             app:image="@{item.posterPath}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

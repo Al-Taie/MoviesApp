@@ -4,5 +4,5 @@ import com.watermelon.moviesapp.ui.base.BaseInteractionListener
 
 interface MovieInteractionListener : BaseInteractionListener {
     fun onItemLoad(id: Int)
-    fun onCastClicked(personId : Int)
+    fun onItemClicked(id : Int)
 }

@@ -22,6 +22,6 @@ class TvShowsActorViewModel : ViewModel() , MovieInteractionListener {
         }
     }
 
-    override fun onCastClicked(personId: Int) {  }
+    override fun onItemClicked(id: Int) {  }
 
 }

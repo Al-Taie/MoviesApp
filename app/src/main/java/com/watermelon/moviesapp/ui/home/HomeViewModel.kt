@@ -11,6 +11,6 @@ class HomeViewModel : ViewModel(), MovieInteractionListener {
 
     override fun onItemLoad(id: Int) {}
 
-    override fun onCastClicked(personId: Int) {}
+    override fun onItemClicked(id: Int) {}
 
 }
