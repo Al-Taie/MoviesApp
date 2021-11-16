@@ -18,6 +18,7 @@ import com.watermelon.moviesapp.model.response.trending.tv.TrendingTVResponse
 import com.watermelon.moviesapp.model.response.tv.TVResponse
 import com.watermelon.moviesapp.model.response.tv.details.TVDetailsResponse
 import com.watermelon.moviesapp.model.response.tvCredits.TvCredits
+import com.watermelon.moviesapp.model.response.upcomingMovies.UpcomingMoviesResponse
 import com.watermelon.moviesapp.utils.Constant
 import com.watermelon.moviesapp.utils.MediaType
 import retrofit2.Response
@@ -140,7 +141,12 @@ interface MovieService {
     @GET("movie/popular")
     suspend fun getMoviePopular(
         @Query("api_key") apiKey: String = Constant.API_KEY
-    ): Response<PopularMoviesResponse>
+    ): Response<MovieResponse>
+
+    @GET("movie/upcoming")
+    suspend fun getMovieUpcoming(
+        @Query("api_key") apiKey: String = Constant.API_KEY
+    ): Response<MovieResponse>
 
 
 }

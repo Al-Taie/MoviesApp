@@ -9,6 +9,7 @@ class HomeViewModel : ViewModel(), MovieInteractionListener {
     val movies = MovieRepository.getMovies().asLiveData()
     val genres = MovieRepository.getGenres().asLiveData()
     val popularMovies = MovieRepository.getMoviesPopular().asLiveData()
+    val upcomingMovies = MovieRepository.getMoviesUpcoming().asLiveData()
 
     override fun onItemLoad(id: Int) {}
 

@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.watermelon.moviesapp.model.response.popularMovie.Result" />
+            type="com.watermelon.moviesapp.model.response.movie.Movie" />
 
         <variable
             name="listener"
@@ -64,11 +64,13 @@
             app:layout_constraintTop_toBottomOf="@id/titleText" />
 
         <TextView
+            android:id="@+id/views"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:alpha=".8"
             android:textColor="@color/black"
             android:gravity="start"
+            android:text="@{item.voteCount.toString()}"
             android:textSize="@dimen/text12sp"
             android:layout_marginStart="@dimen/margin1x"
             app:layout_constraintBottom_toBottomOf="@id/imageView"
