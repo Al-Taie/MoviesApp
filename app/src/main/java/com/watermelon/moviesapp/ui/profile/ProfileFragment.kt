@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.tabs.TabLayoutMediator
 import com.watermelon.moviesapp.ui.base.BaseFragment
@@ -27,6 +28,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         viewModel.onItemLoad(args.personId)
         initViewPager()
         initTabLayout()
+        binding.goBack.setOnClickListener { findNavController().navigateUp() }
     }
 
     private fun initTabLayout() {
