@@ -1,10 +1,11 @@
 package com.watermelon.moviesapp.utils
 
+import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
+import androidx.core.view.isVisible
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.AutoTransition
@@ -91,6 +92,10 @@ fun showMoreTextLines(view: TextView, text: String?) {
             isTextViewClicked = true
         }
     }
+}
+@BindingAdapter(value = ["app:showAliveOrNot"])
+fun showAliveOrNot(view: ImageView, drawable: Drawable?) {
+        view.setImageDrawable(drawable)
 }
 
 @BindingAdapter(value = ["app:isNotNull"])
