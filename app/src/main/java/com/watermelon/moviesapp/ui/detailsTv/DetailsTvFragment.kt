@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.tabs.TabLayoutMediator
@@ -29,6 +30,7 @@ class DetailsTvFragment : BaseFragment<FragmentDetailsTvBinding>() {
         initViewPager()
         initTabLayout()
         addBottomSheet()
+        binding.goBack.setOnClickListener { findNavController().navigateUp() }
     }
 
     private fun initTabLayout() {
