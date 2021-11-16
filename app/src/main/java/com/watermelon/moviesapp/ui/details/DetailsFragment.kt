@@ -9,7 +9,7 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_COLLAPSED
 import com.watermelon.moviesapp.ui.base.BaseFragment
-import com.watermelon.moviesapp.utils.Event
+import com.watermelon.moviesapp.utils.EventObserver
 import watermelon.moviesapp.databinding.FragmentDetailsBinding
 
 class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
@@ -23,7 +23,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
     override fun setup() {
         viewModel.onItemLoad(args.movieId)
         initRecyclers()
-        viewModel.navigateToProfile.observe(this, ::onNavigate)
+        viewModel.navigateToProfile.observe(this, EventObserver { onNavigate(it) })
         addBottomSheet()
     }
 
@@ -37,21 +37,21 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
             peekHeight = 450
             state = STATE_COLLAPSED
 
-            addBottomSheetCallback(object :  BottomSheetBehavior.BottomSheetCallback() {
+            addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
                 override fun onStateChanged(bottomSheet: View, newState: Int) {}
 
                 override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                    if (slideOffset == 0f) { binding.detailsMovie.smoothScrollTo(0, 0) }
+                    if (slideOffset == 0f) {
+                        binding.detailsMovie.smoothScrollTo(0, 0)
+                    }
                 }
             })
         }
     }
 
-    private fun onNavigate(event: Event<Int>) {
-        event.getContentIfNotHandled()?.let { personId ->
-            val action = DetailsFragmentDirections.actionDetailsFragmentToProfileFragment(personId)
-            findNavController().navigate(action)
-        }
+    private fun onNavigate(personId: Int) {
+        val action = DetailsFragmentDirections.actionDetailsFragmentToProfileFragment(personId)
+        findNavController().navigate(action)
     }
 
 }

@@ -35,7 +35,11 @@
         <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/item_similar_movies.xml" value="0.346875" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/item_similary_movies.xml" value="0.321875" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/details_layout.xml" value="0.27447916666666666" />
+        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/fragment_about_actor.xml" value="0.1675925925925926" />
+        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/fragment_about_tv.xml" value="0.27447916666666666" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/fragment_details.xml" value="0.1675925925925926" />
+        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/fragment_details_tv.xml" value="0.27447916666666666" />
+        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/fragment_profile.xml" value="0.1675925925925926" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/fragment_tv.xml" value="0.25" />
       </map>
     </option>

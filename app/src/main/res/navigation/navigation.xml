@@ -99,11 +99,40 @@
     <fragment
         android:id="@+id/detailsTvFragment"
         android:name="com.watermelon.moviesapp.ui.detailsTv.DetailsTvFragment"
-        android:label="DetailsTvFragment" >
+        android:label="DetailsTvFragment"
+        tools:layout="@layout/fragment_details_tv">
         <argument
             android:name="tvId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_detailsTvFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutTvFragment"
+        android:name="com.watermelon.moviesapp.ui.detailsTv.about.AboutTvFragment"
+        android:label="AboutTvFragment"
+        tools:layout="@layout/fragment_about_tv"/>
+    <fragment
+        android:id="@+id/moreDetailsFragment"
+        android:name="com.watermelon.moviesapp.ui.detailsTv.moreDetails.MoreDetailsFragment"
+        android:label="MoreDetailsFragment"
+        tools:layout="@layout/fragment_more_details"/>
+    <fragment
+        android:id="@+id/moviesActorFragment"
+        android:name="com.watermelon.moviesapp.ui.profile.movies.MoviesActorFragment"
+        android:label="MoviesActorFragment"
+        tools:layout="@layout/fragment_movies_actor"/>
+    <fragment
+        android:id="@+id/seasonsTvFragment"
+        android:name="com.watermelon.moviesapp.ui.detailsTv.season.SeasonsTvFragment"
+        android:label="SeasonsTvFragment"
+        tools:layout="@layout/fragment_seasons"/>
+    <fragment
+        android:id="@+id/tvShowsActorFragment"
+        android:name="com.watermelon.moviesapp.ui.profile.tv_shows.TvShowsActorFragment"
+        android:label="TvShowsActorFragment"
+        tools:layout="@layout/fragment_tv_shows_actor"/>
 
 
 </navigation>

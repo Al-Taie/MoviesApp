@@ -3,10 +3,13 @@ package com.watermelon.moviesapp.ui.detailsTv.about
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.watermelon.moviesapp.ui.base.BaseFragment
 import com.watermelon.moviesapp.ui.details.CastAdapter
+import com.watermelon.moviesapp.ui.details.DetailsFragmentDirections
 import com.watermelon.moviesapp.ui.details.SimilarMoviesAdapter
-import com.watermelon.moviesapp.ui.detailsTv.about.DetailsTvViewModel
+import com.watermelon.moviesapp.ui.detailsTv.DetailsTvFragmentDirections
+import com.watermelon.moviesapp.utils.EventObserver
 import watermelon.moviesapp.databinding.FragmentAboutTvBinding
 
 
@@ -18,6 +21,7 @@ class AboutTvFragment : BaseFragment<FragmentAboutTvBinding>() {
 
 
     override fun setup() {
+        viewModel.navigateToProfile.observe(this, EventObserver { onNavigate(it) })
         initRecyclers()
     }
 
@@ -26,4 +30,8 @@ class AboutTvFragment : BaseFragment<FragmentAboutTvBinding>() {
         binding.recyclerSimilar.adapter = SimilarMoviesAdapter(mutableListOf(), viewModel)
     }
 
+    private fun onNavigate(personId: Int) {
+        val action = DetailsTvFragmentDirections.actionDetailsTvFragmentToProfileFragment(personId)
+        findNavController().navigate(action)
+    }
 }

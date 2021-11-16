@@ -7,7 +7,6 @@
         <variable
             name="viewModel"
             type="com.watermelon.moviesapp.ui.profile.about.AboutViewModel" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +31,7 @@
             tools:text="1998-05-11"
             android:layout_marginTop="24dp"
             android:layout_marginStart="@dimen/margin16dp"
-            android:textColor="@color/white"
+            android:textColor="@color/primary_text_color"
             android:textSize="12sp"
             android:elevation="24dp"
             app:layout_constraintStart_toEndOf="@+id/birth_icon"
@@ -55,7 +54,7 @@
             tools:text="63.997"
             android:layout_marginTop="@dimen/margin16dp"
             android:layout_marginStart="@dimen/margin16dp"
-            android:textColor="@color/white"
+            android:textColor="@color/primary_text_color"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/followers_icon"
             app:layout_constraintTop_toBottomOf="@+id/birthday" />
@@ -74,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/alive"
-            android:textColor="@color/white"
+            android:textColor="@color/primary_text_color"
             android:layout_marginTop="@dimen/margin16dp"
             android:layout_marginStart="@dimen/margin16dp"
             android:textSize="12sp"
@@ -119,7 +118,7 @@
             android:text="@{viewModel.person.toData().biography}"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
-            android:textColor="@color/white"
+            android:textColor="@color/primary_text_color"
             android:ellipsize="end"
             android:maxLines="4"
             android:scrollbars="vertical"

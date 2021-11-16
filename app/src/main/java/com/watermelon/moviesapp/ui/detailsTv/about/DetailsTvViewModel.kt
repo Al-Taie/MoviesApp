@@ -10,6 +10,7 @@ import com.watermelon.moviesapp.model.response.SimilarResponse
 import com.watermelon.moviesapp.model.response.credits.Credits
 import com.watermelon.moviesapp.model.response.tv.details.TVDetailsResponse
 import com.watermelon.moviesapp.ui.home.MovieInteractionListener
+import com.watermelon.moviesapp.utils.Event
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -20,6 +21,10 @@ class DetailsTvViewModel : ViewModel(), MovieInteractionListener {
     var similarTv = MutableLiveData<State<SimilarResponse?>>()
     private val _tvDetails = MutableLiveData<State<TVDetailsResponse?>>()
     val tvDetails: LiveData<State<TVDetailsResponse?>> = _tvDetails
+    private val _navigateToProfile = MutableLiveData<Event<Int>>()
+    val navigateToProfile: LiveData<Event<Int>> = _navigateToProfile
+
+    override fun onCastClicked(personId : Int) = _navigateToProfile.postValue(Event(personId))
 
     override fun onItemLoad(id: Int) {
         viewModelScope.launch {
@@ -30,8 +35,6 @@ class DetailsTvViewModel : ViewModel(), MovieInteractionListener {
             }
         }
     }
-
-    override fun onCastClicked(personId: Int) {  }
 
 }
 
