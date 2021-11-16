@@ -15,6 +15,37 @@
         android:background="@color/background_color"
         tools:context="com.watermelon.moviesapp.ui.home.HomeFragment">
 
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loading"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:elevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading"
+            app:showWhenLoading="@{viewModel.popularMovies}"
+            tools:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/title"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/base_color"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/margin2x"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/movies"/>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
@@ -23,7 +54,7 @@
             app:cardCornerRadius="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/title">
 
             <com.smarteist.autoimageslider.SliderView
                 android:id="@+id/trending_Slider"
@@ -35,6 +66,7 @@
                 app:sliderIndicatorAnimationDuration="600"
                 app:sliderIndicatorGravity="center|end"
                 app:sliderIndicatorMargin="8dp"
+                app:showWhenSuccess="@{viewModel.popularMovies}"
                 app:sliderIndicatorOrientation="horizontal"
                 app:sliderIndicatorPadding="3dp"
                 app:sliderIndicatorRadius="2dp"
@@ -50,6 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin3x"
+            app:showWhenSuccess="@{viewModel.popularMovies}"
             android:text="@string/popular"
             android:textColor="@color/black"
             android:textSize="@dimen/text18sp"
@@ -64,6 +97,7 @@
             android:layout_marginHorizontal="@dimen/margin2x"
             android:layout_marginTop="@dimen/margin2x"
             android:orientation="horizontal"
+            app:showWhenSuccess="@{viewModel.popularMovies}"
             app:items="@{viewModel.popularMovies.toData().results}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="@id/popular_text"
@@ -79,6 +113,7 @@
             android:text="@string/Upcoming"
             android:textColor="@color/black"
             android:textSize="@dimen/text18sp"
+            app:showWhenSuccess="@{viewModel.popularMovies}"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/cardView"
             app:layout_constraintTop_toBottomOf="@+id/popular_recycler" />
@@ -90,6 +125,7 @@
             android:layout_marginHorizontal="@dimen/margin2x"
             android:layout_marginTop="@dimen/margin2x"
             android:orientation="horizontal"
+            app:showWhenSuccess="@{viewModel.upcomingMovies}"
             app:items="@{viewModel.upcomingMovies.toData().results}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="@id/upcoming_text"
