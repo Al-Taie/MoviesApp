@@ -66,6 +66,7 @@ fun theListForChips(view: ChipGroup, list: List<Genre>?) {
         Chip(view.context).apply {
             text = it.name
             setPadding(24, 4, 12, 4)
+            setTextAppearanceResource(R.style.ChipTextStyle_Selected);
             setChipStrokeColorResource(R.color.base_color)
             setChipStrokeWidthResource(R.dimen.stroke1dp)
             setChipBackgroundColorResource(R.color.background_color)

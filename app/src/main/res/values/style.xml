@@ -33,6 +33,11 @@
         <item name="rippleColor">@color/base_color</item>
     </style>
 
+    <style name="ChipTextStyle_Selected">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+    </style>
+
     <style name="ThemeOverlay.MyApp.Chip.Choice" parent="">
         <item name="elevationOverlayEnabled">false</item>
     </style>
