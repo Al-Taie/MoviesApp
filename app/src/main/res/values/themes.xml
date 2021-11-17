@@ -11,7 +11,8 @@
         <item name="colorOnSecondary">@color/background_color</item>
         <!-- Status bar color. -->
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:statusBarColor">@color/status_bar_color</item>
+        <item name="android:statusBarColor">@color/background_color</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <!-- Customize your theme here. -->
     </style>
 
