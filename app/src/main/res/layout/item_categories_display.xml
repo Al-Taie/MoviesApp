@@ -51,7 +51,7 @@
                 android:layout_width="120dp"
                 android:layout_height="110dp"
                 android:elevation="@dimen/margin16dp"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 app:image="@{item.posterPath}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
