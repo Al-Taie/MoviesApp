@@ -19,6 +19,11 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
+    buildFeatures {
+        dataBinding true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -32,11 +37,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    
-    buildFeatures {
-        dataBinding true
-    }
-
 }
 
 dependencies {
@@ -74,8 +74,10 @@ dependencies {
 
     // Recycler LayoutManager
     implementation('com.mig35:carousellayoutmanager:1.4.6')
-
+    implementation 'com.github.smarteist:autoimageslider:1.4.0-appcompat'
 
     implementation 'com.google.android.material:material:1.4.0'
+
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 
 }

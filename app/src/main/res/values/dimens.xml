@@ -44,6 +44,7 @@
     <dimen name="text10sp">10sp</dimen>
     <dimen name="text12sp">12sp</dimen>
     <dimen name="text16sp">16sp</dimen>
+    <dimen name="text14sp">14sp</dimen>
     <dimen name="text18sp">18sp</dimen>
     <dimen name="text20sp">20sp</dimen>
     <dimen name="text24sp">24sp</dimen>
@@ -72,5 +73,7 @@
     <dimen name="elevation8">8dp</dimen>
 
     <dimen name="stroke1dp">1dp</dimen>
+    <dimen name="text8sp">8sp</dimen>
+    <dimen name="margin4dpx">4dp</dimen>
 
 </resources>
