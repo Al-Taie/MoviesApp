@@ -7,5 +7,5 @@ import watermelon.moviesapp.R
 class CategoriesDisplayAdapter(list: List<Movie>, listener: CategoriesDisplayInteractionListener) :
     BaseAdapter<Movie>(list, listener) {
     override val layoutID: Int
-        get() = R.layout.item_categories_display
+        get() = R.layout.item_search
 }

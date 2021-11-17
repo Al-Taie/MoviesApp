@@ -25,7 +25,7 @@
         android:color="@color/base_color"/>
     <item
         android:id="@+id/categoriesFragment"
-        android:icon="@drawable/ic_baseline_trending_up_24"
+        android:icon="@drawable/ic_menu"
         android:title="@string/categories"
         android:color="@color/base_color"/>
 </menu>

@@ -10,33 +10,43 @@
 
         <variable
             name="listener"
-            type="com.watermelon.moviesapp.ui.categories.CategoriesViewModel" />
+            type="com.watermelon.moviesapp.ui.categories.CategoriesInteractionListener" />
 
     </data>
 
-
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin8dp"
+        android:layout_marginVertical="@dimen/margin8dp"
+        android:layout_marginStart="@dimen/margin4dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="@dimen/margin16dp"
+        app:cardElevation="8dp"
+        >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{() -> listener.onItemClick(item.id)}">
 
-            <com.google.android.material.imageview.ShapeableImageView
+            <ImageView
                 android:id="@+id/item_image"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:scaleType="centerCrop"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_margin="@dimen/margin4dp"
-                tools:src="@tools:sample/avatars"/>
+                />
 
             <TextView
                 android:id="@+id/item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin2x"
+                android:layout_marginStart="@dimen/margin1x"
                 android:text="@{item.name}"
                 android:textColor="@color/primary_text_color"
                 android:textSize="18sp"
@@ -70,5 +80,5 @@
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </androidx.cardview.widget.CardView>
 </layout>
