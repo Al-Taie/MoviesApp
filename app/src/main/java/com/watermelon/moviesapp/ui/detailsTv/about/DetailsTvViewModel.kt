@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.repository.MovieRepository
-import com.watermelon.moviesapp.model.response.SimilarResponse
+import com.watermelon.moviesapp.model.response.tv.TVSimilarResponse
 import com.watermelon.moviesapp.model.response.credits.Credits
 import com.watermelon.moviesapp.model.response.tv.details.TVDetailsResponse
 import com.watermelon.moviesapp.ui.home.MovieInteractionListener
@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 class DetailsTvViewModel : ViewModel(), MovieInteractionListener {
 
     var credits = MutableLiveData<State<Credits?>>()
-    var similarTv = MutableLiveData<State<SimilarResponse?>>()
+    var similarTv = MutableLiveData<State<TVSimilarResponse?>>()
     private val _tvDetails = MutableLiveData<State<TVDetailsResponse?>>()
     val tvDetails: LiveData<State<TVDetailsResponse?>> = _tvDetails
     private val _navigateToProfile = MutableLiveData<Event<Int>>()

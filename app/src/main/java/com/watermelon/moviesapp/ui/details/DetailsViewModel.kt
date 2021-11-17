@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.repository.MovieRepository
-import com.watermelon.moviesapp.model.response.SimilarResponse
+import com.watermelon.moviesapp.model.response.movie.MovieSimilarResponse
 import com.watermelon.moviesapp.model.response.credits.Credits
 import com.watermelon.moviesapp.model.response.movie.Movie
 import com.watermelon.moviesapp.ui.home.MovieInteractionListener
@@ -18,7 +18,7 @@ class DetailsViewModel : ViewModel(), MovieInteractionListener,SimilarMovieListe
 
     var movieDetails = MutableLiveData<State<Movie?>>()
     var credits = MutableLiveData<State<Credits?>>()
-    var similarMovies = MutableLiveData<State<SimilarResponse?>>()
+    var similarMovies = MutableLiveData<State<MovieSimilarResponse?>>()
     private val _navigateToProfile = MutableLiveData<Event<Int>>()
     val navigateToProfile: LiveData<Event<Int>> = _navigateToProfile
 

@@ -1,6 +1,7 @@
 package com.watermelon.moviesapp.model.network
 
-import com.watermelon.moviesapp.model.response.SimilarResponse
+import com.watermelon.moviesapp.model.response.movie.MovieSimilarResponse
+import com.watermelon.moviesapp.model.response.tv.TVSimilarResponse
 import com.watermelon.moviesapp.model.response.channel.ChannelResponse
 import com.watermelon.moviesapp.model.response.credits.Credits
 import com.watermelon.moviesapp.model.response.genres.Genres
@@ -16,7 +17,6 @@ import com.watermelon.moviesapp.model.response.trending.person.TrendingPersonRes
 import com.watermelon.moviesapp.model.response.trending.tv.TrendingTVResponse
 import com.watermelon.moviesapp.model.response.tv.TVResponse
 import com.watermelon.moviesapp.model.response.tv.details.TVDetailsResponse
-import com.watermelon.moviesapp.model.response.tvCredits.TvCredits
 import com.watermelon.moviesapp.utils.Constant
 import com.watermelon.moviesapp.utils.MediaType
 import retrofit2.Response
@@ -137,13 +137,13 @@ interface MovieService {
     suspend fun getSimilarMovies(
         @Path("movie_id") moviesId: Int,
         @Query("api_key") apiKey: String = Constant.API_KEY
-    ): Response<SimilarResponse>
+    ): Response<MovieSimilarResponse>
 
     @GET("tv/{tv_id}/similar")
     suspend fun getSimilarTv(
         @Path("tv_id") tvId: Int,
         @Query("api_key") apiKey: String = Constant.API_KEY
-    ): Response<SimilarResponse>
+    ): Response<TVSimilarResponse>
 
 
 }
