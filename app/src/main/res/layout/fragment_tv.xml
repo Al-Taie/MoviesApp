@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/base_color"
-            android:textSize="32sp"
+            android:textSize="@dimen/text3x"
             android:textStyle="bold"
             android:layout_margin="@dimen/margin2x"
             app:layout_constraintTop_toTopOf="parent"

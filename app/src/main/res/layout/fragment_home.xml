@@ -49,7 +49,7 @@
                 android:gravity="center"
                 android:text="@string/movies"
                 android:textColor="@color/base_color"
-                android:textSize="32sp"
+                android:textSize="@dimen/text3x"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,49 +57,32 @@
 
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tranding_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                app:cardCornerRadius="6dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title">
-
-
-                <com.smarteist.autoimageslider.SliderView
-                    android:id="@+id/trending_Slider"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    app:showWhenSuccess="@{viewModel.popularMovies}"
-                    app:sliderAnimationDuration="600"
-                    app:sliderAutoCycleDirection="back_and_forth"
-                    app:sliderAutoCycleEnabled="true"
-                    app:sliderIndicatorAnimationDuration="600"
-                    app:sliderIndicatorGravity="center|end"
-                    app:sliderIndicatorMargin="8dp"
-                    app:sliderIndicatorOrientation="horizontal"
-                    app:sliderIndicatorPadding="3dp"
-                    app:sliderIndicatorRadius="2dp"
-                    app:sliderIndicatorSelectedColor="#5A5A5A"
-                    app:sliderIndicatorUnselectedColor="#FFF"
-                    app:sliderScrollTimeInSec="1"
-                    app:sliderStartAutoCycle="true" />
-
-            </androidx.cardview.widget.CardView>
+                android:layout_marginTop="@dimen/margin2x"
+                android:orientation="horizontal"
+                app:items="@{viewModel.tradingMovies.toData().results}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/popular_text"
+                app:layout_constraintStart_toStartOf="@+id/popular_text"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:showWhenSuccess="@{viewModel.tradingMovies}"
+                tools:listitem="@layout/item_trending_movies" />
 
             <TextView
                 android:id="@+id/popular_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin3x"
+                android:layout_marginStart="@dimen/margin2x"
                 android:text="@string/popular"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/cardView"
+                app:layout_constraintStart_toStartOf="@+id/tranding_recycler"
+                app:layout_constraintTop_toBottomOf="@+id/tranding_recycler"
                 app:showWhenSuccess="@{viewModel.popularMovies}" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -126,7 +109,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/text18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/cardView"
+                app:layout_constraintStart_toStartOf="@+id/popular_text"
                 app:layout_constraintTop_toBottomOf="@+id/popular_recycler"
                 app:showWhenSuccess="@{viewModel.popularMovies}" />
 

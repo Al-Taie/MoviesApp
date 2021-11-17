@@ -149,4 +149,9 @@ interface MovieService {
     ): Response<MovieResponse>
 
 
+    @GET("trending/movie/day")
+    suspend fun getMoviesTrading(
+        @Query("api_key") apiKey: String = Constant.API_KEY
+    ): Response<TrendingMovieResponse>
+
 }

@@ -4,9 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.watermelon.moviesapp.ui.base.BaseFragment
-import com.watermelon.moviesapp.ui.details.CastAdapter
-import com.watermelon.moviesapp.ui.details.SimilarMoviesAdapter
 import watermelon.moviesapp.databinding.FragmentHomeBinding
+
+
+
+
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
@@ -18,6 +20,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private fun initRecyclers() {
         binding.popularRecycler.adapter = PopularMovieAdapter(mutableListOf(), viewModel)
         binding.upcomingRecycler.adapter = UpcomingMoviesAdapter(mutableListOf(), viewModel)
+        binding.trandingRecycler.adapter = TradingMoviesAdapter(mutableListOf(), viewModel)
+
+
     }
 
 
