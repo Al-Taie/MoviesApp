@@ -76,7 +76,7 @@
                 app:items="@{viewModel.tradingMovies.toData().results}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/popular_text"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title"
                 app:showWhenSuccess="@{viewModel.tradingMovies}"
                 tools:listitem="@layout/item_trending_movies" />
