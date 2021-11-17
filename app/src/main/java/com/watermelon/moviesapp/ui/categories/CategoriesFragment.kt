@@ -5,16 +5,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.watermelon.moviesapp.ui.base.BaseFragment
-import com.watermelon.moviesapp.ui.search.SearchAdapter
-import com.watermelon.moviesapp.ui.search.SearchFragmentDirections
 import com.watermelon.moviesapp.utils.Event
 import watermelon.moviesapp.databinding.FragmentCategoriesBinding
 
 
 class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>() {
+
+
     override fun setup() {
 
-        binding.viewModel=viewModel
+        binding.viewModel = viewModel
         binding.categoriesRecycler.adapter = CategoriesAdapter(mutableListOf(), viewModel)
         viewModel.navigateToCategoriesDisplay.observe(this, ::onNavigate)
     }
@@ -24,12 +24,12 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>() {
         get() = FragmentCategoriesBinding::inflate
 
 
-
-
     private fun onNavigate(event: Event<Int>) {
-        event.getContentIfNotHandled()?.let {  movieId ->
-
-            val action=CategoriesFragmentDirections.actionCategoriesFragmentToCategoriesDisplayFragment(movieId)
+        event.getContentIfNotHandled()?.let { movieId ->
+            val action =
+                CategoriesFragmentDirections.actionCategoriesFragmentToCategoriesDisplayFragment(
+                    movieId
+                )
             findNavController().navigate(action)
         }
     }
