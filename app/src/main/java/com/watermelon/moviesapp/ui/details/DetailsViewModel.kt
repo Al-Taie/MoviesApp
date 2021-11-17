@@ -16,7 +16,6 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class DetailsViewModel : ViewModel(), MovieInteractionListener, SimilarItemListener {
-
     var movieDetails = MutableLiveData<State<Movie?>>()
     var credits = MutableLiveData<State<Credits?>>()
     var similarMovies = MutableLiveData<State<MovieSimilarResponse?>>()

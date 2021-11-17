@@ -6,12 +6,12 @@ import androidx.lifecycle.viewModelScope
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.repository.MovieRepository
 import com.watermelon.moviesapp.model.response.credits.Credits
-import com.watermelon.moviesapp.ui.home.MovieInteractionListener
+import com.watermelon.moviesapp.ui.home.HomeInteractionListener
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
-class TvShowsActorViewModel : ViewModel() , MovieInteractionListener {
+class TvShowsActorViewModel : ViewModel() , HomeInteractionListener {
     var tvCredits = MutableLiveData<State<Credits?>>()
 
     override fun onItemLoad(id: Int) {

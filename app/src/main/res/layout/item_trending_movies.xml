@@ -9,7 +9,7 @@
             type="com.watermelon.moviesapp.model.response.trending.movie.TrendingMovie" />
         <variable
             name="listener"
-            type="com.watermelon.moviesapp.ui.home.MovieInteractionListener" />
+            type="com.watermelon.moviesapp.ui.home.HomeInteractionListener" />
     </data>
 
 
@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin1x"
         android:layout_marginBottom="@dimen/margin1x"
+        android:onClick="@{()->listener.onItemClicked(item.id)}"
         >
 
 

@@ -9,14 +9,13 @@ import com.watermelon.moviesapp.model.repository.MovieRepository
 import com.watermelon.moviesapp.model.response.tv.TVSimilarResponse
 import com.watermelon.moviesapp.model.response.credits.Credits
 import com.watermelon.moviesapp.model.response.tv.details.TVDetailsResponse
-import com.watermelon.moviesapp.ui.SimilarItemListener
-import com.watermelon.moviesapp.ui.home.MovieInteractionListener
+import com.watermelon.moviesapp.ui.home.HomeInteractionListener
 import com.watermelon.moviesapp.utils.Event
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
-class DetailsTvViewModel : ViewModel(), MovieInteractionListener, SimilarItemListener {
+class DetailsTvViewModel : ViewModel(), HomeInteractionListener {
 
     var credits = MutableLiveData<State<Credits?>>()
     var similarTv = MutableLiveData<State<TVSimilarResponse?>>()
@@ -40,8 +39,6 @@ class DetailsTvViewModel : ViewModel(), MovieInteractionListener, SimilarItemLis
             }
         }
     }
-
-    override fun onSimilarItemClicked(id: Int) = _navigateToItSelf.postValue(Event(id))
 
 }
 

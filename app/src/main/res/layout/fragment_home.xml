@@ -91,7 +91,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/text18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/trading_recycler"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/trading_recycler"
                 app:showWhenSuccess="@{viewModel.popularMovies}" />
 
@@ -121,7 +121,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/popular_text"
                 app:layout_constraintTop_toBottomOf="@+id/popular_recycler"
-                app:showWhenSuccess="@{viewModel.popularMovies}" />
+                app:showWhenSuccess="@{viewModel.upcomingMovies}" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/upcoming_recycler"
@@ -148,7 +148,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/popular_text"
                 app:layout_constraintTop_toBottomOf="@+id/upcoming_recycler"
-                app:showWhenSuccess="@{viewModel.popularMovies}" />
+                app:showWhenSuccess="@{viewModel.topRatedMovies}" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/topRated_recycler"

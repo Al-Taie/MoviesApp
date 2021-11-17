@@ -11,7 +11,7 @@
 
         <variable
             name="listener"
-            type="com.watermelon.moviesapp.ui.home.MovieInteractionListener" />
+            type="com.watermelon.moviesapp.ui.home.HomeInteractionListener" />
     </data>
 
 
