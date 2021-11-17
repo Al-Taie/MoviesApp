@@ -11,7 +11,7 @@
 
         <variable
             name="listener"
-            type="com.watermelon.moviesapp.ui.popular.PopularInteractionListener" />
+            type="com.watermelon.moviesapp.ui.categories.categoriesdisplay.CategoriesDisplayInteractionListener" />
 
     </data>
 
