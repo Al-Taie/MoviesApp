@@ -154,4 +154,9 @@ interface MovieService {
         @Query("api_key") apiKey: String = Constant.API_KEY
     ): Response<TrendingMovieResponse>
 
+    @GET("movie/top_rated")
+    suspend fun getMoviesTopRated(
+        @Query("api_key") apiKey: String = Constant.API_KEY
+    ): Response<MovieResponse>
+
 }

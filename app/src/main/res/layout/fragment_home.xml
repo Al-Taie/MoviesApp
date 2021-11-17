@@ -30,6 +30,7 @@
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:elevation="5dp"
+                android:layout_marginTop="@dimen/margin4x"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,17 +56,26 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageButton
+                android:id="@+id/search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin2x"
+                android:background="@drawable/ic_search"
+                app:layout_constraintBottom_toBottomOf="@+id/title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/title" />
 
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/tranding_recycler"
+                android:id="@+id/trading_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin2x"
                 android:orientation="horizontal"
                 app:items="@{viewModel.tradingMovies.toData().results}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="@id/popular_text"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/popular_text"
                 app:layout_constraintTop_toBottomOf="@id/title"
                 app:showWhenSuccess="@{viewModel.tradingMovies}"
@@ -75,14 +85,14 @@
                 android:id="@+id/popular_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin3x"
+                android:layout_marginTop="@dimen/margin2x"
                 android:layout_marginStart="@dimen/margin2x"
                 android:text="@string/popular"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tranding_recycler"
-                app:layout_constraintTop_toBottomOf="@+id/tranding_recycler"
+                app:layout_constraintStart_toStartOf="@+id/trading_recycler"
+                app:layout_constraintTop_toBottomOf="@+id/trading_recycler"
                 app:showWhenSuccess="@{viewModel.popularMovies}" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -104,7 +114,7 @@
                 android:id="@+id/upcoming_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin3x"
+                android:layout_marginTop="@dimen/margin2x"
                 android:text="@string/Upcoming"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text18sp"
@@ -126,6 +136,34 @@
                 app:layout_constraintStart_toStartOf="@+id/upcoming_text"
                 app:layout_constraintTop_toBottomOf="@id/upcoming_text"
                 app:showWhenSuccess="@{viewModel.upcomingMovies}"
+                tools:listitem="@layout/item__movies" />
+            <TextView
+                android:id="@+id/topRated_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin2x"
+                android:text="@string/topRated"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/popular_text"
+                app:layout_constraintTop_toBottomOf="@+id/upcoming_recycler"
+                app:showWhenSuccess="@{viewModel.popularMovies}" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/topRated_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin2x"
+                android:layout_marginVertical="@dimen/margin2x"
+                android:orientation="horizontal"
+                app:items="@{viewModel.topRatedMovies.toData().results}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/topRated_text"
+                app:layout_constraintStart_toStartOf="@+id/topRated_text"
+                app:layout_constraintTop_toBottomOf="@id/topRated_text"
+                app:showWhenSuccess="@{viewModel.topRatedMovies}"
                 tools:listitem="@layout/item__movies" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

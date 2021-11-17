@@ -33,4 +33,5 @@
     <string name="popular">Popular</string>
     <string name="movie_image">movie image</string>
     <string name="Upcoming">Upcoming</string>
+    <string name="topRated">Top Rated</string>
 </resources>
