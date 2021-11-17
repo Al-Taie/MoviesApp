@@ -20,8 +20,8 @@
 
     <item
         android:id="@+id/popularFragment"
-        android:icon="@drawable/ic_baseline_trending_up_24"
-        android:title="@string/trending"
+        android:icon="@drawable/ic_outline_person_search"
+        android:title="@string/Famous"
         android:color="@color/base_color"/>
     <item
         android:id="@+id/categoriesFragment"

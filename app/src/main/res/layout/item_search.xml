@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
             type="com.watermelon.moviesapp.model.response.movie.Movie" />
@@ -18,7 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_marginHorizontal="@dimen/margin8dp"
-
         android:layout_marginVertical="@dimen/margin8dp"
         android:layout_marginStart="@dimen/margin4dp"
         android:backgroundTint="@color/white"
@@ -46,8 +46,7 @@
                 android:rating="@{Float.valueOf(item.voteAverage)}"
                 app:layout_constraintEnd_toEndOf="@+id/release_date"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/release_date"
-                />
+                app:layout_constraintStart_toStartOf="@+id/release_date" />
 
             <TextView
                 android:id="@+id/release_date"

@@ -103,7 +103,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
 
             app:layout_constraintTop_toBottomOf="@+id/break_line"
-            tools:listitem="@layout/item_search_recycler_view" />
+            tools:listitem="@layout/item_search" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
