@@ -10,12 +10,12 @@ import com.watermelon.moviesapp.model.response.movie.MovieSimilarResponse
 import com.watermelon.moviesapp.model.response.credits.Credits
 import com.watermelon.moviesapp.model.response.movie.Movie
 import com.watermelon.moviesapp.ui.SimilarItemListener
-import com.watermelon.moviesapp.ui.home.MovieInteractionListener
+import com.watermelon.moviesapp.ui.home.HomeInteractionListener
 import com.watermelon.moviesapp.utils.Event
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class DetailsViewModel : ViewModel(), MovieInteractionListener, SimilarItemListener {
+class DetailsViewModel : ViewModel(), HomeInteractionListener, SimilarItemListener {
     var movieDetails = MutableLiveData<State<Movie?>>()
     var credits = MutableLiveData<State<Credits?>>()
     var similarMovies = MutableLiveData<State<MovieSimilarResponse?>>()

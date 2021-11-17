@@ -16,7 +16,6 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/MoviesAppn/app/src/main/res/layout/fragment_profile.xml" value="0.2212962962962963" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/MoviesAppn/app/src/main/res/layout/fragment_search.xml" value="0.2212962962962963" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/MoviesAppn/app/src/main/res/layout/fragment_tv.xml" value="0.2212962962962963" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/MoviesAppn/app/src/main/res/layout/item_Famous_people.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/MoviesAppn/app/src/main/res/layout/item__movies.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/MoviesAppn/app/src/main/res/layout/item_categories.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/MoviesAppn/app/src/main/res/layout/item_categories_display.xml" value="0.25416666666666665" />
@@ -30,6 +29,11 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/MoviesAppn/app/src/main/res/layout/item_tv.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/MoviesAppn/app/src/main/res/layout/item_tv_actor.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/MoviesAppn/app/src/main/res/menu/bottom_navigation.xml" value="0.225" />
+        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/details_layout.xml" value="0.14375" />
+        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/fragment_details.xml" value="0.14375" />
+        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/item_movies_actor.xml" value="0.14375" />
+        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/item_search.xml" value="0.14375" />
+        <entry key="..\:/WorkSpace/Kotlin/Tasks/MoviesApp/app/src/main/res/layout/item_similar_movies.xml" value="0.14375" />
       </map>
     </option>
   </component>
