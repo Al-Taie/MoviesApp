@@ -1,4 +1,4 @@
-package com.watermelon.moviesapp.ui.popular
+package com.watermelon.moviesapp.ui.famous
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import com.watermelon.moviesapp.model.repository.MovieRepository
 import com.watermelon.moviesapp.utils.Event
 import com.watermelon.moviesapp.utils.TimeWindow
 
-class PopularViewModel : ViewModel(), PopularInteractionListener {
+class FamousViewModel : ViewModel(), FamousInteractionListener {
 
 
     val trendingPerson = MovieRepository.getTrendingPerson(TimeWindow.DAY).asLiveData()

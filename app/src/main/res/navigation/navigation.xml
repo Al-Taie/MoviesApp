@@ -103,9 +103,9 @@
     </fragment>
     <fragment
         android:id="@+id/popularFragment"
-        android:name="com.watermelon.moviesapp.ui.popular.PopularFragment"
+        android:name="com.watermelon.moviesapp.ui.famous.FamousFragment"
         android:label="PopularFragment"
-        tools:layout="@layout/fragment_popular">
+        tools:layout="@layout/fragment_famous">
         <action
             android:id="@+id/action_popularFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
