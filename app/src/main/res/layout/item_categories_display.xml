@@ -8,12 +8,16 @@
         <variable
             name="item"
             type="com.watermelon.moviesapp.model.response.movie.Movie" />
+        <variable
+            name="listener"
+            type="com.watermelon.moviesapp.ui.categories.categoriesdisplay.CategoriesDisplayInteractionListener" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="135dp">
+        android:layout_height="135dp"
+        android:onClick="@{() -> listener.onItemClick(item.id)}" >
 
 
         <androidx.cardview.widget.CardView
@@ -25,7 +29,8 @@
             android:backgroundTint="@color/cards_color"
             app:cardCornerRadius="16dp"
             app:cardElevation="8dp"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            >
 
         </androidx.cardview.widget.CardView>
 
