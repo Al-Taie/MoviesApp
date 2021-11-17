@@ -14,7 +14,7 @@ import com.watermelon.moviesapp.utils.Event
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class DetailsViewModel : ViewModel(), MovieInteractionListener {
+class DetailsViewModel : ViewModel(), MovieInteractionListener,SimilarMovieListener {
 
     var movieDetails = MutableLiveData<State<Movie?>>()
     var credits = MutableLiveData<State<Credits?>>()
@@ -22,7 +22,11 @@ class DetailsViewModel : ViewModel(), MovieInteractionListener {
     private val _navigateToProfile = MutableLiveData<Event<Int>>()
     val navigateToProfile: LiveData<Event<Int>> = _navigateToProfile
 
+    private val _navigateToItSelf = MutableLiveData<Event<Int>>()
+    val navigateToItSelf: LiveData<Event<Int>> = _navigateToItSelf
+
    override fun onItemClicked(id : Int) = _navigateToProfile.postValue(Event(id))
+    override fun onSimilarMovieClicked(id: Int) = _navigateToItSelf.postValue(Event(id))
 
     override fun onItemLoad(id: Int) {
         viewModelScope.launch {

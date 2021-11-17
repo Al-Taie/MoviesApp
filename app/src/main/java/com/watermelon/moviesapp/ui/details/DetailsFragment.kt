@@ -23,6 +23,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
     override fun setup() {
         viewModel.onItemLoad(args.movieId)
         initRecyclers()
+        viewModel.navigateToItSelf.observe(this , EventObserver { onNavigateToItSelf(it)})
         viewModel.navigateToProfile.observe(this, EventObserver { onNavigate(it) })
         addBottomSheet()
     }
@@ -54,4 +55,8 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
         findNavController().navigate(action)
     }
 
+    private fun onNavigateToItSelf(movieId: Int) {
+        val action = DetailsFragmentDirections.actionDetailsFragmentToDetailsFragment(movieId)
+        findNavController().navigate(action)
+    }
 }
