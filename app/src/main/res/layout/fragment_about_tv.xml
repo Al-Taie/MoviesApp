@@ -92,10 +92,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin16dp"
                 android:layout_marginTop="@dimen/margin24dp"
-                android:text="@string/similar_movie"
+                android:text="@string/similar_tv_shows"
                 android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text20sp"
-                app:isNotNull="@{viewModel.similarTv.toData().movies[0]}"
+                app:isNotNull="@{viewModel.similarTv.toData().tv[0]}"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView3"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_cast" />
@@ -109,11 +109,11 @@
                 android:clipToPadding="false"
                 android:orientation="horizontal"
                 android:paddingHorizontal="@dimen/padding28dp"
-                app:items="@{viewModel.similarTv.toData().movies}"
+                app:items="@{viewModel.similarTv.toData().tv}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:showWhenSuccess="@{viewModel.similarTv}"
-                tools:listitem="@layout/item_similar_movies" />
+                tools:listitem="@layout/item_similar_tv" />
 
         </LinearLayout>
     </ScrollView>

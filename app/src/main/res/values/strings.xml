@@ -33,6 +33,7 @@
     <string name="overview">Overview</string>
     <string name="cast">Cast</string>
     <string name="similar_movie">Similar Movie</string>
+    <string name="similar_tv_shows">Similar TV Shows</string>
     <string name="popular">Popular</string>
     <string name="movie_image">movie image</string>
     <string name="Upcoming">Upcoming</string>

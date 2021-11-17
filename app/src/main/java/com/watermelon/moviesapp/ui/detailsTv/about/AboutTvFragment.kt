@@ -9,6 +9,7 @@ import com.watermelon.moviesapp.ui.details.CastAdapter
 import com.watermelon.moviesapp.ui.details.DetailsFragmentDirections
 import com.watermelon.moviesapp.ui.details.SimilarMoviesAdapter
 import com.watermelon.moviesapp.ui.detailsTv.DetailsTvFragmentDirections
+import com.watermelon.moviesapp.ui.detailsTv.SimilarTVAdapter
 import com.watermelon.moviesapp.utils.EventObserver
 import watermelon.moviesapp.databinding.FragmentAboutTvBinding
 
@@ -22,16 +23,22 @@ class AboutTvFragment : BaseFragment<FragmentAboutTvBinding>() {
 
     override fun setup() {
         viewModel.navigateToProfile.observe(this, EventObserver { onNavigate(it) })
+        viewModel.navigateToItSelf.observe(this , EventObserver { onNavigateToItSelf(it)})
+
         initRecyclers()
     }
 
     private fun initRecyclers() {
         binding.recyclerCast.adapter = CastAdapter(mutableListOf(), viewModel)
-        binding.recyclerSimilar.adapter = SimilarMoviesAdapter(mutableListOf(), viewModel)
+        binding.recyclerSimilar.adapter = SimilarTVAdapter(mutableListOf(), viewModel)
     }
 
     private fun onNavigate(personId: Int) {
         val action = DetailsTvFragmentDirections.actionDetailsTvFragmentToProfileFragment(personId)
+        findNavController().navigate(action)
+    }
+    private fun onNavigateToItSelf(movieId: Int) {
+        val action = DetailsTvFragmentDirections.actionDetailsTvFragmentToDetailsTvFragment(movieId)
         findNavController().navigate(action)
     }
 }
