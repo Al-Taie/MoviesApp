@@ -25,6 +25,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
         initRecyclers()
         viewModel.navigateToItSelf.observe(this , EventObserver { onNavigateToItSelf(it)})
         viewModel.navigateToProfile.observe(this, EventObserver { onNavigate(it) })
+        binding.goBack.setOnClickListener { findNavController().navigateUp() }
         addBottomSheet()
     }
 
