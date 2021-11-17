@@ -9,7 +9,6 @@ import com.watermelon.moviesapp.model.response.movie.MovieResponse
 import com.watermelon.moviesapp.model.response.movieCredits.MovieCredits
 import com.watermelon.moviesapp.model.response.movies.MoviesResponse
 import com.watermelon.moviesapp.model.response.person.Person
-import com.watermelon.moviesapp.model.response.popularMovie.PopularMoviesResponse
 import com.watermelon.moviesapp.model.response.providerstv.ProvidersTvResponse
 import com.watermelon.moviesapp.model.response.trending.all.TrendingAllResponse
 import com.watermelon.moviesapp.model.response.trending.movie.TrendingMovieResponse
@@ -18,7 +17,6 @@ import com.watermelon.moviesapp.model.response.trending.tv.TrendingTVResponse
 import com.watermelon.moviesapp.model.response.tv.TVResponse
 import com.watermelon.moviesapp.model.response.tv.details.TVDetailsResponse
 import com.watermelon.moviesapp.model.response.tvCredits.TvCredits
-import com.watermelon.moviesapp.model.response.upcomingMovies.UpcomingMoviesResponse
 import com.watermelon.moviesapp.utils.Constant
 import com.watermelon.moviesapp.utils.MediaType
 import retrofit2.Response
