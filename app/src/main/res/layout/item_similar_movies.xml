@@ -10,7 +10,7 @@
 
         <variable
             name="listener"
-            type="com.watermelon.moviesapp.ui.details.SimilarMovieListener" />
+            type="com.watermelon.moviesapp.ui.SimilarItemListener" />
     </data>
 
     <LinearLayout
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:scaleType="centerCrop"
-            android:onClick="@{() -> listener.onSimilarMovieClicked(item.id)}"
+            android:onClick="@{() -> listener.onSimilarItemClicked(item.id)}"
             app:image="@{item.posterPath}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

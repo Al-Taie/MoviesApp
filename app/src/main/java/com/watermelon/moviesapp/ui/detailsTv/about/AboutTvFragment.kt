@@ -23,6 +23,8 @@ class AboutTvFragment : BaseFragment<FragmentAboutTvBinding>() {
 
     override fun setup() {
         viewModel.navigateToProfile.observe(this, EventObserver { onNavigate(it) })
+        viewModel.navigateToItSelf.observe(this , EventObserver { onNavigateToItSelf(it)})
+
         initRecyclers()
     }
 
@@ -33,6 +35,10 @@ class AboutTvFragment : BaseFragment<FragmentAboutTvBinding>() {
 
     private fun onNavigate(personId: Int) {
         val action = DetailsTvFragmentDirections.actionDetailsTvFragmentToProfileFragment(personId)
+        findNavController().navigate(action)
+    }
+    private fun onNavigateToItSelf(movieId: Int) {
+        val action = DetailsTvFragmentDirections.actionDetailsTvFragmentToDetailsTvFragment(movieId)
         findNavController().navigate(action)
     }
 }
