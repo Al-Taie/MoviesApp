@@ -6,5 +6,5 @@ import watermelon.moviesapp.R
 
 class MoviesAdapter (list: List<Movie>, listener: HomeInteractionListener) :
     BaseAdapter<Movie>(list, listener) {
-    override var layoutID = R.layout.item__movies
+    override var layoutID = R.layout.item_movies
 }
