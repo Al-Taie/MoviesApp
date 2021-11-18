@@ -1,10 +1,9 @@
 package com.watermelon.moviesapp.ui.profile
 
 import android.os.Bundle
-import android.provider.SyncStateContract
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -19,12 +18,12 @@ import watermelon.moviesapp.databinding.FragmentProfileBinding
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
     private val args: ProfileFragmentArgs by navArgs()
-
     override val viewModel: ProfileViewModel by viewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentProfileBinding
         get() = FragmentProfileBinding::inflate
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel.onItemLoad(args.personId)
         initViewPager()
         initTabLayout()
@@ -41,9 +40,11 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
 
     private fun initViewPager() {
         val bundle = Bundle().apply { putInt(Constant.ID, args.personId) }
-        val fragments = listOf(AboutFragment(),
+        val fragments = listOf(
+            AboutFragment(),
             MoviesActorFragment(),
-            TvShowsActorFragment()).map { it.apply { arguments = bundle } }
+            TvShowsActorFragment()
+        ).map { it.apply { arguments = bundle } }
         binding.profileViewPager.adapter = ProfilePagerAdapter(this, fragments)
     }
 

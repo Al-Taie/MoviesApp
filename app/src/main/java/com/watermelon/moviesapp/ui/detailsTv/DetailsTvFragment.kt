@@ -1,6 +1,8 @@
 package com.watermelon.moviesapp.ui.detailsTv
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -15,14 +17,14 @@ import watermelon.moviesapp.databinding.FragmentDetailsTvBinding
 
 
 class DetailsTvFragment : BaseFragment<FragmentDetailsTvBinding>() {
-
     override val viewModel: DetailsTvViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentDetailsTvBinding
         get() = FragmentDetailsTvBinding::inflate
 
     private val args: DetailsTvFragmentArgs by navArgs()
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel.onItemLoad(args.tvId)
         initViewPager()
         initTabLayout()
@@ -52,5 +54,4 @@ class DetailsTvFragment : BaseFragment<FragmentDetailsTvBinding>() {
             state = BottomSheetBehavior.STATE_COLLAPSED
         }
     }
-
 }

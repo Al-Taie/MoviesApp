@@ -1,11 +1,13 @@
 package com.watermelon.moviesapp.ui.famous
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.watermelon.moviesapp.ui.base.BaseFragment
-import com.watermelon.moviesapp.utils.Event
+import com.watermelon.moviesapp.utils.EventObserver
 import watermelon.moviesapp.databinding.FragmentFamousBinding
 
 class FamousFragment : BaseFragment<FragmentFamousBinding>() {
@@ -13,16 +15,14 @@ class FamousFragment : BaseFragment<FragmentFamousBinding>() {
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentFamousBinding
         get() = FragmentFamousBinding::inflate
 
-    override fun setup() {
-        binding.viewModel = viewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.popularRecyclerDisplay.adapter = FamousAdapter(mutableListOf(), viewModel)
-        viewModel.navigateToProfile.observe(this, ::onNavigate)
+        viewModel.navigateToProfile.observe(viewLifecycleOwner, EventObserver { onNavigate(it) })
     }
 
-    private fun onNavigate(event: Event<Int>) {
-        event.getContentIfNotHandled()?.let { movieId ->
-            val action = FamousFragmentDirections.actionPopularFragmentToProfileFragment(movieId)
-            findNavController().navigate(action)
-        }
+    private fun onNavigate(movieId: Int) {
+        val action = FamousFragmentDirections.actionPopularFragmentToProfileFragment(movieId)
+        findNavController().navigate(action)
     }
 }

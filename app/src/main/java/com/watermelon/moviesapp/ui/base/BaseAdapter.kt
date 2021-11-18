@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.watermelon.moviesapp.utils.AdapterDiffUtil
+import com.watermelon.moviesapp.ui.AdapterDiffUtil
 import watermelon.moviesapp.BR
 
 interface BaseInteractionListener

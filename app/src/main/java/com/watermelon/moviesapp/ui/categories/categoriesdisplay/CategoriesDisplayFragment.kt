@@ -1,6 +1,8 @@
 package com.watermelon.moviesapp.ui.categories.categoriesdisplay
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -17,12 +19,16 @@ class CategoriesDisplayFragment : BaseFragment<FragmentCategoriesDisplayBinding>
 
     private val args: CategoriesDisplayFragmentArgs by navArgs()
 
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         viewModel.getMoviesOfOneGenre(args.movieId)
         binding.categoriesRecyclerDisplay.adapter =
             CategoriesDisplayAdapter(mutableListOf(), viewModel)
         binding.goBack.setOnClickListener { findNavController().navigateUp() }
-        viewModel.navigateToDetailsFromCategories.observe(this, EventObserver { onNavigate(it) })
+        viewModel.navigateToDetailsFromCategories.observe(
+            viewLifecycleOwner,
+            EventObserver { onNavigate(it) })
     }
 
     private fun onNavigate(movieID: Int) {

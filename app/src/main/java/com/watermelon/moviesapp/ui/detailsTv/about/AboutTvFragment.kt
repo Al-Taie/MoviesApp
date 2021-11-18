@@ -1,6 +1,8 @@
 package com.watermelon.moviesapp.ui.detailsTv.about
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -19,16 +21,17 @@ class AboutTvFragment : BaseFragment<FragmentAboutTvBinding>() {
         get() = FragmentAboutTvBinding::inflate
 
 
-    override fun setup() {
-        viewModel.navigateToProfile.observe(this, EventObserver { onNavigate(it) })
-        viewModel.navigateToItSelf.observe(this , EventObserver { onNavigateToItSelf(it)})
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initRecyclers()
+        observe()
     }
 
     private fun initRecyclers() {
-        binding.recyclerCast.adapter = CastTvAdapter(mutableListOf(), viewModel)
-        binding.recyclerSimilar.adapter = SimilarTVAdapter(mutableListOf(), viewModel)
+        binding.apply {
+            recyclerCast.adapter = CastTvAdapter(mutableListOf(), viewModel)
+            recyclerSimilar.adapter = SimilarTVAdapter(mutableListOf(), viewModel)
+        }
     }
 
     private fun onNavigate(personId: Int) {
@@ -38,5 +41,12 @@ class AboutTvFragment : BaseFragment<FragmentAboutTvBinding>() {
     private fun onNavigateToItSelf(movieId: Int) {
         val action = DetailsTvFragmentDirections.actionDetailsTvFragmentToDetailsTvFragment(movieId)
         findNavController().navigate(action)
+    }
+
+    private fun observe(){
+        viewModel.apply {
+            navigateToProfile.observe(viewLifecycleOwner, EventObserver { onNavigate(it) })
+            navigateToItSelf.observe(viewLifecycleOwner, EventObserver { onNavigateToItSelf(it)})
+        }
     }
 }

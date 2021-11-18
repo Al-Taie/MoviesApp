@@ -1,5 +1,6 @@
 package com.watermelon.moviesapp.ui.details
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,25 +14,25 @@ import com.watermelon.moviesapp.utils.EventObserver
 import watermelon.moviesapp.databinding.FragmentDetailsBinding
 
 class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
-
     override val viewModel: DetailsViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentDetailsBinding
         get() = FragmentDetailsBinding::inflate
 
     private val args: DetailsFragmentArgs by navArgs()
 
-    override fun setup() {
-        viewModel.onItemLoad(args.movieId)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initRecyclers()
-        viewModel.navigateToItSelf.observe(this , EventObserver { onNavigateToItSelf(it)})
-        viewModel.navigateToProfile.observe(this, EventObserver { onNavigate(it) })
-        binding.goBack.setOnClickListener { findNavController().navigateUp() }
         addBottomSheet()
+        observe()
+        binding.goBack.setOnClickListener { findNavController().navigateUp() }
     }
 
     private fun initRecyclers() {
-        binding.recyclerCast.adapter = CastAdapter(mutableListOf(), viewModel)
-        binding.recyclerSimilar.adapter = SimilarMoviesAdapter(mutableListOf(), viewModel)
+        binding.apply {
+            recyclerCast.adapter = CastAdapter(mutableListOf(), viewModel)
+            recyclerSimilar.adapter = SimilarMoviesAdapter(mutableListOf(), viewModel)
+        }
     }
 
     private fun addBottomSheet() {
@@ -59,5 +60,13 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
     private fun onNavigateToItSelf(movieId: Int) {
         val action = DetailsFragmentDirections.actionDetailsFragmentToDetailsFragment(movieId)
         findNavController().navigate(action)
+    }
+
+    private fun observe() {
+        viewModel.apply {
+            onItemLoad(args.movieId)
+            navigateToProfile.observe(viewLifecycleOwner, EventObserver { onNavigate(it) })
+            navigateToItSelf.observe(viewLifecycleOwner, EventObserver { onNavigateToItSelf(it) })
+        }
     }
 }

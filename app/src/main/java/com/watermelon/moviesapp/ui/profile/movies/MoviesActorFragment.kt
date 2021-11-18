@@ -1,6 +1,8 @@
 package com.watermelon.moviesapp.ui.profile.movies
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -11,9 +13,10 @@ import com.watermelon.moviesapp.utils.EventObserver
 import watermelon.moviesapp.databinding.FragmentMoviesActorBinding
 
 class MoviesActorFragment : BaseFragment<FragmentMoviesActorBinding>() {
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         arguments?.getInt(Constant.ID)?.run { viewModel.onItemLoad(this) }
-        viewModel.navigateToDetails.observe(this, EventObserver { onNavigate(it) })
+        viewModel.navigateToDetails.observe(viewLifecycleOwner, EventObserver { onNavigate(it) })
         binding.movieRecycler.adapter = CastMovieAdapter(emptyList(), viewModel)
     }
 

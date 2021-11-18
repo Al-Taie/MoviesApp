@@ -1,7 +1,9 @@
 package com.watermelon.moviesapp.ui.profile.about
 
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -11,12 +13,9 @@ import com.watermelon.moviesapp.utils.Constant
 import watermelon.moviesapp.databinding.FragmentAboutActorBinding
 
 class AboutFragment : BaseFragment<FragmentAboutActorBinding>() {
-
-    override fun setup() {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         arguments?.getInt(Constant.ID)?.run { viewModel.onItemLoad(this) }
-
-        Log.i("TESTING", "test")
-
     }
 
     override val viewModel: AboutViewModel by activityViewModels()
