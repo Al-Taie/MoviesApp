@@ -133,7 +133,7 @@
         tools:layout="@layout/fragment_about_tv" />
     <fragment
         android:id="@+id/moreDetailsFragment"
-        android:name="com.watermelon.moviesapp.ui.detailsTv.moreDetails.MoreDetailsFragment"
+        android:name="com.watermelon.moviesapp.ui.detailsTv.moredetails.MoreDetailsFragment"
         android:label="MoreDetailsFragment"
         tools:layout="@layout/fragment_more_details" />
     <fragment
