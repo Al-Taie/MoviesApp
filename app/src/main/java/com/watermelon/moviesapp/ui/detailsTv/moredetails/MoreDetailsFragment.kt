@@ -1,11 +1,10 @@
-package com.watermelon.moviesapp.ui.detailsTv.moreDetails
+package com.watermelon.moviesapp.ui.detailsTv.moredetails
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.watermelon.moviesapp.ui.base.BaseFragment
-import com.watermelon.moviesapp.ui.detailsTv.about.DetailsTvViewModel
-import com.watermelon.moviesapp.ui.detailsTv.moreDetails.MoreDetailsAdapter
+import com.watermelon.moviesapp.ui.detailsTv.DetailsTvViewModel
 import watermelon.moviesapp.databinding.FragmentMoreDetailsBinding
 
 class MoreDetailsFragment : BaseFragment<FragmentMoreDetailsBinding>() {
