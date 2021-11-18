@@ -9,7 +9,12 @@
     <color name="background_color">#F7F7F7</color>
     <color name="primary_text_color">#393939</color>
     <color name="status_bar_color">#39424A</color>
+    <color name="icon">#8B8B8B</color>
+    <color name="stroke">#E6E6E6</color>
 
     <color name="dark_chip">#272935</color>
+
+    <color name="start_gradient">#1EF7F7F7</color>
+    <color name="end_gradient">#CEF7F7F7</color>
 
 </resources>

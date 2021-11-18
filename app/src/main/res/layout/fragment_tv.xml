@@ -9,6 +9,7 @@
             type="com.watermelon.moviesapp.ui.tv.TvViewModel" />
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:background="@color/background_color"
         android:layout_width="match_parent"

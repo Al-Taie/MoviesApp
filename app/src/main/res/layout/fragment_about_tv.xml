@@ -18,7 +18,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/margin32dp"
+            android:paddingTop="@dimen/margin24dp"
+            android:background="@color/background_color"
             android:isScrollContainer="true"
             android:orientation="vertical"
             android:paddingBottom="@dimen/margin32dp"
@@ -29,8 +30,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/margin16dp"
                 app:isNotNull="@{viewModel.tvDetails.toData().overview}"
                 android:paddingHorizontal="@dimen/margin16dp"
+                android:paddingVertical="@dimen/margin16dp"
+                android:background="@drawable/shape_season"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -74,10 +78,10 @@
                 android:id="@+id/recycler_cast"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin8dp"
+                android:layout_marginTop="@dimen/margin16dp"
                 android:clipToPadding="false"
                 android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/padding28dp"
+                android:paddingHorizontal="@dimen/padding24dp"
                 app:isNotNull="@{viewModel.credits.toData().cast}"
                 app:items="@{viewModel.credits.toData().cast}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -100,15 +104,14 @@
                 app:layout_constraintStart_toStartOf="@+id/textView3"
                 app:layout_constraintTop_toBottomOf="@+id/recycler_cast" />
 
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_similar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin8dp"
+                android:layout_marginTop="@dimen/margin16dp"
                 android:clipToPadding="false"
                 android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/padding28dp"
+                android:paddingHorizontal="@dimen/padding24dp"
                 app:items="@{viewModel.similarTv.toData().tv}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -117,7 +120,5 @@
 
         </LinearLayout>
     </ScrollView>
-
-
 </layout>
 

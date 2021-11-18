@@ -6,5 +6,9 @@
     <color name="base_color">#E99A27</color>
     <color name="background_color">#161D27</color>
     <color name="primary_text_color">#FFFFFF</color>
+    <color name="icon">#FFFFFF</color>
+    <color name="stroke">#242630</color>
 
+    <color name="start_gradient">#34161D27</color>
+    <color name="end_gradient">#F2161D27</color>
 </resources>

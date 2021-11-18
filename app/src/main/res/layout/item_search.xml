@@ -14,7 +14,6 @@
             type="com.watermelon.moviesapp.ui.home.HomeInteractionListener" />
     </data>
 
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="120dp"
@@ -40,26 +39,26 @@
                 android:layout_height="wrap_content"
                 android:isIndicator="true"
                 android:numStars="5"
-                android:layout_marginBottom="@dimen/margin2x"
                 android:progressBackgroundTint="@color/secondary_text_color"
                 android:progressTint="@color/base_color"
                 android:rating="@{Float.valueOf(item.voteAverage)}"
-                app:layout_constraintEnd_toEndOf="@+id/release_date"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/release_date" />
+                app:layout_constraintStart_toStartOf="@+id/release_date"
+                app:layout_constraintTop_toBottomOf="@+id/release_date" />
 
             <TextView
                 android:id="@+id/release_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin1x"
                 android:text="@{item.releaseDate}"
-                android:textColor="@color/primary_text_color"
+                android:layout_marginStart="@dimen/margin4dp"
+                android:textColor="@color/secondary_text_color"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/myRatingBar"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/item_image"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@+id/move_name"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="release date" />
 
             <TextView
@@ -67,8 +66,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginHorizontal="@dimen/margin1x"
-                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/margin16dp"
                 android:ellipsize="marquee"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
@@ -85,7 +83,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="movie name" />
 
-
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/item_image"
                 android:layout_width="100dp"
@@ -100,11 +97,8 @@
                 app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
                 tools:src="@tools:sample/avatars" />
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </androidx.cardview.widget.CardView>
-
 
 </layout>

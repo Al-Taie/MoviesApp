@@ -42,7 +42,6 @@
             android:textColor="@color/primary_text_color" />
 
     </LinearLayout>
-
 </layout>
 
 

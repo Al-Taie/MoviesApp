@@ -24,7 +24,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin24dp"
+            android:layout_marginHorizontal="@dimen/margin16dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -47,7 +47,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin24dp"
+            android:layout_marginHorizontal="@dimen/margin16dp"
             android:text="@{viewModel.movieDetails.toData().title}"
             android:textColor="@color/primary_text_color"
             android:textSize="@dimen/text28sp"
@@ -57,7 +57,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin24dp"
+            android:layout_marginHorizontal="@dimen/margin16dp"
             android:layout_marginTop="@dimen/margin4dp"
             android:text="@{viewModel.movieDetails.toData().releaseDate + ` . ` + viewModel.movieDetails.toData().status +` . ( `+viewModel.movieDetails.toData().originalLanguage+` )`}"
             android:textAllCaps="true"
@@ -96,17 +96,15 @@
 
         </androidx.cardview.widget.CardView>
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/padding24dp"
+            android:layout_marginHorizontal="@dimen/margin16dp"
             android:layout_marginTop="@dimen/padding16dp"
             android:text="Cast"
             android:textColor="@color/primary_text_color"
             android:textSize="@dimen/text20sp"
             android:textStyle="bold" />
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_cast"
@@ -115,7 +113,7 @@
             android:layout_marginTop="16dp"
             android:clipToPadding="false"
             android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/padding28dp"
+            android:paddingHorizontal="@dimen/padding24dp"
             app:items="@{viewModel.credits.toData().cast}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
@@ -126,7 +124,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin24dp"
+            android:layout_marginHorizontal="@dimen/margin16dp"
             android:layout_marginTop="@dimen/padding24dp"
             android:text="Similar Movie"
             android:textColor="@color/primary_text_color"
@@ -140,7 +138,7 @@
             android:layout_marginTop="16dp"
             android:clipToPadding="false"
             android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/padding28dp"
+            android:paddingHorizontal="@dimen/padding24dp"
             app:items="@{viewModel.similarMovies.toData().movies}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:showWhenSuccess="@{viewModel.similarMovies}"

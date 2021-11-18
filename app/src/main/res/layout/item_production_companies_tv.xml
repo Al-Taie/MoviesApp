@@ -4,11 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="item"
             type="com.watermelon.moviesapp.model.response.tv.details.ProductionCompany" />
-
         <variable
             name="listener"
             type="com.watermelon.moviesapp.ui.detailsTv.TvDetailsInteractionListener" />
