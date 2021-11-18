@@ -13,7 +13,7 @@ import com.watermelon.moviesapp.utils.Event
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class SearchViewModel : ViewModel(), HomeInteractionListener {
+class SearchViewModel : ViewModel(), SearchInteractionListener {
     val movieTitle = MutableLiveData<String?>()
     var movieSearchResult = MutableLiveData<State<MovieResponse?>>()
     var movieDetails = MutableLiveData<State<Movie?>>()
@@ -40,6 +40,4 @@ class SearchViewModel : ViewModel(), HomeInteractionListener {
             MovieRepository.getMovieDetails(id).collect { movieDetails.postValue(it) }
         }
     }
-
-    override fun onItemClicked(id: Int) {}
 }
