@@ -7,13 +7,13 @@ import androidx.lifecycle.viewModelScope
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.repository.MovieRepository
 import com.watermelon.moviesapp.model.response.tvCredits.TvCreditsResponse
-import com.watermelon.moviesapp.ui.home.HomeInteractionListener
+import com.watermelon.moviesapp.ui.profile.ProfileInteractionListener
 import com.watermelon.moviesapp.utils.Event
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
-class TvShowsActorViewModel : ViewModel() , HomeInteractionListener {
+class TvShowsActorViewModel : ViewModel(), ProfileInteractionListener {
     var tvCredits = MutableLiveData<State<TvCreditsResponse?>>()
     private val _navigateToDetails = MutableLiveData<Event<Int>>()
     val navigateToDetails: LiveData<Event<Int>> = _navigateToDetails
@@ -26,6 +26,6 @@ class TvShowsActorViewModel : ViewModel() , HomeInteractionListener {
         }
     }
 
-    override fun onItemClicked(id: Int)  = _navigateToDetails.postValue(Event(id))
+    override fun onItemClicked(id: Int) = _navigateToDetails.postValue(Event(id))
 
 }

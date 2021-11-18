@@ -7,12 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.repository.MovieRepository
 import com.watermelon.moviesapp.model.response.movieCredits.MovieCredits
-import com.watermelon.moviesapp.ui.home.HomeInteractionListener
+import com.watermelon.moviesapp.ui.profile.ProfileInteractionListener
 import com.watermelon.moviesapp.utils.Event
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class MoviesActorViewModel : ViewModel(),HomeInteractionListener {
+class MoviesActorViewModel : ViewModel(), ProfileInteractionListener {
     var movieCredits = MutableLiveData<State<MovieCredits?>>()
     private val _navigateToDetails = MutableLiveData<Event<Int>>()
     val navigateToDetails: LiveData<Event<Int>> = _navigateToDetails
