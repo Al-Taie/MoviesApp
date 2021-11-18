@@ -46,7 +46,7 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/movie_poster"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             app:showWhenSuccess="@{viewModel.person}"
             app:image="@{viewModel.person.toData().imagePath}"
             app:layout_constraintEnd_toEndOf="parent"

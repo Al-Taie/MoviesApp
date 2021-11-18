@@ -35,12 +35,15 @@
         <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_categories_display.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_details.xml" value="0.16394927536231885" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_details_tv.xml" value="0.16394927536231885" />
-        <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_home.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_profile.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_search.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_seasons.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_tv.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/item_famous_people.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/item_movies.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/item_movies_actor.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/item_production_companies_tv.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/item_trending_movies.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/details_layout.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/user/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/fragment_about_actor.xml" value="0.1" />
