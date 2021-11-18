@@ -110,7 +110,7 @@ interface MovieService {
     suspend fun getLatestTvShow(@Query("api_key") apiKey: String = Constant.API_KEY)
             : Response<TVResponse>
 
-    @GET("tv/famous")
+    @GET("tv/popular")
     suspend fun getTvPopular(@Query("api_key") apiKey: String = Constant.API_KEY)
             : Response<TVResponse>
 
