@@ -5,7 +5,7 @@ import com.watermelon.moviesapp.ui.base.BaseAdapter
 import com.watermelon.moviesapp.ui.home.HomeInteractionListener
 import watermelon.moviesapp.R
 
-class SearchAdapter(list: List<Movie>, listener: HomeInteractionListener) :
+class SearchAdapter(list: List<Movie>, listener: SearchInteractionListener) :
     BaseAdapter<Movie>(list, listener) {
 
     override var layoutID = R.layout.item_search
