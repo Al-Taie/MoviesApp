@@ -33,6 +33,8 @@ class DetailsTvViewModel : ViewModel(), TvDetailsInteractionListener  {
     val navigateToItSelf: LiveData<Event<Int>> = _navigateToItSelf
 
     override fun onItemClicked(id: Int) = _navigateToProfile.postValue(Event(id))
+    override fun onSimilarItemClicked(id: Int) = _navigateToItSelf.postValue(Event(id))
+
 
     override fun onItemLoad(id: Int) {
         viewModelScope.launch {
