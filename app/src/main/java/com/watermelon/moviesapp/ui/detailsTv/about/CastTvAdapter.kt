@@ -1,7 +1,6 @@
 package com.watermelon.moviesapp.ui.detailsTv.about
 
 import com.watermelon.moviesapp.model.response.tvCredits.Cast
-import com.watermelon.moviesapp.model.response.tvCredits.TvCredits
 import com.watermelon.moviesapp.ui.base.BaseAdapter
 import com.watermelon.moviesapp.ui.detailsTv.TvDetailsInteractionListener
 import watermelon.moviesapp.R
