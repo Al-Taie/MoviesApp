@@ -1,4 +1,4 @@
-package com.watermelon.moviesapp.ui.detailsTv.about
+package com.watermelon.moviesapp.ui.detailsTv
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

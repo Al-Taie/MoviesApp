@@ -15,11 +15,11 @@ class TvShowsActorViewModel : ViewModel() , HomeInteractionListener {
     var tvCredits = MutableLiveData<State<Credits?>>()
 
     override fun onItemLoad(id: Int) {
-        viewModelScope.launch {
-            MovieRepository.getTvCredits(id).collect {
-                tvCredits.postValue(it)
-            }
-        }
+//        viewModelScope.launch {
+//            MovieRepository.getTvCredits(id).collect {
+//                tvCredits.postValue(it)
+//            }
+//        }
     }
 
     override fun onItemClicked(id: Int) {  }
