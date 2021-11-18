@@ -7,6 +7,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.watermelon.moviesapp.ui.base.BaseFragment
 import com.watermelon.moviesapp.utils.Event
+import com.watermelon.moviesapp.utils.EventObserver
 import watermelon.moviesapp.databinding.FragmentSearchBinding
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
@@ -15,9 +16,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         get() = FragmentSearchBinding::inflate
 
     override fun setup() {
-        binding.viewModel = viewModel
-        binding.searchRecyclerView.adapter =SearchAdapter(mutableListOf(), viewModel)
-        viewModel.navigateToDetails.observe(this, ::onNavigate)
+        binding.searchRecyclerView.adapter = SearchAdapter(mutableListOf(), viewModel)
+        viewModel.navigateToDetails.observe(this, EventObserver { onNavigate(it) } )
     }
 
     override fun onResume() {
@@ -25,10 +25,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         binding.searchBar.requestFocus()
     }
 
-    private fun onNavigate(event: Event<Int>) {
-        event.getContentIfNotHandled()?.let {  movieId ->
-            val action = SearchFragmentDirections.actionSearchFragmentToDetailsFragment(movieId)
+    private fun onNavigate(movieId: Int) {
+        val action = SearchFragmentDirections.actionSearchFragmentToDetailsFragment(movieId)
             findNavController().navigate(action)
-        }
     }
 }

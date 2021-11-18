@@ -21,17 +21,15 @@ class SearchViewModel : ViewModel(), HomeInteractionListener {
     private val _navigateToDetails = MutableLiveData<Event<Int>>()
     val navigateToDetails: LiveData<Event<Int>> = _navigateToDetails
 
-
     fun clearText() {
-        movieTitle.postValue(" ")
+        movieTitle.postValue("")
     }
 
     fun searchForMovie() {
-
         viewModelScope.launch {
-                MovieRepository.searchForMovie(movieTitle.value.toString()).collect {
-                    movieSearchResult.postValue(it)
-                }
+            movieTitle.value.toString().takeIf { it.isNotEmpty() }?.let { title ->
+                MovieRepository.searchForMovie(title).collect { movieSearchResult.postValue(it) }
+            }
         }
     }
 
@@ -39,13 +37,9 @@ class SearchViewModel : ViewModel(), HomeInteractionListener {
         _navigateToDetails.postValue(Event(id))
 
         viewModelScope.launch {
-            MovieRepository.getMovieDetails(id).collect {
-                movieDetails.postValue(it)
-            }
+            MovieRepository.getMovieDetails(id).collect { movieDetails.postValue(it) }
         }
     }
 
-    override fun onItemClicked(id: Int) {
-        TODO("Not yet implemented")
-    }
+    override fun onItemClicked(id: Int) {}
 }
