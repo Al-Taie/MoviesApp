@@ -92,20 +92,21 @@ fun showAliveOrNot(view: ImageView, drawable: Drawable?) {
 
 @BindingAdapter(value = ["app:isNotNull"])
 fun checkData(view: View, item: Any?) {
-    view.isVisible = item.toString().isNotEmpty() && item != null
+    view.isVisible = (item.toString().isNotEmpty() && item != null)
 }
 
 
 @BindingAdapter("app:attachedView")
-fun setAttachedView(imgView: ImageView?, attachedView: LinearLayout?) {
-    imgView?.setOnClickListener {
-        attachedView?.let {
-            TransitionManager.beginDelayedTransition(it, AutoTransition())
-            it.isVisible = it?.visibility != View.VISIBLE
-            if (it.isVisible)
-                imgView.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
-            else
-                imgView.setImageResource(R.drawable.ic_baseline_keyboard_arrow_right_24)
+fun setAttachedView(view: ImageView?, attachedView: LinearLayout?) {
+    view?.setOnClickListener {
+        attachedView?.let { linearLayout ->
+            TransitionManager.beginDelayedTransition(linearLayout, AutoTransition())
+            linearLayout.isVisible = (linearLayout.visibility != View.VISIBLE)
+            if (linearLayout.isVisible) {
+                view.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_24)
+            } else {
+                view.setImageResource(R.drawable.ic_baseline_keyboard_arrow_right_24)
+            }
         }
     }
 }
