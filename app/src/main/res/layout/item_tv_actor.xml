@@ -7,68 +7,42 @@
         <variable
             name="item"
             type="com.watermelon.moviesapp.model.response.tvCredits.Cast" />
+        <variable
+            name="listener"
+            type="com.watermelon.moviesapp.ui.detailsTv.TvDetailsInteractionListener" />
 
     </data>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="176dp"
-        android:layout_margin="@dimen/margin8dp"
-        android:backgroundTint="@android:color/transparent"
-        app:cardCornerRadius="@dimen/margin8dp"
-        app:cardElevation="4dp">
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/margin4dp"  >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/item_cast"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-<!--            android:onClick="@{() -> listener.onItemClicked(item.id)}"-->
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:onClick="@{() -> listener.onItemClicked(item.id)}"
+            app:imageCast="@{item.posterPath}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+            tools:src="@tools:sample/avatars" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/app_name"
+            android:singleLine="true"
+            android:paddingTop="@dimen/margin2dp"
+            android:layout_marginHorizontal="@dimen/margin4dp"
+            android:text="@{item.name}"
+            android:textColor="@color/primary_text_color"
+            />
 
-            <TextView
-                android:id="@+id/item_rate"
-                android:padding="1dp"
-                android:gravity="center"
-                android:layout_width="32dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin4dp"
-                android:layout_marginEnd="@dimen/margin1x"
-                android:text="@{item.voteAverage.toString()}"
-                android:background="@drawable/shape_rate"
-                android:elevation="4dp"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="9.9" />
+    </LinearLayout>
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/item_image"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="@color/white"
-                android:scaleType="centerCrop"
-                app:image="@{item.posterPath}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/item_name"
-                tools:src="@tools:sample/avatars" />
-
-            <TextView
-                android:id="@+id/item_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin4dp"
-                android:text="@{item.name}"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                android:elevation="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                tools:text="movie title" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
 </layout>

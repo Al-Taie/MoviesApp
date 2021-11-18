@@ -8,9 +8,9 @@
             name="item"
             type="com.watermelon.moviesapp.model.response.tv.details.Season" />
 
-        <variable
-            name="listener"
-            type="com.watermelon.moviesapp.ui.home.HomeInteractionListener" />
+<!--        <variable-->
+<!--            name="listener"-->
+<!--            type="com.watermelon.moviesapp.ui.detailsTv.TvDetailsInteractionListener" />-->
     </data>
 
         <androidx.constraintlayout.widget.ConstraintLayout
