@@ -47,19 +47,11 @@ fun setImage(view: ShapeableImageView?, imagePath: String?) {
     view?.let {
         Glide.with(view)
             .load(Constant.BASE_IMAGE_URL + imagePath)
+            .placeholder(R.drawable.ic_baseline_downloading_24)
+            .error(R.drawable.ic_baseline_error_outline_24)
             .into(view)
     }
 }
-
-@BindingAdapter(value = ["app:imageCast"])
-fun setImageCast(view: ShapeableImageView?, imagePath: String?) {
-    view?.let {
-        Glide.with(view)
-            .load(Constant.Cast_IMAGE_URL + imagePath)
-            .into(view)
-    }
-}
-
 
 @BindingAdapter(value = ["app:theListForChips"])
 fun theListForChips(view: ChipGroup, list: List<Genre>?) {

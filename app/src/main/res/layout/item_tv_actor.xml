@@ -10,7 +10,6 @@
         <variable
             name="listener"
             type="com.watermelon.moviesapp.ui.detailsTv.TvDetailsInteractionListener" />
-
     </data>
 
     <LinearLayout
@@ -25,7 +24,7 @@
             android:layout_height="120dp"
             android:scaleType="centerCrop"
             android:onClick="@{() -> listener.onItemClicked(item.id)}"
-            app:imageCast="@{item.posterPath}"
+            app:image="@{item.profilePath}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
