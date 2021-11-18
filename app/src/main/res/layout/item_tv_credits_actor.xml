@@ -8,9 +8,9 @@
             name="item"
             type="com.watermelon.moviesapp.model.response.tvCredits.Cast" />
 
-<!--        <variable-->
-<!--            name="listener"-->
-<!--            type="com.watermelon.moviesapp.ui.tv.TvInteractionListener" />-->
+        <variable
+            name="listener"
+            type="com.watermelon.moviesapp.ui.home.HomeInteractionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,8 +18,7 @@
         android:layout_height="172dp"
         android:backgroundTint="@android:color/transparent"
         android:layout_margin="@dimen/margin8dp"
-    >
-<!--        android:onClick="@{() -> listener.onItemClicked(item.id)}"-->
+        android:onClick="@{() -> listener.onItemClicked(item.id)}">
         <TextView
             android:id="@+id/item_rate"
             android:layout_width="32dp"
