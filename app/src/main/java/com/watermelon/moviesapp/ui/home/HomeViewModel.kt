@@ -17,10 +17,7 @@ class HomeViewModel : ViewModel(), HomeInteractionListener {
 
     private val _navigateToDetails = MutableLiveData<Event<Int>>()
     val navigateToDetails: LiveData<Event<Int>> = _navigateToDetails
-
     override fun onItemClicked(id: Int) = _navigateToDetails.postValue(Event(id))
 
     override fun onItemLoad(id: Int) {}
-
-
 }

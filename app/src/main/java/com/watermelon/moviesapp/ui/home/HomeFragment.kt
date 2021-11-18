@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.watermelon.moviesapp.ui.base.BaseFragment
 import com.watermelon.moviesapp.utils.EventObserver
+import watermelon.moviesapp.R
 import watermelon.moviesapp.databinding.FragmentHomeBinding
 
 
@@ -16,6 +18,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         super.onViewCreated(view, savedInstanceState)
         initRecyclers()
         observe()
+        binding.search.setOnClickListener{
+            onNavigateToSearch()
+        }
     }
 
     private fun initRecyclers() {
@@ -32,6 +37,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private fun onNavigate(movieID: Int) {
         val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(movieID)
         findNavController().navigate(action)
+    }
+    private fun onNavigateToSearch(){
+        val action = HomeFragmentDirections.actionHomeFragmentToSearchFragment()
+        val extras = FragmentNavigatorExtras(
+            binding.search to getString(R.string.search_transition)
+        )
+        findNavController().navigate(action,extras)
+
     }
 
 
