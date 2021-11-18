@@ -8,5 +8,5 @@ import watermelon.moviesapp.R
 class CastTvAdapter (list: List<Cast>, listener: HomeInteractionListener) :
     BaseAdapter<Cast>(list, listener) {
 
-    override var layoutID = R.layout.item_tv_actor
+    override var layoutID = R.layout.item_tv_credits_actor
 }

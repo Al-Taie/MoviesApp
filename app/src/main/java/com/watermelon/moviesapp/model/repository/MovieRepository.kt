@@ -29,11 +29,13 @@ object MovieRepository {
 
     fun getMovieCredits(id: Int) = wrapWithFlow { API.apiService.getMovieCredits(id) }
 
+    fun getTVCredits(id: Int) = wrapWithFlow { API.apiService.getTVCredits(id) }
+
     fun getSimilarMovies(id: Int) = wrapWithFlow { API.apiService.getSimilarMovies(id) }
 
     fun getSimilarTv(id: Int) = wrapWithFlow { API.apiService.getSimilarTv(id) }
 
-    fun getTvCredits(id: Int) = wrapWithFlow { API.apiService.getTvCredits(id) }
+    fun getTvCast(id: Int) = wrapWithFlow { API.apiService.getTvCast(id) }
 
     fun getTrendingPerson(time: String) = wrapWithFlow { API.apiService.getTrendingPerson(time) }
 

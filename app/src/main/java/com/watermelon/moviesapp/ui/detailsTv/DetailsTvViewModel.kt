@@ -6,17 +6,19 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.repository.MovieRepository
+import com.watermelon.moviesapp.model.response.credits.Credits
 import com.watermelon.moviesapp.model.response.tv.TVSimilarResponse
 import com.watermelon.moviesapp.model.response.tv.details.TVDetailsResponse
 import com.watermelon.moviesapp.model.response.tvCredits.TvCreditsResponse
+import com.watermelon.moviesapp.ui.details.DetailsInteractionListener
 import com.watermelon.moviesapp.utils.Event
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
-class DetailsTvViewModel : ViewModel(), TvDetailsInteractionListener {
-    private val _credits = MutableLiveData<State<TvCreditsResponse?>>()
-    val credits: LiveData<State<TvCreditsResponse?>> = _credits
+class DetailsTvViewModel : ViewModel(), TvDetailsInteractionListener  {
+    private val _credits = MutableLiveData<State<Credits?>>()
+    val credits: LiveData<State<Credits?>> = _credits
 
     private val _similarTv = MutableLiveData<State<TVSimilarResponse?>>()
     val similarTv: LiveData<State<TVSimilarResponse?>> = _similarTv
@@ -36,7 +38,7 @@ class DetailsTvViewModel : ViewModel(), TvDetailsInteractionListener {
         viewModelScope.launch {
             MovieRepository.run {
                 getTvDetails(id).collect { _tvDetails.postValue(it) }
-                getTvCredits(id).collect { _credits.postValue(it) }
+                getTvCast(id).collect { _credits.postValue(it) }
                 getSimilarTv(id).collect { _similarTv.postValue(it) }
             }
         }
