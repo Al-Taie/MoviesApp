@@ -4,58 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="item"
             type="com.watermelon.moviesapp.model.response.genres.Genre" />
-
         <variable
             name="listener"
             type="com.watermelon.moviesapp.ui.categories.CategoriesInteractionListener" />
-
     </data>
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin8dp"
-        android:layout_marginVertical="@dimen/margin8dp"
+        android:layout_marginVertical="@dimen/margin4dp"
         android:layout_marginStart="@dimen/margin4dp"
-        android:backgroundTint="@color/white"
+        android:background="@drawable/shape_season"
+        android:backgroundTint="@color/cards_color"
         app:cardCornerRadius="@dimen/margin16dp"
-        app:cardElevation="8dp"
+        app:cardElevation="2dp"
         android:onClick="@{() -> listener.onItemClick(item.id)}">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-
-            <ImageView
-                android:id="@+id/item_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin4dp"
-                android:background="@color/white"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent" />
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin1x"
+                android:layout_marginStart="@dimen/margin16dp"
+                android:layout_marginVertical="@dimen/margin14dp"
                 android:text="@{item.name}"
                 android:textColor="@color/primary_text_color"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/item_image"
-                app:layout_constraintStart_toEndOf="@id/item_image"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/item_image"
                 tools:text="Action" />
+
+            <ImageView
+                android:id="@+id/item_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:layout_marginEnd="@dimen/margin16dp"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

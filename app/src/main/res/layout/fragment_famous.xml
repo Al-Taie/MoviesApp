@@ -8,17 +8,33 @@
         <variable
             name="viewModel"
             type="com.watermelon.moviesapp.ui.famous.FamousViewModel" />
-
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loading"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="@dimen/margin4x"
+            android:elevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading"
+            app:showWhenLoading="@{viewModel.trendingPerson}"
+            tools:visibility="gone" />
+
         <TextView
             android:id="@+id/list_title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin2x"
             android:gravity="center"
@@ -34,15 +50,16 @@
             android:id="@+id/popular_recycler_display"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/margin2x"
+            android:paddingVertical="@dimen/margin2x"
             android:orientation="vertical"
             app:items="@{viewModel.trendingPerson.toData().results}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/list_title"
-            app:layout_constraintStart_toStartOf="@id/list_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/list_title"
             tools:listitem="@layout/item_categories_display" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

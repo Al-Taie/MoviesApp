@@ -4,11 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="item"
             type="com.watermelon.moviesapp.model.response.tv.details.ProductionCompany" />
-
         <variable
             name="listener"
             type="com.watermelon.moviesapp.ui.detailsTv.TvDetailsInteractionListener" />
@@ -42,7 +40,6 @@
             android:singleLine="true"
             android:text="@{item.name}"
             android:textColor="@color/primary_text_color"
-            android:textSize="@dimen/text16sp"
             tools:text="@string/app_name" />
 
     </LinearLayout>

@@ -13,21 +13,18 @@
     </data>
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin1x"
-        android:layout_marginBottom="@dimen/margin1x"
         android:onClick="@{()->listener.onItemClicked(item.id)}"
         >
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/back_poster"
            app:image="@{item.backdropPath}"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:scaleType="fitXY"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
             app:strokeWidth="1dp"
@@ -39,24 +36,26 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/poster"
-            android:layout_width="130dp"
-            android:layout_height="170dp"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
             android:layout_marginStart="@dimen/margin2x"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
-            android:scaleType="fitXY"
             android:elevation="2dp"
+            android:scaleType="fitXY"
             app:image="@{item.posterPath}"
+            app:layout_constraintVertical_bias="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:src="@tools:sample/avatars"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+            tools:src="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin1x"
             android:layout_marginStart="@dimen/margin1x"
-            android:layout_marginEnd="@dimen/margin1x"
+            android:layout_marginTop="205dp"
+            android:layout_marginEnd="@dimen/margin2x"
             android:alpha=".9"
             android:ellipsize="marquee"
             android:focusable="true"
@@ -65,29 +64,31 @@
             android:scrollHorizontally="true"
             android:singleLine="true"
             android:text="@{item.title.toString()}"
-            android:textColor="@color/black"
+            android:textColor="@color/primary_text_color"
             android:textSize="@dimen/text16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/poster"
-            app:layout_constraintTop_toBottomOf="@+id/back_poster"
+            app:layout_constraintTop_toTopOf="@+id/view"
             tools:text="movies title" />
+
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:layout_marginBottom="8dp"
             android:src="@drawable/ic_star"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title"
             app:layout_constraintStart_toStartOf="@id/title" />
+
         <TextView
             android:id="@+id/imbd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin4dpx"
-            android:textSize="@dimen/text16sp"
-            android:textColor="@color/black"
+            android:textSize="@dimen/text14sp"
+            android:textColor="@color/primary_text_color"
             android:text="@{item.voteAverage.toString()}"
             app:layout_constraintTop_toTopOf="@id/icon"
             app:layout_constraintStart_toEndOf="@id/icon"
@@ -95,16 +96,16 @@
             tools:text="2.9"
             />
 
-
         <View
+            android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:elevation="1dp"
+            android:layout_height="200dp"
             android:background="@drawable/layout_shape"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:elevation="1dp"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

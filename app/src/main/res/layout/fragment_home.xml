@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.watermelon.moviesapp.ui.home.HomeViewModel" />
     </data>
+
     <ScrollView
         android:id="@+id/sub_root"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
+        android:layout_height="match_parent"
         android:scrollbars="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,27 +23,27 @@
             android:background="@color/background_color"
             tools:context="com.watermelon.moviesapp.ui.home.HomeFragment">
 
-
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/loading"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:elevation="5dp"
                 android:layout_marginTop="@dimen/margin4x"
+                android:elevation="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.25"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
                 app:lottie_rawRes="@raw/loading"
                 app:showWhenLoading="@{viewModel.popularMovies}"
                 tools:visibility="gone" />
 
-
             <TextView
                 android:id="@+id/title"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin2x"
                 android:gravity="center"
@@ -58,8 +57,8 @@
 
             <ImageButton
                 android:id="@+id/search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginEnd="@dimen/margin2x"
                 android:transitionName="@string/search_transition"
                 android:background="@drawable/ic_search"
@@ -67,12 +66,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/title" />
 
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/trading_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin2x"
+                android:clipToPadding="false"
                 android:orientation="horizontal"
                 app:items="@{viewModel.tradingMovies.toData().results}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -84,14 +83,15 @@
 
             <TextView
                 android:id="@+id/popular_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin2x"
-                android:layout_marginStart="@dimen/margin2x"
+                android:layout_marginHorizontal="@dimen/margin16dp"
                 android:text="@string/popular"
-                android:textColor="@color/black"
+                android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text18sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/trading_recycler"
                 app:showWhenSuccess="@{viewModel.popularMovies}" />
@@ -100,7 +100,8 @@
                 android:id="@+id/popular_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin2x"
+                android:clipToPadding="false"
+                android:paddingHorizontal="@dimen/margin24dp"
                 android:layout_marginTop="@dimen/margin2x"
                 android:orientation="horizontal"
                 app:items="@{viewModel.popularMovies.toData().results}"
@@ -113,13 +114,15 @@
 
             <TextView
                 android:id="@+id/upcoming_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin2x"
+                android:layout_marginHorizontal="@dimen/margin16dp"
                 android:text="@string/Upcoming"
-                android:textColor="@color/black"
+                android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text18sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/popular_text"
                 app:layout_constraintTop_toBottomOf="@+id/popular_recycler"
                 app:showWhenSuccess="@{viewModel.upcomingMovies}" />
@@ -128,9 +131,10 @@
                 android:id="@+id/upcoming_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin2x"
+                android:paddingHorizontal="@dimen/margin24dp"
                 android:layout_marginVertical="@dimen/margin2x"
                 android:orientation="horizontal"
+                android:clipToPadding="false"
                 app:items="@{viewModel.upcomingMovies.toData().results}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="@id/upcoming_text"
@@ -138,15 +142,18 @@
                 app:layout_constraintTop_toBottomOf="@id/upcoming_text"
                 app:showWhenSuccess="@{viewModel.upcomingMovies}"
                 tools:listitem="@layout/item_movies" />
+
             <TextView
                 android:id="@+id/topRated_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin16dp"
                 android:layout_marginTop="@dimen/margin2x"
                 android:text="@string/topRated"
-                android:textColor="@color/black"
+                android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text18sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/popular_text"
                 app:layout_constraintTop_toBottomOf="@+id/upcoming_recycler"
                 app:showWhenSuccess="@{viewModel.topRatedMovies}" />
@@ -155,9 +162,10 @@
                 android:id="@+id/topRated_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin2x"
+                android:paddingHorizontal="@dimen/margin24dp"
                 android:layout_marginVertical="@dimen/margin2x"
                 android:orientation="horizontal"
+                android:clipToPadding="false"
                 app:items="@{viewModel.topRatedMovies.toData().results}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -166,6 +174,7 @@
                 app:layout_constraintTop_toBottomOf="@id/topRated_text"
                 app:showWhenSuccess="@{viewModel.topRatedMovies}"
                 tools:listitem="@layout/item_movies" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

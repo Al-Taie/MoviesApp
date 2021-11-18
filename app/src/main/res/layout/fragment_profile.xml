@@ -15,18 +15,17 @@
         android:layout_height="match_parent"
         android:background="@color/background_color">
 
-        <com.google.android.material.imageview.ShapeableImageView
+        <ImageView
             android:id="@+id/go_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_margin="@dimen/margin2x"
+            android:padding="@dimen/padding8dp"
             android:background="@drawable/shape_arrow"
-            android:padding="6dp"
-            android:elevation="4dp"
+            android:elevation="2dp"
             android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loading"
@@ -94,6 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="@dimen/margin24dp"
             android:backgroundTint="@color/background_color"
             app:tabIndicatorColor="@color/base_color"
             app:tabSelectedTextColor="@color/base_color"

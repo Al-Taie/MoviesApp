@@ -18,29 +18,31 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="135dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin16dp"
+        android:elevation="4dp"
+        android:background="@drawable/shape_season"
+        android:layout_marginVertical="@dimen/margin4dp"
         android:onClick="@{() -> listener.onItemClick(item.id)}">
-
 
         <androidx.cardview.widget.CardView
             android:id="@+id/bottom_card"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginHorizontal="12dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginHorizontal="@dimen/margin8dp"
+            android:layout_marginVertical="@dimen/margin16dp"
             android:backgroundTint="@color/cards_color"
             app:cardCornerRadius="16dp"
-            app:cardElevation="8dp"
+            app:cardElevation="0dp"
             app:layout_constraintTop_toTopOf="parent">
 
         </androidx.cardview.widget.CardView>
-
 
         <androidx.cardview.widget.CardView
             android:id="@+id/top_Card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="@dimen/margin16dp"
             android:layout_marginBottom="8dp"
             app:cardCornerRadius="16dp"
             app:cardElevation="8dp"
@@ -49,7 +51,7 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/item_image"
-                android:layout_width="120dp"
+                android:layout_width="90dp"
                 android:layout_height="110dp"
                 android:elevation="@dimen/margin16dp"
                 android:scaleType="centerCrop"
@@ -82,15 +84,15 @@
             android:id="@+id/release_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin4dp"
             android:elevation="@dimen/elevation8"
+            android:text="@{item.mediaType}"
             android:textColor="@color/secondary_text_color"
             android:textSize="@dimen/text12sp"
             android:textStyle="bold"
-            android:text="@{item.mediaType}"
-            app:layout_constraintBottom_toTopOf="@id/cast_rate"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/cast_name"
-            app:layout_constraintRight_toRightOf="@id/cast_name"
-            app:layout_constraintTop_toBottomOf="@id/cast_name"
+            app:layout_constraintTop_toTopOf="@+id/bottom_card"
             tools:text="release date" />
 
         <RatingBar
@@ -98,16 +100,15 @@
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:elevation="@dimen/elevation8"
             android:isIndicator="true"
             android:numStars="5"
-            android:rating="@{item.gender}"
             android:progressBackgroundTint="@color/secondary_text_color"
             android:progressTint="@color/base_color"
-            app:layout_constraintBottom_toBottomOf="@id/top_Card"
+            android:rating="@{item.gender}"
             app:layout_constraintLeft_toLeftOf="@id/cast_name"
-            app:layout_constraintRight_toRightOf="@id/cast_name" />
+            app:layout_constraintStart_toStartOf="@+id/release_date"
+            app:layout_constraintTop_toBottomOf="@+id/release_date" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

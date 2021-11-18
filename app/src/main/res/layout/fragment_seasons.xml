@@ -3,24 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.watermelon.moviesapp.ui.detailsTv.DetailsTvViewModel" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_constraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin32dp"
+        android:paddingTop="@dimen/margin24dp"
         android:background="@color/background_color" >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_seasons"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/margin24dp"
             android:clipToPadding="false"
             android:orientation="vertical"
             app:items="@{viewModel.tvDetails.toData().seasons}"
