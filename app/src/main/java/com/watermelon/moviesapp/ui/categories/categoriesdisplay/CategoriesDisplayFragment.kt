@@ -12,7 +12,6 @@ import com.watermelon.moviesapp.utils.EventObserver
 import watermelon.moviesapp.databinding.FragmentCategoriesDisplayBinding
 
 class CategoriesDisplayFragment : BaseFragment<FragmentCategoriesDisplayBinding>() {
-
     override val viewModel: CategoriesDisplayViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentCategoriesDisplayBinding
         get() = FragmentCategoriesDisplayBinding::inflate
@@ -21,14 +20,12 @@ class CategoriesDisplayFragment : BaseFragment<FragmentCategoriesDisplayBinding>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel.getMoviesOfOneGenre(args.movieId)
         binding.categoriesRecyclerDisplay.adapter =
             CategoriesDisplayAdapter(mutableListOf(), viewModel)
         binding.goBack.setOnClickListener { findNavController().navigateUp() }
         viewModel.navigateToDetailsFromCategories.observe(
-            viewLifecycleOwner,
-            EventObserver { onNavigate(it) })
+            viewLifecycleOwner, EventObserver { onNavigate(it) })
     }
 
     private fun onNavigate(movieID: Int) {

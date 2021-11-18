@@ -9,13 +9,11 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class CategoriesDisplayViewModel : ViewModel(), CategoriesDisplayInteractionListener {
-
-
-    var movieOfOneGenre = MutableLiveData<State<MovieResponse?>>()
+    private val _movieOfOneGenre = MutableLiveData<State<MovieResponse?>>()
+    val movieOfOneGenre: LiveData<State<MovieResponse?>> get() = _movieOfOneGenre
 
     private val _navigateToDetailsFromCategories = MutableLiveData<Event<Int>>()
     val navigateToDetailsFromCategories: LiveData<Event<Int>> = _navigateToDetailsFromCategories
-
 
     override fun onItemClick(id: Int) {
         _navigateToDetailsFromCategories.postValue(Event(id))
@@ -23,13 +21,7 @@ class CategoriesDisplayViewModel : ViewModel(), CategoriesDisplayInteractionList
 
     fun getMoviesOfOneGenre(id: Int) {
         viewModelScope.launch {
-            MovieRepository.getMoviesOfOneGenre(id = id).collect {
-                movieOfOneGenre.postValue(it)
-            }
+            MovieRepository.getMoviesOfOneGenre(id = id).collect { _movieOfOneGenre.postValue(it) }
         }
     }
 }
-
-
-
-
