@@ -15,8 +15,6 @@ import kotlinx.coroutines.launch
 
 
 class DetailsTvViewModel : ViewModel(), TvDetailsInteractionListener {
-
-
     private val _credits = MutableLiveData<State<TvCredits?>>()
     val credits: LiveData<State<TvCredits?>> = _credits
 
@@ -25,12 +23,12 @@ class DetailsTvViewModel : ViewModel(), TvDetailsInteractionListener {
 
     private val _tvDetails = MutableLiveData<State<TVDetailsResponse?>>()
     val tvDetails: LiveData<State<TVDetailsResponse?>> = _tvDetails
+
     private val _navigateToProfile = MutableLiveData<Event<Int>>()
     val navigateToProfile: LiveData<Event<Int>> = _navigateToProfile
 
     private val _navigateToItSelf = MutableLiveData<Event<Int>>()
     val navigateToItSelf: LiveData<Event<Int>> = _navigateToItSelf
-
 
     override fun onItemClicked(id: Int) = _navigateToProfile.postValue(Event(id))
 

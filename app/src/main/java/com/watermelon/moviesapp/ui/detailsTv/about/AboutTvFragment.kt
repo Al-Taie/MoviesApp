@@ -28,10 +28,8 @@ class AboutTvFragment : BaseFragment<FragmentAboutTvBinding>() {
     }
 
     private fun initRecyclers() {
-        binding.apply {
-            recyclerCast.adapter = CastTvAdapter(mutableListOf(), viewModel)
-            recyclerSimilar.adapter = SimilarTVAdapter(mutableListOf(), viewModel)
-        }
+        binding.recyclerCast.adapter = CastTvAdapter(mutableListOf(), viewModel)
+        binding.recyclerSimilar.adapter = SimilarTVAdapter(mutableListOf(), viewModel)
     }
 
     private fun onNavigate(personId: Int) {

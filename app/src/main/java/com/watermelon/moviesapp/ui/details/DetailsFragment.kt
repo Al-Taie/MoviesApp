@@ -29,10 +29,8 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
     }
 
     private fun initRecyclers() {
-        binding.apply {
-            recyclerCast.adapter = CastAdapter(mutableListOf(), viewModel)
-            recyclerSimilar.adapter = SimilarMoviesAdapter(mutableListOf(), viewModel)
-        }
+        binding.recyclerCast.adapter = CastAdapter(mutableListOf(), viewModel)
+        binding.recyclerSimilar.adapter = SimilarMoviesAdapter(mutableListOf(), viewModel)
     }
 
     private fun addBottomSheet() {

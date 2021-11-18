@@ -19,12 +19,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun initRecyclers() {
-        binding.apply {
-            tradingRecycler.adapter = TradingMoviesAdapter(mutableListOf(), viewModel)
-            popularRecycler.adapter = MoviesAdapter(mutableListOf(), viewModel)
-            upcomingRecycler.adapter = MoviesAdapter(mutableListOf(), viewModel)
-            topRatedRecycler.adapter = MoviesAdapter(mutableListOf(), viewModel)
-        }
+        binding.tradingRecycler.adapter = TradingMoviesAdapter(mutableListOf(), viewModel)
+        binding.popularRecycler.adapter = MoviesAdapter(mutableListOf(), viewModel)
+        binding.upcomingRecycler.adapter = MoviesAdapter(mutableListOf(), viewModel)
+        binding.topRatedRecycler.adapter = MoviesAdapter(mutableListOf(), viewModel)
     }
 
     private fun observe(){
