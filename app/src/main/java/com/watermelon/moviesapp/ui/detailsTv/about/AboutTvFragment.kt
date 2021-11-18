@@ -5,11 +5,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.watermelon.moviesapp.ui.base.BaseFragment
-import com.watermelon.moviesapp.ui.details.CastAdapter
-import com.watermelon.moviesapp.ui.details.DetailsFragmentDirections
-import com.watermelon.moviesapp.ui.details.SimilarMoviesAdapter
 import com.watermelon.moviesapp.ui.detailsTv.DetailsTvFragmentDirections
-import com.watermelon.moviesapp.ui.detailsTv.SimilarTVAdapter
+import com.watermelon.moviesapp.ui.detailsTv.DetailsTvViewModel
+import com.watermelon.moviesapp.ui.detailsTv.about.similartv.SimilarTVAdapter
 import com.watermelon.moviesapp.utils.EventObserver
 import watermelon.moviesapp.databinding.FragmentAboutTvBinding
 
@@ -29,7 +27,7 @@ class AboutTvFragment : BaseFragment<FragmentAboutTvBinding>() {
     }
 
     private fun initRecyclers() {
-        binding.recyclerCast.adapter = CastAdapter(mutableListOf(), viewModel)
+        binding.recyclerCast.adapter = CastTvAdapter(mutableListOf(), viewModel)
         binding.recyclerSimilar.adapter = SimilarTVAdapter(mutableListOf(), viewModel)
     }
 

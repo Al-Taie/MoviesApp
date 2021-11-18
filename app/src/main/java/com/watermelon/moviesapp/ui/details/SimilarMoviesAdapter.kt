@@ -5,7 +5,7 @@ import com.watermelon.moviesapp.ui.home.HomeInteractionListener
 import com.watermelon.moviesapp.ui.base.BaseAdapter
 import watermelon.moviesapp.R
 
-class SimilarMoviesAdapter (list: List<MovieSimilarResponse>, listener: HomeInteractionListener) :
+class SimilarMoviesAdapter (list: List<MovieSimilarResponse>, listener: SimilarInteractionListener) :
     BaseAdapter<MovieSimilarResponse>(list, listener) {
     override var layoutID = R.layout.item_similar_movies
 }

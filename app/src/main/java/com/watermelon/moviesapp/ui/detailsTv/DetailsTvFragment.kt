@@ -1,7 +1,6 @@
 package com.watermelon.moviesapp.ui.detailsTv
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -10,9 +9,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.tabs.TabLayoutMediator
 import com.watermelon.moviesapp.ui.base.BaseFragment
 import com.watermelon.moviesapp.ui.detailsTv.about.AboutTvFragment
-import com.watermelon.moviesapp.ui.detailsTv.about.DetailsTvViewModel
-import com.watermelon.moviesapp.ui.detailsTv.about.DetailsTvViewPager
-import com.watermelon.moviesapp.ui.detailsTv.moreDetails.MoreDetailsFragment
+import com.watermelon.moviesapp.ui.detailsTv.moredetails.MoreDetailsFragment
 import com.watermelon.moviesapp.ui.detailsTv.season.SeasonsTvFragment
 import watermelon.moviesapp.databinding.FragmentDetailsTvBinding
 
