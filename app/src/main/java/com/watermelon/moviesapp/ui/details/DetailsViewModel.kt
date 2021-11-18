@@ -9,13 +9,11 @@ import com.watermelon.moviesapp.model.repository.MovieRepository
 import com.watermelon.moviesapp.model.response.movie.MovieSimilarResponse
 import com.watermelon.moviesapp.model.response.credits.Credits
 import com.watermelon.moviesapp.model.response.movie.Movie
-import com.watermelon.moviesapp.ui.SimilarItemListener
-import com.watermelon.moviesapp.ui.home.HomeInteractionListener
 import com.watermelon.moviesapp.utils.Event
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class DetailsViewModel : ViewModel(), HomeInteractionListener, SimilarItemListener {
+class DetailsViewModel : ViewModel(), DetailsInteractionListener,SimilarInteractionListener {
     var movieDetails = MutableLiveData<State<Movie?>>()
     var credits = MutableLiveData<State<Credits?>>()
     var similarMovies = MutableLiveData<State<MovieSimilarResponse?>>()
@@ -25,7 +23,7 @@ class DetailsViewModel : ViewModel(), HomeInteractionListener, SimilarItemListen
     private val _navigateToItSelf = MutableLiveData<Event<Int>>()
     val navigateToItSelf: LiveData<Event<Int>> = _navigateToItSelf
 
-   override fun onItemClicked(id : Int) = _navigateToProfile.postValue(Event(id))
+    override fun onItemClicked(id : Int) = _navigateToProfile.postValue(Event(id))
     override fun onSimilarItemClicked(id: Int) = _navigateToItSelf.postValue(Event(id))
 
     override fun onItemLoad(id: Int) {
