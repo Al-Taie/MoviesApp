@@ -4,11 +4,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.watermelon.moviesapp.ui.profile.ProfileViewModel" />
-
     </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -53,14 +54,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars"
             android:scaleType="centerCrop" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="@drawable/movie_image_gradient"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/person_name"
@@ -113,4 +106,5 @@
         </androidx.viewpager2.widget.ViewPager2>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
