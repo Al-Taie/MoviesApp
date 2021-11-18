@@ -49,11 +49,17 @@ interface MovieService {
         @Query("api_key") apiKey: String = Constant.API_KEY
     ): Response<MovieCredits>
 
-    @GET("tv/{tv_id}/credits?")
-    suspend fun getTvCredits(
-        @Path("tv_id") id: Int,
+    @GET("person/{id}/tv_credits")
+    suspend fun getTVCredits(
+        @Path("id") id: Int,
         @Query("api_key") apiKey: String = Constant.API_KEY
     ): Response<TvCreditsResponse>
+
+    @GET("tv/{tv_id}/credits?")
+    suspend fun getTvCast(
+        @Path("tv_id") id: Int,
+        @Query("api_key") apiKey: String = Constant.API_KEY
+    ): Response<Credits>
 
     @GET("trending/${MediaType.PERSON}/{time_window}")
     suspend fun getTrendingPerson(

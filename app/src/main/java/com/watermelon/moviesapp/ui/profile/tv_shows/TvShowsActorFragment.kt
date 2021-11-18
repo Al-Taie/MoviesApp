@@ -1,6 +1,7 @@
 package com.watermelon.moviesapp.ui.profile.tv_shows
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,9 @@ class TvShowsActorFragment : BaseFragment<FragmentTvShowsActorBinding>() {
         super.onViewCreated(view, savedInstanceState)
         arguments?.getInt(Constant.ID)?.run { viewModel.onItemLoad(this) }
         binding.tvRecyclerView.adapter = CastTvAdapter(emptyList(), viewModel)
+        viewModel.tvCredits.observe(viewLifecycleOwner , {
+            Log.i("soso", it.toData()?.cast.toString())
+        })
     }
 
     override val viewModel: TvShowsActorViewModel by activityViewModels()

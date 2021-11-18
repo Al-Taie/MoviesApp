@@ -4,26 +4,38 @@ package com.watermelon.moviesapp.model.response.tvCredits
 import com.google.gson.annotations.SerializedName
 
 data class Crew(
-    @SerializedName("adult")
-    val adult: Boolean?,
+    @SerializedName("backdrop_path")
+    val backdropPath: String? = null,
     @SerializedName("credit_id")
-    val creditId: String?,
+    val creditId: String? = null,
     @SerializedName("department")
-    val department: String?,
-    @SerializedName("gender")
-    val gender: Int?,
+    val department: String? = null,
+    @SerializedName("episode_count")
+    val episodeCount: Int? = null,
+    @SerializedName("first_air_date")
+    val firstAirDate: String? = null,
+    @SerializedName("genre_ids")
+    val genreIds: List<Int>? = null,
     @SerializedName("id")
-    val id: Int?,
+    val id: Int? = null,
     @SerializedName("job")
-    val job: String?,
-    @SerializedName("known_for_department")
-    val knownForDepartment: String?,
+    val job: String? = null,
     @SerializedName("name")
-    val name: String?,
+    val name: String? = null,
+    @SerializedName("origin_country")
+    val originCountry: List<String>? = null,
+    @SerializedName("original_language")
+    val originalLanguage: String? = null,
     @SerializedName("original_name")
-    val originalName: String?,
+    val originalName: String? = null,
+    @SerializedName("overview")
+    val overview: String? = null,
     @SerializedName("popularity")
-    val popularity: Double?,
-    @SerializedName("profile_path")
-    val profilePath: Any?
+    val popularity: Double? = null,
+    @SerializedName("poster_path")
+    val posterPath: String? = null,
+    @SerializedName("vote_average")
+    val voteAverage: Double? = null,
+    @SerializedName("vote_count")
+    val voteCount: Int? = null
 )
