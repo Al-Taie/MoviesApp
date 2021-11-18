@@ -22,7 +22,7 @@
         android:background="@drawable/shape_season"
         android:backgroundTint="@color/cards_color"
         app:cardCornerRadius="@dimen/margin16dp"
-        app:cardElevation="8dp"
+        app:cardElevation="2dp"
         android:onClick="@{() -> listener.onItemClick(item.id)}">
 
         <androidx.constraintlayout.widget.ConstraintLayout

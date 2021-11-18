@@ -20,6 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin16dp"
+        android:elevation="4dp"
+        android:background="@drawable/shape_season"
         android:layout_marginVertical="@dimen/margin4dp"
         android:onClick="@{() -> listener.onItemClick(item.id)}">
 
@@ -31,11 +33,10 @@
             android:layout_marginVertical="@dimen/margin16dp"
             android:backgroundTint="@color/cards_color"
             app:cardCornerRadius="16dp"
-            app:cardElevation="8dp"
+            app:cardElevation="0dp"
             app:layout_constraintTop_toTopOf="parent">
 
         </androidx.cardview.widget.CardView>
-
 
         <androidx.cardview.widget.CardView
             android:id="@+id/top_Card"
