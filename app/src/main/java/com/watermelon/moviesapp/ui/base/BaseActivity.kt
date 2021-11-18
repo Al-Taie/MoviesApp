@@ -8,7 +8,6 @@ import watermelon.moviesapp.BR
 
 
 abstract class BaseActivity<VDB : ViewDataBinding> : AppCompatActivity() {
-    abstract fun setup()
     abstract val theme: Int
     abstract val viewID: Int
     abstract val viewModel: ViewModel
@@ -20,6 +19,5 @@ abstract class BaseActivity<VDB : ViewDataBinding> : AppCompatActivity() {
         _binding = DataBindingUtil.setContentView(this, viewID)
         _binding.setVariable(BR.viewModel, viewModel)
         _binding.lifecycleOwner = this
-        setup()
     }
 }
