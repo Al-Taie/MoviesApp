@@ -40,4 +40,6 @@
     <string name="Upcoming">Upcoming</string>
     <string name="topRated">Top Rated</string>
     <string name="Famous">Famous</string>
+    <string name="try_again">Try again</string>
+    <string name="actor">Actor</string>
 </resources>
