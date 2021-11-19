@@ -11,6 +11,7 @@ import watermelon.moviesapp.databinding.ActivityMainBinding
 
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
+
     override val theme = R.style.Theme_MoviesApp
     override val viewID = R.layout.activity_main
     override val viewModel: MainViewModel by viewModels()
@@ -39,4 +40,5 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
         }
     }
+
 }

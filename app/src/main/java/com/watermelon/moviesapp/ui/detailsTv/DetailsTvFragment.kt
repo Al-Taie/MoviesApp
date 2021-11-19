@@ -26,7 +26,7 @@ class DetailsTvFragment : BaseFragment<FragmentDetailsTvBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.onItemLoad(args.tvId)
-        initViewPager()
+        setViewPager()
         initTabLayout()
         addBottomSheet()
         binding.goBack.setOnClickListener { findNavController().navigateUp() }
@@ -39,7 +39,7 @@ class DetailsTvFragment : BaseFragment<FragmentDetailsTvBinding>() {
         }.attach()
     }
 
-    private fun initViewPager() {
+    private fun setViewPager() {
         val fragmentList = listOf(
             AboutTvFragment(),
             SeasonsTvFragment(),

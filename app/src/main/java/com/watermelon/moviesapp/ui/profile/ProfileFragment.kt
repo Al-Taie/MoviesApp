@@ -17,6 +17,7 @@ import watermelon.moviesapp.databinding.FragmentProfileBinding
 
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
+
     private val args: ProfileFragmentArgs by navArgs()
     override val viewModel: ProfileViewModel by viewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentProfileBinding
@@ -25,7 +26,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.onItemLoad(args.personId)
-        initViewPager()
+        setViewPager()
         initTabLayout()
         binding.goBack.setOnClickListener { findNavController().navigateUp() }
     }
@@ -38,7 +39,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         }.attach()
     }
 
-    private fun initViewPager() {
+    private fun setViewPager() {
         val bundle = Bundle().apply { putInt(Constant.ID, args.personId) }
         val fragments = listOf(
             AboutFragment(),

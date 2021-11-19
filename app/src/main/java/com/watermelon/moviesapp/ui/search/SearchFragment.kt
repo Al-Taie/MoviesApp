@@ -12,6 +12,7 @@ import com.watermelon.moviesapp.utils.EventObserver
 import watermelon.moviesapp.databinding.FragmentSearchBinding
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
+
     override val viewModel: SearchViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentSearchBinding
         get() = FragmentSearchBinding::inflate
@@ -19,11 +20,22 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initAdapter()
+        observe()
+        sharedElements()
+    }
+
+    private fun initAdapter() {
+        binding.searchRecyclerView.adapter = SearchAdapter(mutableListOf(), viewModel)
+    }
+
+    private fun observe() {
+        viewModel.navigateToDetails.observe(viewLifecycleOwner, EventObserver { onNavigate(it) })
+    }
+
+    private fun sharedElements() {
         sharedElementEnterTransition = TransitionInflater.from(context)
             .inflateTransition(android.R.transition.move)
-
-        binding.searchRecyclerView.adapter = SearchAdapter(mutableListOf(), viewModel)
-        viewModel.navigateToDetails.observe(viewLifecycleOwner, EventObserver { onNavigate(it) })
     }
 
     override fun onResume() {
@@ -32,7 +44,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     }
 
     private fun onNavigate(movieId: Int) {
-        val action = SearchFragmentDirections.actionSearchFragmentToDetailsFragment(movieId)
-        findNavController().navigate(action)
+        findNavController().navigate(
+            SearchFragmentDirections.actionSearchFragmentToDetailsFragment(movieId)
+        )
     }
+
 }

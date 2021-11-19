@@ -7,9 +7,11 @@ import androidx.lifecycle.asLiveData
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.repository.MovieRepository
 import com.watermelon.moviesapp.model.response.tv.TVResponse
+import com.watermelon.moviesapp.ui.base.BaseViewModel
 import com.watermelon.moviesapp.utils.Event
 
-class TvViewModel : ViewModel(), TvInteractionListener {
+class TvViewModel : BaseViewModel(), TvInteractionListener {
+
     val topRated = MovieRepository.getTvTopRated().asLiveData()
     val onTheAir = MovieRepository.getTvOnTheAir().asLiveData()
     val airingToday = MovieRepository.getTvAiringToday().asLiveData()

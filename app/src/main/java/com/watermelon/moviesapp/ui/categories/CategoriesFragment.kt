@@ -12,27 +12,32 @@ import watermelon.moviesapp.databinding.FragmentCategoriesBinding
 
 
 class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>() {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        // SET CATEGORIES RECYCLER ADAPTER
-        binding.categoriesRecycler.adapter = CategoriesAdapter(mutableListOf(), viewModel)
-
-        // NAVIGATE TO DISPLAY CATEGORY
-        viewModel.navigateToCategoriesDisplay.observe(
-            viewLifecycleOwner,
-            EventObserver { onNavigate(it) })
-    }
 
     override val viewModel: CategoriesViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentCategoriesBinding
         get() = FragmentCategoriesBinding::inflate
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initAdapter()
+        observe()
+    }
+
+    private fun initAdapter() {
+        binding.categoriesRecycler.adapter = CategoriesAdapter(mutableListOf(), viewModel)
+    }
+
+    private fun observe() {
+        viewModel.navigateToCategoriesDisplay.observe(
+            viewLifecycleOwner,
+            EventObserver { onNavigate(it) })
+    }
 
     private fun onNavigate(movieId: Int) {
-        val action =
-            CategoriesFragmentDirections.actionCategoriesFragmentToCategoriesDisplayFragment(
-                movieId
-            )
-        findNavController().navigate(action)
+        findNavController().navigate(
+            CategoriesFragmentDirections.actionCategoriesFragmentToCategoriesDisplayFragment(movieId)
+        )
     }
+
 }

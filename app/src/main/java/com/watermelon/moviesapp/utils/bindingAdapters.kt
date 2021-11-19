@@ -85,6 +85,7 @@ fun showMoreTextLines(view: TextView, text: String?) {
         }
     }
 }
+
 @BindingAdapter(value = ["app:showAliveOrNot"])
 fun showAliveOrNot(view: ImageView, drawable: Drawable?) {
         view.setImageDrawable(drawable)
@@ -94,7 +95,6 @@ fun showAliveOrNot(view: ImageView, drawable: Drawable?) {
 fun checkData(view: View, item: Any?) {
     view.isVisible = (item.toString().isNotEmpty() && item != null)
 }
-
 
 @BindingAdapter("app:attachedView")
 fun setAttachedView(view: ImageView?, attachedView: LinearLayout?) {

@@ -10,13 +10,14 @@ import com.watermelon.moviesapp.model.response.credits.Credits
 import com.watermelon.moviesapp.model.response.tv.TVSimilarResponse
 import com.watermelon.moviesapp.model.response.tv.details.TVDetailsResponse
 import com.watermelon.moviesapp.model.response.tvCredits.TvCreditsResponse
+import com.watermelon.moviesapp.ui.base.BaseViewModel
 import com.watermelon.moviesapp.ui.details.DetailsInteractionListener
 import com.watermelon.moviesapp.utils.Event
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
-class DetailsTvViewModel : ViewModel(), TvDetailsInteractionListener  {
+class DetailsTvViewModel : BaseViewModel(), TvDetailsInteractionListener  {
     private val _credits = MutableLiveData<State<Credits?>>()
     val credits: LiveData<State<Credits?>> = _credits
 
@@ -37,13 +38,13 @@ class DetailsTvViewModel : ViewModel(), TvDetailsInteractionListener  {
 
 
     override fun onItemLoad(id: Int) {
-        viewModelScope.launch {
-            MovieRepository.run {
-                getTvDetails(id).collect { _tvDetails.postValue(it) }
-                getTvCast(id).collect { _credits.postValue(it) }
-                getSimilarTv(id).collect { _similarTv.postValue(it) }
-            }
+        MovieRepository.run {
+            collectValue(getTvDetails(id), _tvDetails)
+            collectValue(getTvCast(id), _credits)
+            collectValue(getSimilarTv(id), _similarTv)
         }
     }
+
+
 }
 

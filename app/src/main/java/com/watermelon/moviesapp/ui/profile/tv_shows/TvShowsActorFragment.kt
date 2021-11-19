@@ -1,7 +1,6 @@
 package com.watermelon.moviesapp.ui.profile.tv_shows
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,19 +14,30 @@ import watermelon.moviesapp.databinding.FragmentTvShowsActorBinding
 
 
 class TvShowsActorFragment : BaseFragment<FragmentTvShowsActorBinding>() {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        arguments?.getInt(Constant.ID)?.run { viewModel.onItemLoad(this) }
-        viewModel.navigateToDetails.observe(viewLifecycleOwner, EventObserver { onNavigate(it) })
-        binding.tvRecyclerView.adapter = CastTvAdapter(emptyList(), viewModel)
-
-    }
 
     override val viewModel: TvShowsActorViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentTvShowsActorBinding
         get() = FragmentTvShowsActorBinding::inflate
-    private fun onNavigate(movieID: Int) {
-        val action = ProfileFragmentDirections.actionProfileFragmentToDetailsTvFragment(movieID)
-        findNavController().navigate(action)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        arguments?.getInt(Constant.ID)?.run { viewModel.onItemLoad(this) }
+        initAdapter()
+        observe()
     }
+
+    private fun initAdapter() {
+        binding.tvRecyclerView.adapter = CastTvAdapter(emptyList(), viewModel)
+    }
+
+    private fun observe() {
+        viewModel.navigateToDetails.observe(viewLifecycleOwner, EventObserver { onNavigate(it) })
+    }
+
+    private fun onNavigate(movieID: Int) {
+        findNavController().navigate( ProfileFragmentDirections
+            .actionProfileFragmentToDetailsTvFragment(movieID))
+    }
+
 }
