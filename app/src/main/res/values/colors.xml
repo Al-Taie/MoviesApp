@@ -14,7 +14,8 @@
 
     <color name="dark_chip">#272935</color>
 
-    <color name="start_gradient">#1EF7F7F7</color>
-    <color name="end_gradient">#CEF7F7F7</color>
+    <color name="center_gradient">#B9000000</color>
+    <color name="start_gradient">#0F000000</color>
+    <color name="end_gradient">#CE000000</color>
 
 </resources>

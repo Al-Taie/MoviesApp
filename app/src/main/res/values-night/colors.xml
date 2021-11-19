@@ -2,13 +2,16 @@
 <resources>
 
     <color name="secondary_text_color">#747AA6</color>
-    <color name="cards_color">#2E303D</color>
+    <color name="cards_color">#27283A</color>
     <color name="base_color">#E99A27</color>
-    <color name="background_color">#161D27</color>
+    <color name="background_color">#141724</color>
     <color name="primary_text_color">#FFFFFF</color>
     <color name="icon">#FFFFFF</color>
     <color name="stroke">#242630</color>
 
-    <color name="start_gradient">#34161D27</color>
-    <color name="end_gradient">#F2161D27</color>
+
+    <color name="start_gradient">#2F141724</color>
+    <color name="center_gradient">#D8141724</color>
+    <color name="end_gradient">#141724</color>
+
 </resources>

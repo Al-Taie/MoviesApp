@@ -130,4 +130,5 @@ fun setSliderItems(view: ImageSlider?, items: List<TrendingMovie>?, listener: Ho
             itemsList?.get(position)?.id?.let { listener?.onItemClicked(it) }
         }
     })
+
 }
