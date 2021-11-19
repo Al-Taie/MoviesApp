@@ -29,7 +29,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun initRecyclers() {
-//        binding.tradingRecycler.adapter = TradingMoviesAdapter(mutableListOf(), viewModel)
         binding.popularRecycler.adapter = MoviesAdapter(mutableListOf(), viewModel)
         binding.upcomingRecycler.adapter = MoviesAdapter(mutableListOf(), viewModel)
         binding.topRatedRecycler.adapter = MoviesAdapter(mutableListOf(), viewModel)
