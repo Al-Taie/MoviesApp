@@ -3,7 +3,6 @@ package com.watermelon.moviesapp.model.repository
 
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.network.API
-import com.watermelon.moviesapp.model.response.movie.MovieResponse
 import com.watermelon.moviesapp.utils.Constant
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -45,7 +44,7 @@ object MovieRepository {
 
     fun getTrendingAll(time: String) = wrapWithFlow { API.apiService.getTrendingAll(time) }
 
-    fun searchForMovie(movieTitle: String): Flow<State<MovieResponse?>> =
+    fun searchForMovie(movieTitle: String) =
         wrapWithFlow { API.apiService.searchForMovie(movieTitle) }
 
     fun getGenres() = wrapWithFlow { API.apiService.getGenres(Constant.API_KEY) }
@@ -68,21 +67,25 @@ object MovieRepository {
 
     fun getTvShowProvidersChannel() = wrapWithFlow { API.apiService.getTvShowProvidersChannel() }
 
+
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> =
         flow {
             emit(State.Loading)
-            try {
-                val result = function()
-                if (result.isSuccessful) {
-                    emit(State.Success(result.body()))
-                } else {
-                    emit(State.Error(result.message()))
-                }
-            } catch (e: Exception) {
-                emit(State.Error(e.message.toString()))
-            }
+            emit(checkIfSuccessful(function()))
         }.catch {
             emit(State.Error(it.message.toString()))
         }
+
+    private fun <T> checkIfSuccessful(result: Response<T>): State<T?> =
+        try {
+            if (result.isSuccessful) {
+                State.Success(result.body())
+            } else {
+                State.Error(result.message())
+            }
+        } catch (e: Exception) {
+            State.Error(e.message.toString())
+        }
+
 
 }

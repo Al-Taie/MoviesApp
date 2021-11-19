@@ -9,9 +9,9 @@ class AdapterDiffUtil<T>(private val oldList: List<T>, private val newList: List
 
     override fun getNewListSize() = newList.size
 
-    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return (oldList[oldItemPosition] == newList[newItemPosition])
-    }
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+         (oldList[oldItemPosition] == newList[newItemPosition])
+
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int) = true
 }

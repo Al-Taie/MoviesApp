@@ -2,18 +2,15 @@ package com.watermelon.moviesapp.ui.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.repository.MovieRepository
 import com.watermelon.moviesapp.model.response.movie.Movie
 import com.watermelon.moviesapp.model.response.movie.MovieResponse
-import com.watermelon.moviesapp.ui.home.HomeInteractionListener
+import com.watermelon.moviesapp.ui.base.BaseViewModel
 import com.watermelon.moviesapp.utils.Event
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
-class SearchViewModel : ViewModel(), SearchInteractionListener {
+class SearchViewModel : BaseViewModel(), SearchInteractionListener {
+
     val movieTitle = MutableLiveData<String?>()
     var movieSearchResult = MutableLiveData<State<MovieResponse?>>()
     var movieDetails = MutableLiveData<State<Movie?>>()
@@ -26,18 +23,12 @@ class SearchViewModel : ViewModel(), SearchInteractionListener {
     }
 
     fun searchForMovie() {
-        viewModelScope.launch {
-            movieTitle.value.toString().takeIf { it.isNotEmpty() }?.let { title ->
-                MovieRepository.searchForMovie(title).collect { movieSearchResult.postValue(it) }
-            }
-        }
+        collectValue(MovieRepository.searchForMovie(movieTitle.value.toString()), movieSearchResult)
     }
 
     override fun onItemLoad(id: Int) {
         _navigateToDetails.postValue(Event(id))
-
-        viewModelScope.launch {
-            MovieRepository.getMovieDetails(id).collect { movieDetails.postValue(it) }
-        }
+        collectValue(MovieRepository.getMovieDetails(id), movieDetails)
     }
+
 }

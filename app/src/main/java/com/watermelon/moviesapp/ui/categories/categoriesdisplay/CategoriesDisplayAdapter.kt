@@ -2,6 +2,7 @@ package com.watermelon.moviesapp.ui.categories.categoriesdisplay
 
 import com.watermelon.moviesapp.model.response.movie.Movie
 import com.watermelon.moviesapp.ui.base.BaseAdapter
+import com.watermelon.moviesapp.ui.categories.CategoriesInteractionListener
 import watermelon.moviesapp.R
 
 class CategoriesDisplayAdapter(list: List<Movie>, listener: CategoriesDisplayInteractionListener) :

@@ -18,6 +18,7 @@ class TvFragment : BaseFragment<FragmentTvBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initRecycler()
         observe()
     }

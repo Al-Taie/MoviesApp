@@ -10,6 +10,7 @@ import com.watermelon.moviesapp.ui.base.BaseFragment
 import com.watermelon.moviesapp.utils.EventObserver
 import watermelon.moviesapp.databinding.FragmentFamousBinding
 
+
 class FamousFragment : BaseFragment<FragmentFamousBinding>() {
     override val viewModel: FamousViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentFamousBinding
@@ -17,12 +18,23 @@ class FamousFragment : BaseFragment<FragmentFamousBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initAdapter()
+        observe()
+    }
+
+    private fun initAdapter() {
         binding.popularRecyclerDisplay.adapter = FamousAdapter(mutableListOf(), viewModel)
-        viewModel.navigateToProfile.observe(viewLifecycleOwner, EventObserver { onNavigate(it) })
     }
 
     private fun onNavigate(movieId: Int) {
-        val action = FamousFragmentDirections.actionPopularFragmentToProfileFragment(movieId)
-        findNavController().navigate(action)
+        findNavController().navigate(
+            FamousFragmentDirections.actionPopularFragmentToProfileFragment(movieId)
+        )
     }
+
+    private fun observe() {
+        viewModel.navigateToProfile.observe(viewLifecycleOwner, EventObserver { onNavigate(it) })
+    }
+
 }

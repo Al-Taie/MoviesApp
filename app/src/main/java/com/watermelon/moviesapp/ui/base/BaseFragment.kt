@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModel
 import watermelon.moviesapp.BR
 
 abstract class BaseFragment<VDB : ViewDataBinding> : Fragment() {
+
     abstract val viewModel: ViewModel
     abstract val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> VDB
     private lateinit var _binding: VDB

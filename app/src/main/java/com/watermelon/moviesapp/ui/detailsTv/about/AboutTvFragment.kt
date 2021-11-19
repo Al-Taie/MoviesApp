@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.watermelon.moviesapp.ui.base.BaseFragment
-import com.watermelon.moviesapp.ui.details.CastAdapter
 import com.watermelon.moviesapp.ui.detailsTv.DetailsTvFragmentDirections
 import com.watermelon.moviesapp.ui.detailsTv.DetailsTvViewModel
 import com.watermelon.moviesapp.ui.detailsTv.about.similartv.SimilarTVAdapter

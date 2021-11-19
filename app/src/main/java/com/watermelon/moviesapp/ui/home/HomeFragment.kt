@@ -14,13 +14,20 @@ import watermelon.moviesapp.databinding.FragmentHomeBinding
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+
+    override val viewModel: HomeViewModel by activityViewModels()
+    override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentHomeBinding
+        get() = FragmentHomeBinding::inflate
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initRecyclers()
         observe()
-        binding.search.setOnClickListener{
+        binding.search.setOnClickListener {
             onNavigateToSearch()
         }
+
     }
 
     private fun initRecyclers() {
@@ -30,26 +37,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.topRatedRecycler.adapter = MoviesAdapter(mutableListOf(), viewModel)
     }
 
-    private fun observe(){
+    private fun observe() {
         viewModel.navigateToDetails.observe(viewLifecycleOwner, EventObserver { onNavigate(it) })
     }
 
     private fun onNavigate(movieID: Int) {
-        val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(movieID)
-        findNavController().navigate(action)
+        findNavController().navigate(
+            HomeFragmentDirections.actionHomeFragmentToDetailsFragment(movieID) )
     }
-    private fun onNavigateToSearch(){
+
+    private fun onNavigateToSearch() {
         val action = HomeFragmentDirections.actionHomeFragmentToSearchFragment()
-        val extras = FragmentNavigatorExtras(
-            binding.search to getString(R.string.search_transition)
-        )
-        findNavController().navigate(action,extras)
-
+        val extras = FragmentNavigatorExtras(binding.search to getString(R.string.search_transition))
+        findNavController().navigate(action, extras)
     }
-
-
-    override val viewModel: HomeViewModel by activityViewModels()
-    override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentHomeBinding
-        get() = FragmentHomeBinding::inflate
 
 }

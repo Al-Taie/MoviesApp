@@ -5,11 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.watermelon.moviesapp.model.repository.MovieRepository
+import com.watermelon.moviesapp.ui.base.BaseViewModel
 import com.watermelon.moviesapp.utils.Event
 import com.watermelon.moviesapp.utils.TimeWindow
 
-class FamousViewModel : ViewModel(), FamousInteractionListener {
-
+class FamousViewModel : BaseViewModel(), FamousInteractionListener {
 
     val trendingPerson = MovieRepository.getTrendingPerson(TimeWindow.DAY).asLiveData()
 
@@ -18,7 +18,6 @@ class FamousViewModel : ViewModel(), FamousInteractionListener {
 
     override fun onItemClick(id: Int) {
         _navigateToProfile.postValue(Event(id))
-
     }
 
 }

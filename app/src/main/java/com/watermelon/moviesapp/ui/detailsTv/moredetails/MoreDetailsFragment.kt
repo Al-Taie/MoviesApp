@@ -10,6 +10,7 @@ import com.watermelon.moviesapp.ui.detailsTv.DetailsTvViewModel
 import watermelon.moviesapp.databinding.FragmentMoreDetailsBinding
 
 class MoreDetailsFragment : BaseFragment<FragmentMoreDetailsBinding>() {
+
     override val viewModel: DetailsTvViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentMoreDetailsBinding
         get() = FragmentMoreDetailsBinding::inflate
@@ -22,4 +23,5 @@ class MoreDetailsFragment : BaseFragment<FragmentMoreDetailsBinding>() {
     private fun initRecyclers() {
         binding.recyclerCompanies.adapter = MoreDetailsAdapter(mutableListOf(), viewModel)
     }
+
 }

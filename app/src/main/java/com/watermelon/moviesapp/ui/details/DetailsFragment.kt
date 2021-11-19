@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ScrollView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -14,6 +15,7 @@ import com.watermelon.moviesapp.utils.EventObserver
 import watermelon.moviesapp.databinding.FragmentDetailsBinding
 
 class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
+
     override val viewModel: DetailsViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentDetailsBinding
         get() = FragmentDetailsBinding::inflate
@@ -38,16 +40,20 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
             peekHeight = 450
             state = STATE_COLLAPSED
 
-            addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-                override fun onStateChanged(bottomSheet: View, newState: Int) {}
-
-                override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                    if (slideOffset == 0f) {
-                        binding.detailsMovie.smoothScrollTo(0, 0)
-                    }
-                }
-            })
+            setScroll(this)
         }
+    }
+
+    private fun setScroll(bottomSheetBehavior: BottomSheetBehavior<ScrollView>) {
+        bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            override fun onStateChanged(bottomSheet: View, newState: Int) {}
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                if (slideOffset == 0f) {
+                    binding.detailsMovie.smoothScrollTo(0, 0)
+                }
+            }
+        })
     }
 
     private fun onNavigate(personId: Int) {
