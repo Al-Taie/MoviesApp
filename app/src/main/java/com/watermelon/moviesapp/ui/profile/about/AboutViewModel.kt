@@ -8,6 +8,7 @@ import com.watermelon.moviesapp.ui.base.BaseViewModel
 import com.watermelon.moviesapp.ui.home.HomeInteractionListener
 
 class AboutViewModel : BaseViewModel(), HomeInteractionListener {
+    private val _personID = MutableLiveData(0)
     var person = MutableLiveData<State<Person?>>()
 
     override fun onItemLoad(id: Int) {
@@ -16,4 +17,7 @@ class AboutViewModel : BaseViewModel(), HomeInteractionListener {
 
     override fun onItemClicked(id: Int) { }
 
+    override fun refresh() {
+        _personID.value?.let { onItemLoad(it) }
+    }
 }
