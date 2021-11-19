@@ -57,29 +57,14 @@
 
             <ImageButton
                 android:id="@+id/search"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginEnd="@dimen/margin2x"
-                android:transitionName="@string/search_transition"
                 android:background="@drawable/ic_search"
+                android:transitionName="@string/search_transition"
                 app:layout_constraintBottom_toBottomOf="@+id/title"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/title" />
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/trading_recycler"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="@dimen/margin2x"-->
-<!--                android:clipToPadding="false"-->
-<!--                android:orientation="horizontal"-->
-<!--                app:items="@{viewModel.tradingMovies.toData().results}"-->
-<!--                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/title"-->
-<!--                app:showWhenSuccess="@{viewModel.tradingMovies}"-->
-<!--                tools:listitem="@layout/item_trending_movies" />-->
+                app:layout_constraintTop_toTopOf="@+id/title"/>
 
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/image_slider"
