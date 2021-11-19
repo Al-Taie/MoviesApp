@@ -18,7 +18,6 @@ class SeasonsTvFragment : BaseFragment<FragmentSeasonsBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclers()
-
     }
 
     private fun initRecyclers() {

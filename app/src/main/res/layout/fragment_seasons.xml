@@ -45,6 +45,35 @@
             app:lottie_rawRes="@raw/loading"
             app:showWhenLoading="@{viewModel.tvDetails}" />
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/not_found"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:elevation="5dp"
+            app:layout_constraintVertical_bias="0.22"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/not_connect"
+            app:showWhenError="@{viewModel.tvDetails}" />
+
+        <Button
+            android:id="@+id/try_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/try_again"
+            app:icon="@drawable/ic_baseline_replay_24"
+            android:onClick="@{() -> viewModel.refresh()}"
+            app:showWhenError="@{viewModel.tvDetails}"
+            android:textColor="#747AA6"
+            app:iconTint="#747AA6"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/not_found"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

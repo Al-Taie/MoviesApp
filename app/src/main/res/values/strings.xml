@@ -42,4 +42,6 @@
     <string name="Famous">Famous</string>
     <string name="try_again">Try again</string>
     <string name="actor">Actor</string>
+    <string name="next_episode">Next Episode</string>
+    <string name="production_companies">Production Companies</string>
 </resources>
