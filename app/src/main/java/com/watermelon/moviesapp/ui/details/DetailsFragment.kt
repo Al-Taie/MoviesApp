@@ -39,22 +39,9 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
         BottomSheetBehavior.from(binding.detailsMovie).apply {
             peekHeight = 450
             state = STATE_COLLAPSED
-
-            setScroll(this)
         }
     }
 
-    private fun setScroll(bottomSheetBehavior: BottomSheetBehavior<ScrollView>) {
-        bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-            override fun onStateChanged(bottomSheet: View, newState: Int) {}
-
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                if (slideOffset == 0f) {
-                    binding.detailsMovie.smoothScrollTo(0, 0)
-                }
-            }
-        })
-    }
 
     private fun onNavigate(personId: Int) {
         val action = DetailsFragmentDirections.actionDetailsFragmentToProfileFragment(personId)
