@@ -17,19 +17,30 @@
             android:id="@+id/loading"
             android:layout_width="160dp"
             android:layout_height="160dp"
+            android:elevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading"
+            app:showWhenLoading="@{viewModel.movieOfOneGenre}" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/not_found"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_marginTop="@dimen/margin4x"
             android:elevation="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/loading"
-            app:showWhenLoading="@{viewModel.movieOfOneGenre}"
-            tools:visibility="gone" />
+            app:lottie_rawRes="@raw/not_connect"
+            app:showWhenError="@{viewModel.movieOfOneGenre}" />
 
         <TextView
             android:id="@+id/list_title"
@@ -66,6 +77,7 @@
             android:paddingVertical="@dimen/margin16dp"
             android:layout_marginHorizontal="@dimen/margin8dp"
             android:orientation="vertical"
+            app:showWhenSuccess="@{viewModel.movieOfOneGenre}"
             app:items="@{viewModel.movieOfOneGenre.toData().results}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"

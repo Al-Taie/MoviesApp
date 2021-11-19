@@ -18,10 +18,8 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/padding2x"
-            android:layout_marginTop="@dimen/margin4x"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +28,31 @@
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/loading"
             app:showWhenLoading="@{viewModel.movieDetails}" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/not_found"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:elevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/not_connect"
+            app:showWhenError="@{viewModel.movieDetails}" />
+
+        <ImageView
+            android:id="@+id/go_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="@dimen/margin2x"
+            android:background="@drawable/shape_arrow"
+            android:padding="@dimen/padding8dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/movie_poster"
@@ -48,80 +71,87 @@
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:showWhenSuccess="@{viewModel.movieDetails}"
             app:layout_constraintStart_toStartOf="parent">
 
-            <ScrollView
+
+            <LinearLayout
                 android:id="@+id/details_movie"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/details_shape"
+                android:elevation="@dimen/elevation8"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/padding24dp"
+                android:paddingBottom="@dimen/padding32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/details_shape"
-                    android:elevation="@dimen/elevation8"
-                    android:orientation="vertical"
-                    android:paddingTop="@dimen/padding24dp"
-                    android:paddingBottom="@dimen/padding32dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent">
+                    android:layout_marginHorizontal="@dimen/margin16dp"
+                    android:gravity="center"
+                    app:isNotNull="@{viewModel.movieDetails.toData().voteAverage}"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_baseline_star_24" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="@dimen/text12sp"
+                        android:text="@{viewModel.movieDetails.toData().voteAverage.toString()}"
+                        android:textStyle="bold"
+                        tools:text="8.7" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin16dp"
+                    android:text="@{viewModel.movieDetails.toData().title}"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text28sp"
+                    android:textStyle="bold"
+                    tools:text="Movies Name" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin16dp"
+                    android:layout_marginTop="@dimen/margin4dp"
+                    android:text="@{viewModel.movieDetails.toData().releaseDate + ` . ` + viewModel.movieDetails.toData().status +` . ( `+viewModel.movieDetails.toData().originalLanguage+` )`}"
+                    android:textAllCaps="true"
+                    android:textColor="@color/primary_text_color"
+                    android:textStyle="bold"
+                    tools:text="1995-10-20 . Released . (EN)" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin24dp"
+                    android:layout_marginTop="@dimen/margin8dp"
+                    android:checked="false"
+                    android:orientation="horizontal"
+                    app:theListForChips="@{viewModel.movieDetails.toData().genres}" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/margin16dp"
-                        android:gravity="center"
-                        app:isNotNull="@{viewModel.movieDetails.toData().voteAverage}"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:src="@drawable/ic_baseline_star_24" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:textColor="@color/primary_text_color"
-                            android:textSize="@dimen/text12sp"
-                            android:text="@{viewModel.movieDetails.toData().voteAverage.toString()}"
-                            android:textStyle="bold"
-                            tools:text="8.7" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/margin16dp"
-                        android:text="@{viewModel.movieDetails.toData().title}"
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="@dimen/text28sp"
-                        android:textStyle="bold"
-                        tools:text="Movies Name" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/margin16dp"
-                        android:layout_marginTop="@dimen/margin4dp"
-                        android:text="@{viewModel.movieDetails.toData().releaseDate + ` . ` + viewModel.movieDetails.toData().status +` . ( `+viewModel.movieDetails.toData().originalLanguage+` )`}"
-                        android:textAllCaps="true"
-                        android:textColor="@color/primary_text_color"
-                        android:textStyle="bold"
-                        tools:text="1995-10-20 . Released . (EN)" />
-
-                    <com.google.android.material.chip.ChipGroup
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/margin24dp"
-                        android:layout_marginTop="@dimen/margin8dp"
-                        android:checked="false"
-                        android:orientation="horizontal"
-                        app:theListForChips="@{viewModel.movieDetails.toData().genres}" />
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
@@ -196,22 +226,13 @@
                         app:showWhenSuccess="@{viewModel.similarMovies}"
                         tools:listitem="@layout/item_similar_movies" />
 
-                </LinearLayout>
+                    </LinearLayout>
 
-            </ScrollView>
+                </ScrollView>
+
+            </LinearLayout>
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-        <ImageView
-            android:id="@+id/go_back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="@dimen/margin2x"
-            android:background="@drawable/shape_arrow"
-            android:padding="@dimen/padding8dp"
-            android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -28,10 +28,8 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/padding2x"
-            android:layout_marginTop="@dimen/margin4x"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +38,20 @@
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/loading"
             app:showWhenLoading="@{viewModel.tvDetails}" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/not_found"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:elevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/not_connect"
+            app:showWhenError="@{viewModel.tvDetails}" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/movie_poster"
@@ -58,6 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:elevation="4dp"
+            app:showWhenSuccess="@{viewModel.tvDetails}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
