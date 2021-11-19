@@ -12,7 +12,7 @@ import com.watermelon.moviesapp.utils.Event
 
 class DetailsViewModel : BaseViewModel(), DetailsInteractionListener,
     SimilarInteractionListener {
-
+    private val _movieID = MutableLiveData(0)
     var movieDetails = MutableLiveData<State<Movie?>>()
     var credits = MutableLiveData<State<Credits?>>()
     var similarMovies = MutableLiveData<State<MovieSimilarResponse?>>()
@@ -24,9 +24,13 @@ class DetailsViewModel : BaseViewModel(), DetailsInteractionListener,
     val navigateToItSelf: LiveData<Event<Int>> = _navigateToItSelf
 
     override fun onItemClicked(id: Int) = _navigateToProfile.postValue(Event(id))
+
+    override fun refresh() { _movieID.value?.let { onItemLoad(it) } }
+
     override fun onSimilarItemClicked(id: Int) = _navigateToItSelf.postValue(Event(id))
 
     override fun onItemLoad(id: Int) {
+        _movieID.postValue(id)
         MovieRepository.run {
             collectValue(getMovieDetails(id), movieDetails)
             collectValue(getMovieCast(id), credits)

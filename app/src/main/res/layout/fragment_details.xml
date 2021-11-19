@@ -15,8 +15,6 @@
         android:layout_height="match_parent"
         android:background="@color/background_color">
 
-
-
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loading"
             android:layout_width="160dp"
@@ -35,6 +33,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:elevation="5dp"
+            app:layout_constraintVertical_bias="0.22"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +43,20 @@
             app:lottie_rawRes="@raw/not_connect"
             app:showWhenError="@{viewModel.movieDetails}" />
 
+        <Button
+            android:id="@+id/try_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/try_again"
+            app:icon="@drawable/ic_baseline_replay_24"
+            android:onClick="@{() -> viewModel.refresh()}"
+            app:showWhenError="@{viewModel.movieDetails}"
+            android:textColor="#747AA6"
+            app:iconTint="#747AA6"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/not_found"/>
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/movie_poster"
@@ -75,7 +88,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:showWhenSuccess="@{viewModel.movieDetails}"
             app:layout_constraintStart_toStartOf="parent">
-
 
             <LinearLayout
                 android:id="@+id/details_movie"
@@ -175,7 +187,6 @@
                             android:text="@{viewModel.movieDetails.toData().overview}"
                             android:textColor="@color/primary_text_color"
                             tools:text="The film centers on the love relationship among the band's bassist Haruki Nakayama, drummer Akihiko Kaji, and Akihiko's   roommate and ex-boyfriend Ugetsu Murata." />
-
                     </androidx.cardview.widget.CardView>
 
                     <TextView
@@ -227,16 +238,10 @@
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:showWhenSuccess="@{viewModel.similarMovies}"
                         tools:listitem="@layout/item_similar_movies" />
-
                     </LinearLayout>
-
                 </ScrollView>
-
             </LinearLayout>
-
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>
 

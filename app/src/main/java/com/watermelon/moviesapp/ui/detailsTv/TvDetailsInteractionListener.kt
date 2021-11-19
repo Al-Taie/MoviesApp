@@ -6,4 +6,5 @@ interface TvDetailsInteractionListener : BaseInteractionListener {
     fun onItemLoad(id: Int)
     fun onItemClicked(id: Int)
     fun onSimilarItemClicked(id: Int)
+    fun refresh()
 }

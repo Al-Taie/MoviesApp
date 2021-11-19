@@ -12,7 +12,6 @@ import watermelon.moviesapp.databinding.FragmentCategoriesBinding
 
 
 class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>() {
-
     override val viewModel: CategoriesViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentCategoriesBinding
         get() = FragmentCategoriesBinding::inflate
@@ -39,5 +38,4 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding>() {
             CategoriesFragmentDirections.actionCategoriesFragmentToCategoriesDisplayFragment(movieId)
         )
     }
-
 }

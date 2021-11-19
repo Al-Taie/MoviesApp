@@ -18,6 +18,7 @@ import kotlinx.coroutines.launch
 
 
 class DetailsTvViewModel : BaseViewModel(), TvDetailsInteractionListener  {
+    private val _tvShowID = MutableLiveData(0)
     private val _credits = MutableLiveData<State<Credits?>>()
     val credits: LiveData<State<Credits?>> = _credits
 
@@ -34,17 +35,17 @@ class DetailsTvViewModel : BaseViewModel(), TvDetailsInteractionListener  {
     val navigateToItSelf: LiveData<Event<Int>> = _navigateToItSelf
 
     override fun onItemClicked(id: Int) = _navigateToProfile.postValue(Event(id))
+
     override fun onSimilarItemClicked(id: Int) = _navigateToItSelf.postValue(Event(id))
 
+    override fun refresh() { _tvShowID.value?.let { onItemLoad(it) } }
 
     override fun onItemLoad(id: Int) {
+        _tvShowID.postValue(id)
         MovieRepository.run {
             collectValue(getTvDetails(id), _tvDetails)
             collectValue(getTvCast(id), _credits)
             collectValue(getSimilarTv(id), _similarTv)
         }
     }
-
-
 }
-
