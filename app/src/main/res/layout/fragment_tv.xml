@@ -43,6 +43,21 @@
             app:lottie_rawRes="@raw/not_connect"
             app:showWhenError="@{viewModel.stream}" />
 
+        <Button
+            android:id="@+id/try_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/try_again"
+            app:icon="@drawable/ic_baseline_replay_24"
+            android:onClick="@{() -> viewModel.refresh()}"
+            app:showWhenError="@{viewModel.stream}"
+            android:textColor="@color/purple"
+            app:iconTint="@color/purple"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/not_found"/>
+
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

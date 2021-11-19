@@ -7,4 +7,5 @@ import com.watermelon.moviesapp.ui.base.BaseInteractionListener
 interface TvInteractionListener: BaseInteractionListener {
     fun onItemClicked(id: Int)
     fun setStream(state: State<TVResponse>?)
+    fun refresh()
 }
