@@ -11,11 +11,15 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
 import com.bumptech.glide.Glide
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.imageview.ShapeableImageView
 import com.watermelon.moviesapp.model.State
 import com.watermelon.moviesapp.model.response.genres.Genre
+import com.watermelon.moviesapp.model.response.trending.movie.TrendingMovie
 import com.watermelon.moviesapp.model.response.tv.TVResponse
 import com.watermelon.moviesapp.ui.base.BaseAdapter
 import com.watermelon.moviesapp.ui.tv.TvInteractionListener
@@ -111,4 +115,14 @@ fun setAttachedView(view: ImageView?, attachedView: LinearLayout?) {
     }
 }
 
+
+@BindingAdapter("app:setSlider")
+fun setSliderItems(view: ImageSlider?, items: List<TrendingMovie>?) {
+    val imageList = ArrayList<SlideModel>()
+    items?.forEach {
+        imageList.add(SlideModel(Constant.BASE_IMAGE_URL+it.posterPath, it.title))
+    }
+    imageList.shuffle()
+    view?.setImageList(imageList.take(5), ScaleTypes.FIT)
+}
 
