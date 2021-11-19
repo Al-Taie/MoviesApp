@@ -36,5 +36,4 @@ class FamousFragment : BaseFragment<FragmentFamousBinding>() {
     private fun observe() {
         viewModel.navigateToProfile.observe(viewLifecycleOwner, EventObserver { onNavigate(it) })
     }
-
 }

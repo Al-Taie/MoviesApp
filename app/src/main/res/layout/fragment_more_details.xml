@@ -33,7 +33,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Next Episode"
+                android:text="@string/next_episode"
                 android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text20sp"
                 android:textStyle="bold" />
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/padding16dp"
             android:layout_marginTop="@dimen/margin24dp"
-            android:text="Production Companies"
+            android:text="@string/production_companies"
             android:textColor="@color/primary_text_color"
             android:textSize="@dimen/text20sp"
             android:textStyle="bold"
