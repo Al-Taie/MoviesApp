@@ -1,11 +1,12 @@
 package com.watermelon.moviesapp.utils
 
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import androidx.core.view.isVisible
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.AutoTransition
@@ -13,6 +14,7 @@ import androidx.transition.TransitionManager
 import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -22,6 +24,7 @@ import com.watermelon.moviesapp.model.response.genres.Genre
 import com.watermelon.moviesapp.model.response.trending.movie.TrendingMovie
 import com.watermelon.moviesapp.model.response.tv.TVResponse
 import com.watermelon.moviesapp.ui.base.BaseAdapter
+import com.watermelon.moviesapp.ui.home.HomeInteractionListener
 import com.watermelon.moviesapp.ui.tv.TvInteractionListener
 import watermelon.moviesapp.R
 
@@ -52,7 +55,9 @@ fun setImage(view: ShapeableImageView?, imagePath: String?) {
         Glide.with(view)
             .load(Constant.BASE_IMAGE_URL + imagePath)
             .placeholder(R.drawable.ic_baseline_downloading_24)
+            .centerCrop()
             .error(R.drawable.ic_baseline_error_outline_24)
+            .centerCrop()
             .into(view)
     }
 }
@@ -63,7 +68,7 @@ fun theListForChips(view: ChipGroup, list: List<Genre>?) {
         Chip(view.context).apply {
             text = it.name
             setPadding(24, 4, 12, 4)
-            setTextAppearanceResource(R.style.ChipTextStyle_Selected);
+            setTextAppearanceResource(R.style.ChipTextStyle_Selected)
             setChipStrokeColorResource(R.color.base_color)
             setChipStrokeWidthResource(R.dimen.stroke1dp)
             setChipBackgroundColorResource(R.color.background_color)
@@ -92,7 +97,7 @@ fun showMoreTextLines(view: TextView, text: String?) {
 
 @BindingAdapter(value = ["app:showAliveOrNot"])
 fun showAliveOrNot(view: ImageView, drawable: Drawable?) {
-        view.setImageDrawable(drawable)
+    view.setImageDrawable(drawable)
 }
 
 @BindingAdapter(value = ["app:isNotNull"])
@@ -115,14 +120,14 @@ fun setAttachedView(view: ImageView?, attachedView: LinearLayout?) {
     }
 }
 
+@BindingAdapter(value = ["app:setSlider", "app:listener"], requireAll = false)
+fun setSliderItems(view: ImageSlider?, items: List<TrendingMovie>?, listener: HomeInteractionListener?) {
+    val itemsList = items?.shuffled()?.take(5)
+    itemsList?.run { view?.setImageList(this.map { it.toSlider() }, ScaleTypes.FIT) }
 
-@BindingAdapter("app:setSlider")
-fun setSliderItems(view: ImageSlider?, items: List<TrendingMovie>?) {
-    val imageList = ArrayList<SlideModel>()
-    items?.forEach {
-        imageList.add(SlideModel(Constant.BASE_IMAGE_URL+it.posterPath, it.title))
-    }
-    imageList.shuffle()
-    view?.setImageList(imageList.take(5), ScaleTypes.FIT)
+    view?.setItemClickListener(object : ItemClickListener {
+        override fun onItemSelected(position: Int) {
+            itemsList?.get(position)?.id?.let { listener?.onItemClicked(it) }
+        }
+    })
 }
-
