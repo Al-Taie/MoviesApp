@@ -5,7 +5,7 @@
     <color name="black">#000000</color>
     <color name="secondary_text_color">#8B8B8B</color>
     <color name="cards_color">#FFFFFF</color>
-    <color name="base_color">#E99A27</color>
+    <color name="base_color">#D89D49</color>
     <color name="background_color">#F7F7F7</color>
     <color name="primary_text_color">#393939</color>
     <color name="status_bar_color">#39424A</color>
@@ -14,7 +14,8 @@
 
     <color name="dark_chip">#272935</color>
 
-    <color name="start_gradient">#1EF7F7F7</color>
-    <color name="end_gradient">#CEF7F7F7</color>
+    <color name="center_gradient">#B9000000</color>
+    <color name="start_gradient">#0F000000</color>
+    <color name="end_gradient">#CE000000</color>
 
 </resources>
