@@ -9,7 +9,7 @@ import com.watermelon.moviesapp.ui.base.BaseViewModel
 import com.watermelon.moviesapp.utils.Event
 
 class CategoriesDisplayViewModel : BaseViewModel(), CategoriesDisplayInteractionListener {
-
+    private val _genreID = MutableLiveData(0)
     private val _movieOfOneGenre = MutableLiveData<State<MovieResponse?>>()
     val movieOfOneGenre: LiveData<State<MovieResponse?>> get() = _movieOfOneGenre
 
@@ -20,8 +20,10 @@ class CategoriesDisplayViewModel : BaseViewModel(), CategoriesDisplayInteraction
         _navigateToDetailsFromCategories.postValue(Event(id))
     }
 
-    fun getMoviesOfOneGenre(id: Int) {
+    override fun refresh() { _genreID.value?.let { onLoad(it) } }
+
+    fun onLoad(id: Int) {
+        _genreID.postValue(id)
         collectValue(MovieRepository.getMoviesOfOneGenre(id = id), _movieOfOneGenre)
     }
-
 }

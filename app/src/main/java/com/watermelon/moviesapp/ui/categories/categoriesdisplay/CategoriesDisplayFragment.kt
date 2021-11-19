@@ -13,7 +13,6 @@ import watermelon.moviesapp.databinding.FragmentCategoriesDisplayBinding
 
 
 class CategoriesDisplayFragment : BaseFragment<FragmentCategoriesDisplayBinding>() {
-
     override val viewModel: CategoriesDisplayViewModel by activityViewModels()
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) ->
     FragmentCategoriesDisplayBinding get() = FragmentCategoriesDisplayBinding::inflate
@@ -22,8 +21,7 @@ class CategoriesDisplayFragment : BaseFragment<FragmentCategoriesDisplayBinding>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        viewModel.getMoviesOfOneGenre(args.movieId)
+        viewModel.onLoad(args.movieId)
         initAdapter()
         observe()
     }
@@ -41,8 +39,6 @@ class CategoriesDisplayFragment : BaseFragment<FragmentCategoriesDisplayBinding>
     private fun onNavigate(movieID: Int) {
         findNavController().navigate(CategoriesDisplayFragmentDirections
             .actionCategoriesDisplayFragmentToDetailsFragment(movieID))
-
         binding.goBack.setOnClickListener { findNavController().navigateUp() }
     }
-
 }
