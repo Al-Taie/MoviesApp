@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Movies App</string>
-    <string name="search">Search...</string>
+    <string name="search_dot">Search...</string>
+    <string name="search">Search</string>
     <string name="clear_transition">clear_transition</string>
     <string name="search_transition">searchTransition</string>
     <string name="line_transition">line_transition</string>
