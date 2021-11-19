@@ -7,10 +7,11 @@ import com.watermelon.moviesapp.model.repository.MovieRepository
 import com.watermelon.moviesapp.model.response.movieCredits.MovieCredits
 import com.watermelon.moviesapp.ui.base.BaseViewModel
 import com.watermelon.moviesapp.ui.home.HomeInteractionListener
+import com.watermelon.moviesapp.ui.profile.ProfileInteractionListener
 import com.watermelon.moviesapp.utils.Event
 
 
-class MoviesActorViewModel : BaseViewModel(), HomeInteractionListener {
+class MoviesActorViewModel : BaseViewModel(), ProfileInteractionListener {
     var movieCredits = MutableLiveData<State<MovieCredits?>>()
     private val _navigateToDetails = MutableLiveData<Event<Int>>()
     val navigateToDetails: LiveData<Event<Int>> = _navigateToDetails
@@ -20,5 +21,4 @@ class MoviesActorViewModel : BaseViewModel(), HomeInteractionListener {
     override fun onItemLoad(id: Int) {
         collectValue(MovieRepository.getMovieCredits(id), movieCredits)
     }
-
 }
